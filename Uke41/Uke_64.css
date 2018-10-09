@@ -1,0 +1,12 @@
+table{
+  background-color: #99c8a0;
+  padding: 5px;
+}
+
+table>thead{
+  background-color: #5126cd
+}
+
+.tableCell:hover{
+  background-color: #5126cd;
+}
