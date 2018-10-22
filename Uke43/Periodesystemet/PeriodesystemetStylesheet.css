@@ -1,0 +1,44 @@
+#Periodesystemet{
+  display: grid;
+  grid-template-columns: repeat(18, 1fr);
+  grid-gap: 10px;
+  text-align: center;
+  color: white;
+}
+#Periodesystemet>div{
+  border: 2px solid black;
+  border-radius: 3px;
+  padding-top: 4px;
+}
+body{
+    background-color: beige;
+}
+.Luft1{
+  opacity: 0;
+  grid-column: 2 / 18;
+}
+.Luft2{
+  opacity: 0;
+  grid-column: 3 / 13;
+}
+.Luft3{
+  grid-column: span 3;
+  opacity: 0;
+}
+.Luft4{
+  grid-column: span 18;
+  opacity: 0;
+}
+.R{
+  background-color: #bf8080;
+}
+.G{
+  background-color: #90bf80;
+}
+.B{
+  background-color: lightblue;
+}
+.B1{
+  opacity: 80;
+  color: black;
+}
