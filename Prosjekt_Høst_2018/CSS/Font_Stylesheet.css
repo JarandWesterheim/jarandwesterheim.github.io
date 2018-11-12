@@ -1,0 +1,76 @@
+body{
+  font-family: impact;
+}
+.topnav_text{
+  font-size: 50px;
+  color: black;
+}
+.pageheader{
+  color: black;
+  font-size: 50px;
+  font-family: impact;
+}
+.hero-text{
+  font-size: 80px;
+  text-align: center;
+}
+.boks2{
+  font-family: impact;
+  font-size: 25px;
+}
+#sign_in{
+  font-size: 18px;
+}
+#log_in{
+  font-size: 18px;
+}
+.login{
+  font-size: 16px;
+}
+.searchbar{
+  font-size: 16px;
+}
+#stortinnlegg_text, #stortinnlegg_text:visited{
+  font-size: 50px;
+  color: black;
+  text-align: left;
+  padding-left: 30px;
+}
+#middelsinnlegg_text, #middeinnlegg_text:visited{
+  font-size: 35px;
+  color: black;
+  text-align: left;
+  padding-left: 20px;
+}
+#liteinnlegg_text, #liteinnlegg_text:visited{
+  font-size: 20px;
+  color: black;
+  text-align: left;
+  padding-left: 10px;
+}
+#headline1{
+  font-family: impact;
+  font-size: 70px;
+  color: black;
+}
+#headline2{
+  font-family: impact;
+  font-size: 70px;
+  color: black;
+}
+#text-1080{
+  font-size: 50px;
+  font-family: impact;
+  color: black;
+}
+#text-480{
+  font-size: 30px;
+  font-family: impact;
+  color: black;
+}
+/*
+css for footer
+*/
+footer{
+  
+}

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+    .hero-image{
+      background: white;
+      background-image: url("../Pictures/Thumbnails/MapBrowserThumbnail.png");
+      height: 500px;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      position: relative;
+    }
+    .taskbar{
+      width: cover;
+      margin:auto;
+      border: 4px solid #202020;
+    }
+    .taskbar_grid{
+      height: 60px;
+      display: grid;
+      grid-template-columns: repeat(99 , 1fr);
+      background-color: #202020;
+      width: 100%;
+    }
+    .taskbar_grid>div{
+      height: 20px;
+    }
+    .taskbar_logo{
+      height: 50px;
+      grid-column: 47 / 53;
+      padding: 5px 5px 5px 5px;
+    }
+    .taskbar_logo>img{
+      height: 250%;
+    }
+    .taskbar_element1{
+      grid-column: 15 / 30;
+    }
+    .taskbar_element2{
+      grid-column: 60 / 82;
+    }
+    .taskbar_element3{
+      grid-column: 84 / 86;
+    }
+    input.searchbar {
+        height: 40px;
+        margin-top:10px;
+        width: 130px;
+        box-sizing: border-box;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+        background-color: white;
+        background-image: url('../Pictures/Icons/SearchIcon.png');
+        background-position: 10px 10px;
+        background-repeat: no-repeat;
+        padding: 12px 20px 12px 40px;
+        -webkit-transition: width 0.4s ease-in-out;
+        transition: width 0.4s ease-in-out;
+    }
+
+    input.searchbar:focus {
+        width: 100%;
+    }
+    .login {
+        height: 40px;
+        margin-top: 10px;
+        width: 40px;
+        max-height: 40px;
+        box-sizing: border-box;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+        background-color: white;
+        background-image: url('../Pictures/Icons/SearchIcon.png');
+        background-position: 10px 10px;
+        background-repeat: no-repeat;
+        -webkit-transition: width .4s ease-in-out;
+        transition: width .4s ease-in-out;
+        margin: 12px;
+        position: relative;
+        display: inline-block;
+    }
+    .login:hover {
+        width: 100%;
+    }
+    #account_icon{
+      height: 36px;
+      top: 0;
+      position: fixed;
+      padding-top: 22px;
+      display: block;
+    }
+    #link1{
+      padding-left: 40px;
+    }
+    #sign_in, #sign_in:visited{
+      background-color: white;
+      color: black;
+      padding: 6px 25px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      border: 4px solid black;
+      display: block;
+    }
+    #log_in, #sign_in:visited{
+      background-color: white;
+      color: black;
+      padding: 6px 25px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      border: 4px solid black;
+      display: block;
+    }
+    #sign_in:hover, #sign_in:active{
+      background-color: #3598db;
+      border: 4px solid black;
+    }
+    #log_in:hover, #log_in:active{
+      background-color: #3598db;
+      border: 4px solid black;
+    }
+    .taskbar_element2:hover #sign_in {
+      display: inline;
+    }
+    .taskbar_element2:hover #log_in {
+      opacity: 1;
+    }
+    .menu {
+        height: 50px;
+        margin-top: 5px;
+        right: 30%;
+        -webkit-transition: 0.4s ease-in-out;
+        transition: 0.4s ease-in-out;
+    }
+    .taskbar_element3:hover .menu {
+      -webkit-transform:rotate(90deg);
+    }
+    .dropdown{
+      width: 100%;
+      height: 1%;
+      opacity: 0;
+      font-size: .2px;
+      transition: .4s ease-in-out;
+      position: absolute;
+      background-color: #202020;
+    }
+    .taskbar_element3:hover .dropdown {
+      width: 200px;
+      height: 500px;
+      border: 4px solid #202020;
+      border-radius: 6px;
+      color: white;
+      opacity: 1;
+      font-size: 25px;
+    }
+    .taskbar_element3:hover .middelgren {
+      font-size: 20px;
+    }
+    .taskbar_element3:hover .litengren {
+      font-size: 15px;
+    }
+    .hovedgren{
+      padding-left: 5px;
+    }
+    .middelgren{
+      padding-left: 25px;
+    }
+    .litengren{
+      padding-left: 45px;
+    }
+    </style>
+
+  </head>
+  <body class="body">
+    <nav class="taskbar">
+      <div class="taskbar_grid">
+        <div class="taskbar_element1">
+          <form>
+            <input class="searchbar" type="text" name="search" placeholder="Search..">
+          </form>
+        </div>
+        <div class="taskbar_logo">
+          <img src="../Pictures/Logos/R6HUB_Logo.png" alt="logo">
+        </div>
+        <div class="taskbar_element2">
+          <div class="login">
+            <img id="account_icon"src="../Pictures/Icons/accounticon.png" alt="account">
+<!--
+            <a id="link1" href="#"><b id="sign_in">SIGN IN</b></a>
+            <a href="#"><b id="log_in">LOG IN</b></a>
+-->
+          </div>
+        </div>
+        <div class="taskbar_element3">
+          <img class="menu" src="../Pictures/Icons/menu_icon.png" alt="menu">
+          <div class="dropdown">
+            <p class="hovedgren">viktig</p>
+            <p class="middelgren">mindre viktig</p>
+            <p class="litengren">minst viktig</p>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <nav class="topnav">
+      <div class="topnav_text">
+        <h1>COMMUNITY HUB</h1>
+      </div>
+    </nav>
+    <div class="hero-image">
+    </div>
+    <main class="maingrid">
+      <p></p>
+    </main>
+  </body>
+</html>

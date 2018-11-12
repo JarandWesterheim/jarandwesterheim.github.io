@@ -1,0 +1,347 @@
+/*
+
+css for taskbar
+
+*/
+.BodyMapBrowser{
+  background: white;
+}
+.taskbar{
+  width: 99%;
+  margin:auto;
+  border: 4px solid #202020;
+}
+.taskbar_grid{
+  height: 60px;
+  display: grid;
+  grid-template-columns: repeat(99 , 1fr);
+  background-color: #202020;
+  width: 100%;
+}
+.taskbar_grid>div{
+  height: 20px;
+}
+.taskbar_logo{
+  height: 50px;
+  grid-column: 47 / 53;
+  padding: 5px 5px 5px 5px;
+}
+.taskbar_logo>img{
+  height: 250%;
+  border-radius: 7px;
+}
+.taskbar_element1{
+  grid-column: 15 / 37;
+}
+.taskbar_element2{
+  grid-column: 60 / 82;
+}
+.taskbar_element3{
+  grid-column: 84 / 86;
+}
+input.searchbar {
+    height: 40px;
+    margin-top:10px;
+    width: 130px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: white;
+    background-image: url('../Pictures/Icons/SearchIcon.png');
+    background-position: left;
+    background-size: 35px;
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+input.searchbar:focus {
+    width: 100%;
+}
+.login {
+    height: 40px;
+    margin-top: 10px;
+    width: 40px;
+    max-height: 40px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: white;
+    background-image: url('../Pictures/Icons/accounticon.png');
+    background-position: left;
+    background-size: 35px;
+    background-repeat: no-repeat;
+    margin: 12px;
+    position: relative;
+    display: inline-block;
+}
+.login:hover {
+    width: 100%;
+}
+
+#link1{
+  padding-left: 50px;
+}
+#sign_in, #sign_in:visited{
+  font-size: 1px;
+  display: block;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+#log_in, #log_in:visited{
+  font-size: 1px;
+  display: block;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+.login:hover #log_in{
+  background-color: #3598db;
+  border: 4px solid black;
+  color: black;
+  padding: 6px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border: 4px solid black;
+  display: block;
+  opacity: 1;
+  width: 55px;
+  margin-top: -15.5%;
+  margin-left: 200px;
+  height: 22px;
+}
+.login:hover #sign_in{
+  background-color: #3598db;
+  border: 4px solid black;
+  color: black;
+  padding: 6px 25px;
+  text-align: center;
+  text-decoration: none;
+  border: 4px solid black;
+  display: block;
+  opacity: 1;
+  width: 55px;
+  height: 22px;
+  margin-top: -.5%;
+}
+.taskbar_element2:hover #sign_in {
+  display: inline-block;
+}
+.taskbar_element2:hover #log_in {
+  display: inline-block;
+  opacity: 1;
+}
+.menu {
+    height: 50px;
+    margin-top: 5px;
+    right: 30%;
+    -webkit-transition: 0.4s ease-in-out;
+    transition: 0.4s ease-in-out;
+}
+.taskbar_element3:hover .menu {
+  -webkit-transform:rotate(90deg);
+}
+.opacity-image{
+  opacity: 0;
+  position: fixed;
+  width: 1000%;
+  height: 1000%;
+  transition: 0.4s ease;
+}
+
+.dropdown{
+  width: 1%;
+  height: 1%;
+  opacity: 0;
+  font-size: .2px;
+  transition: .4s ease-in-out;
+  position: absolute;
+  background-color: #202020;
+}
+.taskbar_element3:hover .dropdown {
+  width: 200px;
+  height: 500px;
+  border: 4px solid #202020;
+  border-radius: 6px;
+  color: white;
+  opacity: 1;
+  font-size: 25px;
+}
+.taskbar_element3:hover .middelgren {
+  font-size: 20px;
+}
+.taskbar_element3:hover .litengren {
+  font-size: 15px;
+}
+.hovedgren{
+  padding-left: 5px;
+}
+.middelgren{
+  padding-left: 25px;
+}
+.litengren{
+  padding-left: 45px;
+}
+/*
+
+css for mainpage/generelt
+
+*/
+.topnav{
+  margin-top: 10px;
+  margin-left: 4px;
+  width: 99%;
+  text-align: center;
+  border: 4px solid #202020;
+  display: inline-block;
+}
+.topnav_text{
+  height: 180px;
+}
+.topnav_text>h1{
+  display: block;
+}
+.PageMainPicture{
+  grid-column: 1 , 5;
+}
+/*
+
+css for MapBrowser
+
+*/
+.BodyMapBrowser{
+  background-color: white;
+}
+.topnavMapBrowser{
+  height: 45px;
+  background-color: grey;
+  display: grid;
+  grid-template-columns: repeat(10 , 1fr);
+  grid-template-rows: repeat(4 , 45px);
+  background-color: white;
+}
+.container-heroimage{
+   text-align: center;
+   color: white;
+   margin-top: 20px;
+}
+.hero-image{
+  background: white;
+  background-image: url("../Pictures/Thumbnails/MapBrowserThumbnail.png");
+  height: 500px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.hero-text{
+   position: absolute;
+   top: 35%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+}
+.elementgrid{
+  display: grid;
+  grid-template-columns: repeat(99 , 1fr);
+  color: black;
+  bottom: 0px;
+  width: 100%;
+  left: auto%;
+  padding-top: 420px;
+}
+.icon_element1{
+  grid-column: 25 / 35;
+}
+.icon_element2{
+  grid-column: 46 / 56;
+}
+.icon_element3{
+  grid-column: 67 / 77;
+}
+.icon_grid{
+  display: grid;
+  grid-template-columns: repeat(2 , 1fr);
+  max-width: 150px;
+}
+.boks1{
+  width: 100%;
+  height: auto;
+  margin: auto;
+  grid-column: span 2;
+}
+.small_icon1-visited{
+  opacity: 0.8;
+  width: 90%;
+  height: auto;
+  margin: auto;
+  border: 2px solid white;
+  border-radius: 75px;
+}
+.small_icon1{
+  width: 100%;
+  height: auto;
+  border: 2px solid white;
+  border-radius: 75px;
+  opacity: 1;
+  transition: .5s ease;
+}
+.boks2{
+  font-size: 20px;
+  font-family: impact;
+  text-align: center;
+  opacity: 0;
+  grid-column: span 2;
+  max-width: 100%;
+  position:relative;
+  transition: .5s ease;
+}
+.icon_grid:hover .boks2{
+  opacity: 1;
+  font-size: 30px;
+}
+.icon_grid:hover .small_icon1{
+  opacity: 0.8;
+  width: 90%;
+  height: auto;
+  margin: auto;
+}
+.pageheader{
+  margin-top: 190px;
+}
+/*
+css for mapgrid
+*/
+.container-maps{
+  border: 5px solid black;
+  margin-top: 200px;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  grid-template-rows: auto;
+  text-align: center;
+}
+#headline1{
+  grid-column: span 3;
+}
+#headline2{
+  grid-column: span 3;
+}
+.map-1080{
+  grid-column: span 3;
+  padding: 10px 10px 10px 10px;
+}
+.map-1080>img{
+  width: 100%;
+  height: auto;
+  border: 3px solid #202020;
+}
+.map-480{
+  grid-column: span 1;
+  padding: 10px 10px 10px 10px;
+}
+.map-480>img{
+  width: 100%;
+  height: auto;
+  border: 3px solid #202020;
+}
