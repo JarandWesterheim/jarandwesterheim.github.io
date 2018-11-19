@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="../CSS/Stylesheet_R6HUB.css">
     <link rel="stylesheet" href="../CSS/Font_Stylesheet.css">
   </head>
-  <body class="BodyMapBrowser">
+  <body>
     <nav class="taskbar">
       <div class="taskbar_grid">
         <div class="taskbar_element1">
@@ -26,12 +26,16 @@
           </div>
         </div>
         <div class="taskbar_element3">
-          <img class="menu" src="../Pictures/Icons/menu_icon.png" alt="menu">
-          <div class="dropdown">
-            <p class="hovedgren">viktig</p>
-            <p class="middelgren">mindre viktig</p>
-            <p class="litengren">minst viktig</p>
+          <div class="popup" onclick="myFunction()">
+            <img id="menubutton" src="../Pictures/Icons/menu_icon.png" alt="bilde">
+            <span class="popuptext" id="myPopup">hei</span>
           </div>
+          <script>
+            function myFunction() {
+              var popup = document.getElementById("myPopup");
+              popup.classList.toggle("show");
+            }
+          </script>
         </div>
       </div>
     </nav>
@@ -79,51 +83,23 @@
         </div>
       </div>
     </main>
-
     <main class="container-maps">
       <h1 id="headline1">SELECTION OF MAPS - CASUAL</h1>
-      <div class="map-480">
-        <img src="../Pictures/Maps/480p/placeholder_480.png" alt="480">
-        <p id="text-480">placeholder</p>
-      </div>
-      <div class="map-480">
-        <img src="../Pictures/Maps/480p/placeholder_480.png" alt="480">
-        <p id="text-480">placeholder</p>
-      </div>
-      <div class="map-480">
-        <img src="../Pictures/Maps/480p/placeholder_480.png" alt="480">
-        <p id="text-480">placeholder</p>
-      </div>
-      <div class="map-480">
-        <img src="../Pictures/Maps/480p/placeholder_480.png" alt="480">
-        <p id="text-480">placeholder</p>
-      </div>
-      <div class="map-480">
-        <img src="../Pictures/Maps/480p/placeholder_480.png" alt="480">
-        <p id="text-480">placeholder</p>
+      <div class="scrollbox-maps">
+        <div class="scrollbox-element">
+          <img id="map-480" src="../Pictures/Maps/480p/placeholder_480.png" alt="bilde">
+          <p id="text-480">Bank</p>
+        </div>
+        <div class="scrollbox-element">
+          <img id="map-480" src="../Pictures/Maps/480p/placeholder_480.png" alt="bilde">
+          <p id="text-480">Bank</p>
+        </div>
+        <div class="scrollbox-element">
+          <img id="map-480" src="../Pictures/Maps/480p/placeholder_480.png" alt="bilde">
+          <p id="text-480">Bank</p>
+        </div>
       </div>
       <h1 id="headline2">SELECTION OF MAPS - RANKED</h1>
-      <div class="map-480">
-        <img src="../Pictures/Maps/480p/placeholder_480.png" alt="480">
-        <p id="text-480">placeholder</p>
-      </div>
-      <div class="map-480">
-        <img src="../Pictures/Maps/480p/placeholder_480.png" alt="480">
-        <p id="text-480">placeholder</p>
-      </div>
-      <div class="map-480">
-        <img src="../Pictures/Maps/480p/placeholder_480.png" alt="480">
-        <p id="text-480">placeholder</p>
-      </div>
-      <div class="map-480">
-        <img src="../Pictures/Maps/480p/placeholder_480.png" alt="480">
-        <p id="text-480">placeholder</p>
-      </div>
-      <div class="map-480">
-        <img src="../Pictures/Maps/480p/placeholder_480.png" alt="480">
-        <p id="text-480">placeholder</p>
-      </div>
-    </main>
 
     <footer></footer>
   </body>

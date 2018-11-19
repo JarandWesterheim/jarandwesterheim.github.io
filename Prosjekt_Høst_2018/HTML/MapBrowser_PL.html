@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="../CSS/Stylesheet_R6HUB.css">
     <link rel="stylesheet" href="../CSS/Font_Stylesheet.css">
   </head>
-  <body class="BodyMapBrowser">
+  <body>
     <nav class="taskbar">
       <div class="taskbar_grid">
         <div class="taskbar_element1">
@@ -26,12 +26,16 @@
           </div>
         </div>
         <div class="taskbar_element3">
-          <img class="menu" src="../Pictures/Icons/menu_icon.png" alt="menu">
-          <div class="dropdown">
-            <p class="hovedgren">viktig</p>
-            <p class="middelgren">mindre viktig</p>
-            <p class="litengren">minst viktig</p>
+          <div class="popup" onclick="myFunction()">
+            <img id="menubutton" src="../Pictures/Icons/menu_icon.png" alt="bilde">
+            <span class="popuptext" id="myPopup">hei</span>
           </div>
+          <script>
+            function myFunction() {
+              var popup = document.getElementById("myPopup");
+              popup.classList.toggle("show");
+            }
+          </script>
         </div>
       </div>
     </nav>
@@ -84,16 +88,51 @@
       <h1 id="headline1">SELECTION OF MAPS - PRO LEAGUE</h1>
       <div class="map-1080">
         <img src="../Pictures/Maps/1080p/placeholder_1080.png" alt="480">
-        <p id="text-1080">placeholder</p>
+        <div class="mapinfo">
+          <p id="text-1080">Bank</p>
+          <p id=info-1080>Bank is a one of the original maps that came with the first verion of the game. Map is one of the maps used in official ESL matches, and can therfore be considered a balanced map. The map of 3 separate floors, a basement, a first floor and a second floor. The map is a pretty big map and lets for a strong roam hold.</p>
+        </div>
       </div>
       <div class="map-1080">
         <img src="../Pictures/Maps/1080p/placeholder_1080.png" alt="480">
-        <p id="text-1080">placeholder</p>
+        <div class="mapinfo">
+          <p id="text-1080">Border</p>
+          <p id=info-1080>info</p>
+        </div>
       </div>
       <div class="map-1080">
         <img src="../Pictures/Maps/1080p/placeholder_1080.png" alt="480">
-        <p id="text-1080">placeholder</p>
+        <div class="mapinfo">
+          <p id="text-1080">Coastline</p>
+          <p id=info-1080>info</p>
+        </div>
+      </div><div class="map-1080">
+        <img src="../Pictures/Maps/1080p/placeholder_1080.png" alt="480">
+        <div class="mapinfo">
+          <p id="text-1080">Consulate</p>
+          <p id=info-1080>info</p>
+        </div>
+      </div><div class="map-1080">
+        <img src="../Pictures/Maps/1080p/placeholder_1080.png" alt="480">
+        <div class="mapinfo">
+          <p id="text-1080">Clubhouse</p>
+          <p id=info-1080>info</p>
+        </div>
       </div>
+    </div><div class="map-1080">
+      <img src="../Pictures/Maps/1080p/placeholder_1080.png" alt="480">
+      <div class="mapinfo">
+        <p id="text-1080">Oregon</p>
+        <p id=info-1080>info</p>
+      </div>
+    </div><div class="map-1080">
+      <img src="../Pictures/Maps/1080p/placeholder_1080.png" alt="480">
+      <div class="mapinfo">
+        <p id="text-1080">Villa</p>
+        <p id=info-1080>info</p>
+      </div>
+    </div>
+    </div>
     </main>
 
     <footer></footer>

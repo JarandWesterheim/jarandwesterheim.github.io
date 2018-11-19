@@ -63,14 +63,28 @@ body{
   color: black;
 }
 #text-1080{
-  font-size: 50px;
+  font-size: 80px;
   font-family: impact;
+  color: black;
+}
+#info-1080{
+  font-size: 25px;
+  font-family: arial;
   color: black;
 }
 #text-480{
   font-size: 30px;
   font-family: impact;
   color: black;
+}
+.biga>h1{
+  font-size: 50px;
+}
+.mediuma>h1{
+  font-size: 50px;
+}
+.smalla>h1{
+  font-size: 40px;
 }
 /*
 css for footer

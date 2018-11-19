@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Map Browser</title>
+    <title id="title">Map Browser</title>
     <link rel="stylesheet" href="../CSS/Stylesheet_R6HUB.css">
     <link rel="stylesheet" href="../CSS/Font_Stylesheet.css">
   </head>
@@ -26,12 +26,16 @@
           </div>
         </div>
         <div class="taskbar_element3">
-          <img class="menu" src="../Pictures/Icons/menu_icon.png" alt="menu">
-          <div class="dropdown">
-            <p class="hovedgren">viktig</p>
-            <p class="middelgren">mindre viktig</p>
-            <p class="litengren">minst viktig</p>
+          <div class="popup" onclick="myFunction()">
+            <img id="menubutton" src="../Pictures/Icons/menu_icon.png" alt="bilde">
+            <span class="popuptext" id="myPopup">hei</span>
           </div>
+          <script>
+            function myFunction() {
+              var popup = document.getElementById("myPopup");
+              popup.classList.toggle("show");
+            }
+          </script>
         </div>
       </div>
     </nav>
@@ -42,48 +46,28 @@
       </div>
     </main>
 
-    <main class="container-maps">
-      <h1 id="headline1">SELECTION OF MAPS - CASUAL</h1>
-      <div class="map-480">
-        <img src="../Pictures/Maps/480p/placeholder_480.png" alt="480">
-        <p id="text-480">placeholder</p>
-      </div>
-      <div class="map-480">
-        <img src="../Pictures/Maps/480p/placeholder_480.png" alt="480">
-        <p id="text-480">placeholder</p>
-      </div>
-      <div class="map-480">
-        <img src="../Pictures/Maps/480p/placeholder_480.png" alt="480">
-        <p id="text-480">placeholder</p>
-      </div>
-      <div class="map-480">
-        <img src="../Pictures/Maps/480p/placeholder_480.png" alt="480">
-        <p id="text-480">placeholder</p>
-      </div>
-      <div class="map-480">
-        <img src="../Pictures/Maps/480p/placeholder_480.png" alt="480">
-        <p id="text-480">placeholder</p>
-      </div>
-      <h1 id="headline2">SELECTION OF MAPS - RANKED</h1>
-      <div class="map-480">
-        <img src="../Pictures/Maps/480p/placeholder_480.png" alt="480">
-        <p id="text-480">placeholder</p>
-      </div>
-      <div class="map-480">
-        <img src="../Pictures/Maps/480p/placeholder_480.png" alt="480">
-        <p id="text-480">placeholder</p>
-      </div>
-      <div class="map-480">
-        <img src="../Pictures/Maps/480p/placeholder_480.png" alt="480">
-        <p id="text-480">placeholder</p>
-      </div>
-      <div class="map-480">
-        <img src="../Pictures/Maps/480p/placeholder_480.png" alt="480">
-        <p id="text-480">placeholder</p>
-      </div>
-      <div class="map-480">
-        <img src="../Pictures/Maps/480p/placeholder_480.png" alt="480">
-        <p id="text-480">placeholder</p>
+    <main class="container-articles">
+      <h1 id="headline1">NEWS</h1>
+      <div class="articles-grid">
+        <a class="biga" href="https://rainbow6.ubisoft.com/siege/en-gb/news/detail.aspx?c=tcm:154-340177-16&ct=tcm:154-76770-32">
+          <img src="../Pictures/Thumbnails/ProLeagueLAN.png" alt="bilde">
+          <h1>WATCH THE PRO LEAGUE LAN FINALS IN RIO</h1>
+        </a>
+        <a class="smalla" href="/articles/">
+          <img src="../Pictures/Thumbnails/pn1.2_Y3S3.png" alt="bilde">
+          <h1>PATCHNOTES Y3S3</h1>
+        </a>
+        <a class="mediuma" href="/articles/">
+          <img src="../Pictures/Thumbnails/Y3S3_roadmap.png" alt="bilde">
+          <h1>SPECULATION AROUND YEAR 4 ROADMAP</h1>
+        </a>
+        <a class="streched" href="MapBrowser.html">
+          <img src="../Pictures/Thumbnails/Map_Thumbnail2.png" alt="bilde">
+        </a>
+        <a class="biga" href="/articles/">
+          <img src="../Pictures/Thumbnails/windbastion.png" alt="bilde">
+          <h1>WHAT IS NEW IN <i>"OPERATION WIND BASTION"</i></h1>
+        </a>
       </div>
     </main>
 
