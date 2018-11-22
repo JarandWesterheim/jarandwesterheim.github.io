@@ -1,5 +1,3 @@
-
-}
 body{
   background: white;
 }
@@ -139,6 +137,10 @@ input.searchbar:focus {
  display: inline-block;
  cursor: pointer;
  top: 20%;
+}
+.popuptext{
+  text-align: center;
+  font-size: 20px;
 }
 #menubutton{
   transition: .4s ease-in-out;
@@ -408,7 +410,7 @@ css for MapBrowser
 }
 .icon_grid:hover .small_icon1{
   opacity: 0.8;
-  width: 90%;
+  transform: scale(.9);
   height: auto;
   margin: auto;
 }
@@ -485,6 +487,10 @@ css for mapgrid
   text-align: center;
   padding-right: 30px
 }
+#CasualMapTemplate{
+  background-image: url("../Pictures/Maps/1080p/placeholder_1080.png");
+  background-color: white;
+}
 /*
 css for template articles
 */
@@ -498,7 +504,15 @@ css for template articles
   */
 #LanEvent{
   background-color: #23150a;
-  background-image: url("../Pictures/Thumbnails/LanEvent-1920.png");
+  background-image: url("../Pictures/PostImg/LanEvent-1920.png");
+}
+#Year4Roadmap{
+  background-color: #000000;
+  background-image: url("../Pictures/Thumbnails/Y4Roadmap.png");
+}
+#WindBastion{
+  background-image: url("../Pictures/PostImg/opwbbackground-img.png");
+  background-color: #2b1d0d;
 }
 .article-main{
   margin-top: 800px;
@@ -517,10 +531,11 @@ css for template articles
 }
 .post-heroimage{
   grid-column: span 3;
-  border: 4px solid white;
-  border-radius: 2px;
-  border-bottom: 0px;
   width: cover;
+  margin-bottom: -12%;
+}
+#windbastion{
+  margin-left: -30px;
 }
 .post-headline{
   grid-column: span 3;
@@ -532,6 +547,9 @@ css for template articles
 }
 .post-text{
   grid-column: span 2;
+}
+.post-blank{
+  grid-column: span 1;
 }
 .picture-caption1{
   grid-column: span 3;
@@ -553,6 +571,12 @@ css for template articles
   grid-column: span 1;
   width: 150px;
 }
+.linkelement{
+  transition: .4s ease;
+}
+.linkelement:hover {
+  transform: scale(1.1);
+}
 #buygame_box{
   width: 100px;
   padding: 10px;
@@ -569,16 +593,41 @@ css for template articles
 .floating-element{
   height: 1000px;
   background: transparent;
-  width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
 }
 .floating-element>h1{
   margin-top: 300px;
 }
+.floating-element>img{
+  margin-left: -9px;
+}
 #LanTrailer{
   margin-top: 5px;
   width: 1200px;
+}
+.post-elementgrid{
+  grid-column: span 3;
+  display: grid;
+  grid-template-columns: repeat(99 , 1fr);
+  color: black;
+  bottom: 0px;
+  width: 100%;
+  left: auto;
+  padding-top: 200px;
+  padding-bottom: 100px;
+}
+.small_icon2{
+  width: 100%;
+  height: auto;
+  border: 2px solid white;
+  border-radius: 45px;
+  opacity: 1;
+  transition: .5s ease;
+}
+.icon_grid:hover .small_icon2{
+  opacity: 0.8;
+  transform: scale(.9);
+  height: auto;
+  margin: auto;
 }
 /*
 css for footer
