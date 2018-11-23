@@ -151,7 +151,7 @@ input.searchbar:focus {
 }
 .popup .popuptext {
  visibility: hidden;
- width: 160px;
+ width: 260px;
  background-color: #555;
  color: #fff;
  text-align: center;
@@ -160,8 +160,8 @@ input.searchbar:focus {
  padding: 8px 0;
  position: absolute;
  z-index: 1;
- top: 125%;
- left: 200%;
+ top: 100%;
+ left: 170%;
  margin-left: -80px;
 }
 .popup .show {
@@ -440,6 +440,9 @@ css for mapgrid
   display: grid;
   grid-template-columns: repeat(3,1fr);
   grid-template-rows: repeat(2,1fr);
+  grid-column-gap: 20px;
+  grid-row-gap: 10px;
+  text-decoration: none;
 }
 .map-1080>img{
   grid-column: span 2;
@@ -451,8 +454,6 @@ css for mapgrid
 .mapinfo{
   grid-column: span 1;
   grid-row: span 2;
-  padding: 10px 10px 10px 10px;
-  margin-left: 10px;
 }
 #text-1080{
 }
@@ -593,6 +594,13 @@ css for template articles
 .floating-element{
   height: 1000px;
   background: transparent;
+}
+.floating-element1{
+  height: 1000px;
+  background: transparent;
+  width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .floating-element>h1{
   margin-top: 300px;
