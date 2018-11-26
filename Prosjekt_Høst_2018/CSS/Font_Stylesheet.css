@@ -69,7 +69,7 @@ body{
 }
 #info-1080{
   font-size: 25px;
-  font-family: arial;
+  font-family: verdana;
   color: black;
 }
 #text-480{
@@ -94,7 +94,7 @@ body{
 }
 .post-text{
   font-size: 25px;
-  font-family: courier;
+  font-family: verdana;
 }
 .floating-element>h1{
   text-align: center;
