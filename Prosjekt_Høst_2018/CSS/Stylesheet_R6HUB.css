@@ -678,7 +678,6 @@ css for nettside om maps
     margin-left: 10px;
     margin-right: 10px;
 }
-
 ul.slides {
     display: block;
     position: relative;
@@ -688,7 +687,6 @@ ul.slides {
     overflow: hidden;
     list-style: none;
 }
-
 .slides * {
     user-select: none;
     -ms-user-select: none;
@@ -697,16 +695,12 @@ ul.slides {
     -webkit-user-select: none;
     -webkit-touch-callout: none;
 }
-
-ul.slides input {
+ul.slides>input {
     display: none;
 }
-
-
 .slide-container {
     display: block;
 }
-
 .slide-image {
     display: block;
     position: absolute;
@@ -716,13 +710,11 @@ ul.slides input {
     opacity: 0;
     transition: all .7s ease-in-out;
 }
-
-.slide-image img {
+.slide-image>img {
     width: auto;
     min-width: 100%;
     height: 100%;
 }
-
 .carousel-controls {
     position: absolute;
     top: 0;
@@ -733,8 +725,7 @@ ul.slides input {
     line-height: 600px;
     color: #fff;
 }
-
-.carousel-controls label {
+.carousel-controls>label {
     display: none;
     position: absolute;
     padding: 0 20px;
@@ -742,27 +733,22 @@ ul.slides input {
     transition: opacity .2s;
     cursor: pointer;
 }
-
-.slide-image:hover + .carousel-controls label{
+.slide-image:hover + .carousel-controls>label{
     opacity: 0.5;
 }
-
-.carousel-controls label:hover {
+.carousel-controls>label:hover {
     opacity: 1;
 }
-
 .carousel-controls .prev-slide {
     width: 9%;
     text-align: left;
     left: 0;
 }
-
 .carousel-controls .next-slide {
     width: 9%;
     text-align: right;
     right: 0;
 }
-
 .carousel-dots {
     position: absolute;
     left: 0;
@@ -771,7 +757,6 @@ ul.slides input {
     z-index: 999;
     text-align: center;
 }
-
 .carousel-dots .carousel-dot {
     display: inline-block;
     width: 30px;
@@ -781,17 +766,14 @@ ul.slides input {
     opacity: 0.5;
     margin: 10px;
 }
-
 input:checked + .slide-container .slide-image {
     opacity: 1;
     transform: scale(1);
     transition: opacity 1s ease-in-out;
 }
-
 input:checked + .slide-container .carousel-controls label {
      display: block;
 }
-
 input#img-1:checked ~ .carousel-dots label#img-dot-1,
 input#img-2:checked ~ .carousel-dots label#img-dot-2,
 input#img-3:checked ~ .carousel-dots label#img-dot-3,
@@ -800,10 +782,8 @@ input#img-5:checked ~ .carousel-dots label#img-dot-5,
 input#img-6:checked ~ .carousel-dots label#img-dot-6 {
 	opacity: 1;
 }
-
-
-input:checked + .slide-container .nav label { display: block; }
-
+input:checked + .slide-container .nav label { display: block;
+}
 /*
 css for footer
 */
