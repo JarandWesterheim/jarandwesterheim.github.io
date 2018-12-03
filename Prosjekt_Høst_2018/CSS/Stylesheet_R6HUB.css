@@ -1,3 +1,6 @@
+html{
+  width: 1670px;
+}
 body{
   background: white;
   width: 1670px;
@@ -226,10 +229,9 @@ input.searchbar:focus {
 }
 .hero-text-main{
    position: absolute;
-   top: 62%;
-   left: 50%;
-   transform: translate(-50%, -50%);
-   width: 1200px
+   text-align: center;
+   padding-top: 350px;
+   width: 1626px;
 }
 .container-articles{
   padding: 40px;
@@ -332,6 +334,7 @@ css for MapBrowser
 */
 .BodyMapBrowser{
   background-color: white;
+  width: 1665px;
 }
 .topnavMapBrowser{
   height: 45px;
@@ -519,7 +522,7 @@ css for template articles
   */
 #LanEvent{
   background-color: #23150a;
-  background-image: url("../Pictures/PostImg/LanEvent-1920.png");
+  background-image: url("../Pictures/PostImg/LanEvent-1240.png");
 }
 #Year4Roadmap{
   background-color: #000000;
