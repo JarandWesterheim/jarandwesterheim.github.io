@@ -1,13 +1,25 @@
-<!DOCTYPE html>
+<!DOCTYPE html
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Lan Event Pro League Finals</title>
+    <title id="title">Map Browser</title>
     <link rel="stylesheet" href="../../CSS/Stylesheet_R6HUB.css">
     <link rel="stylesheet" href="../../CSS/Font_Stylesheet.css">
     <link rel="icon" href="../../Pictures/Icons/favicon.ico">
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $('.icon').click(function(){
+          $('.icon').toggleClass('active');
+        })
+      })
+    </script>
   </head>
-  <body class="post-body" id="LanEvent">
+  <!--
+disse sidene må åpnes i firefox for at bidler skal fungere fungere
+for at alt skal bli riktig plassert må du kanskje zoome ut til 80%
+  !-->
+  <body class="BodyMapBrowser">
     <nav class="taskbar">
       <div class="taskbar_grid">
         <div class="taskbar_element1">
@@ -20,9 +32,12 @@
             <img src="../../Pictures/Logos/R6HUB_Logo.png" alt="logo">
           </a>
         </div>
-        <div class="taskbar_element3">
-          <div class="popup" onclick="myFunction()">
-            <img id="menubutton" src="../../Pictures/Icons/menu_icon.png" alt="bilde">
+        <div class="taskbar_element3" >
+          <div class="popup">
+            <div class="icon" onclick="myFunction()">
+              <div class="hamburger">
+              </div>
+            </div>
             <span class="popuptext" id="myPopup">
               <a href="../Hovedsider/MainPage.html">Main Page</a> <br> <br>
               <a href="#headline1">News</a> <br> <br>
