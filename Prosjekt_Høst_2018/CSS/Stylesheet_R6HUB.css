@@ -58,7 +58,7 @@ input.searchbar {
     background-repeat: no-repeat;
     padding: 12px 20px 12px 40px;
     -webkit-transition: width 0.4s ease-in-out;
-    transition: width 0.4s ease-in-out;
+    transition: width 0.2s ease-in-out;
 }
 
 input.searchbar:focus {
@@ -123,6 +123,15 @@ input.searchbar:focus {
 .taskbar_element3:hover #menutext{
   opacity: 1;
 }
+.icon:hover{
+  cursor: default;
+}
+.popup:hover{
+  cursor: default;
+}
+.popuptext>a:hover{
+  cursor: default;
+}
 .popup .popuptext {
  visibility: hidden;
  width: 260px;
@@ -168,7 +177,7 @@ css for animert menu ikon
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
-  transition: .5s;
+  transition: .2s;
 }
 .hamburger:before,
 .hamburger:after{
@@ -186,7 +195,8 @@ css for animert menu ikon
   top: 16px;
 }
 .icon.active .hamburger{
-  background-color: rgba(0,0,0,0)
+  background-color: rgba(0,0,0,0);
+  width: 50px;
 }
 .icon.active .hamburger:before{
   transform: rotate(45deg);
@@ -262,6 +272,7 @@ css for hero image
 .articles-grid>a:hover #thumbnail {
   transform: scale(1.01);
   transition: .4s ease;
+  transition-delay: .5s;
   opacity: .95;
 }
 .articles-grid>a>h1{
@@ -522,8 +533,13 @@ css for mapgrid
 css for template articles
 */
 .post-body{
+  width: auto;
   background-repeat: no-repeat;
   background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size:cover;
+  margin: auto;
   position: absolute;
 }
   /*
@@ -789,13 +805,53 @@ input:checked + .slide-container .carousel-controls label {
 }
 input#img-1:checked ~ .carousel-dots label#img-dot-1,
 input#img-2:checked ~ .carousel-dots label#img-dot-2,
-input#img-3:checked ~ .carousel-dots label#img-dot-3,
-input#img-4:checked ~ .carousel-dots label#img-dot-4,
-input#img-5:checked ~ .carousel-dots label#img-dot-5,
-input#img-6:checked ~ .carousel-dots label#img-dot-6 {
+input#img-3:checked ~ .carousel-dots label#img-dot-3{
 	opacity: 1;
 }
 input:checked + .slide-container .nav label { display: block;
+}
+/*
+css for contact us
+*/
+.contactus_panel{
+  visibility: hidden;
+  opacity: 0;
+  width: 1000px;
+  height: 10px;
+  border: 3px solid #202020;
+  border-radius: 6px;
+  margin-left: -390px;
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  grid-column-gap: 10px;
+  padding: 10px 10px 10px 10px;
+  transition: .2s ease;
+}
+.panel-text-left{
+  grid-column: span 1;
+  border: 3px solid white;
+  border-radius: 5px;
+  padding: 10px 10px 10px 10px
+}
+.panel-text-right{
+  grid-column: span 1;
+  border: 3px solid #202020;
+  border-radius: 5px;
+  padding: 10px 10px 10px 10px;
+}
+.panel-text-left>p{
+  text-align: center;
+  margin: auto;
+  padding-top: 60px;
+}
+.panel-text-right>p{
+  text-align: left;
+  margin: auto;
+}
+.contactus_panel.active{
+  visibility: visible;
+  height: 200px;
+  opacity: 1;
 }
 /*
 css for footer

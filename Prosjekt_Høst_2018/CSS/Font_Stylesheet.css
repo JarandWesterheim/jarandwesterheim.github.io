@@ -116,3 +116,11 @@ body{
   font-size: 50px;
   color: white;
 }
+.panel-text-left>p{
+  font-family: impact;
+  font-size: 40px;
+}
+.panel-text-right>p{
+  font-family: verdana;
+  font-size: 18px;
+}
