@@ -152,7 +152,7 @@ input.searchbar:focus {
  -webkit-animation: fadeIn .4s;
  animation: fadeIn .4s
 }
-@-webkit-keyframes fadeIn {
+@-moz-keyframes fadeIn {
  from {opacity: 0;}
  to {opacity: 1;}
 }
