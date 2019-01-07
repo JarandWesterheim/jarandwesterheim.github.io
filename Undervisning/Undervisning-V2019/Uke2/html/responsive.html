@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Responsive website test 1</title>
+    <link rel="stylesheet" href="../css/responsive-style.css">
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $('.icon').click(function(){
+          $('.icon').toggleClass('active');
+        })
+      })
+    </script>
+  </head>
+  <body>
+
+    <header-min>
+      <div class="taskbar_element3" >
+          <div class="popup">
+            <div class="icon" onclick="myFunction()">
+              <div class="hamburger">
+              </div>
+            </div>
+            <span class="popuptext" id="myPopup">
+              <a class="link_box_taskbar" href="#">Nyheter</a>
+              <a class="link_box_taskbar" href="#">Sport</a>
+              <a class="link_box_taskbar" href="#">Kultur</a>
+              <a class="link_box_taskbar" href="#">Økonomi</a>
+              <a class="link_box_taskbar" href="#">Logg inn</a>
+          </div>
+          <script>
+            function myFunction() {
+              var popup = document.getElementById("myPopup");
+              popup.classList.toggle("show");
+            }
+          </script>
+        </div>
+    </header-min>
+
+
+
+    <header>
+      <nav class="nav--flexbox">
+        <a class="nav__link" href="nyheter.html">Homepage</a>
+        <a class="nav__link" href="nyheter.html">Kultur</a>
+        <a class="nav__link" href="nyheter.html">Sport</a>
+        <a class="nav__link" href="nyheter.html">Økonomi</a>
+        <a class="nav__link nav__link5" href="nyheter.html">Logg inn</a>
+   </div>
+      </nav>
+    </header>
+
+    <main  class="main">
+      <article class="link-article link--1">
+        <a href="https://www.sandvika.vgs.no">
+          <img class="link__img" src="https://images.pexels.com/photos/1740175/pexels-photo-1740175.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="link">
+          <p>les mer her </p>
+        </a>
+      </article>
+      <article class="link-article link--2">
+        <a href="https://www.sandvika.vgs.no">
+          <img class="link__img" src="https://images.pexels.com/photos/327434/pexels-photo-327434.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="link">
+          <p>les mer her </p>
+        </a>
+      </article>
+      <article class="link-article link--3">
+        <a href="https://www.sandvika.vgs.no">
+          <img class="link__img" src="https://images.pexels.com/photos/1629851/pexels-photo-1629851.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="link">
+          <p>les mer her </p>
+        </a>
+      </article>
+      <article class="link-article link--4">
+        <a href="https://www.sandvika.vgs.no">
+          <img class="link__img" src="https://images.pexels.com/photos/624015/pexels-photo-624015.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="link">
+          <p>les mer her </p>
+        </a>
+      </article>
+      <article class="link-article link--5">
+        <a href="https://www.sandvika.vgs.no">
+          <img class="link__img" src="https://images.pexels.com/photos/53389/iceberg-antarctica-polar-blue-53389.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="link">
+          <p>les mer her </p>
+        </a>
+      </article>
+      <article class="link-article link--6">
+        <a href="https://www.sandvika.vgs.no">
+          <img class="link__img" src="https://images.pexels.com/photos/694218/pexels-photo-694218.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="link">
+          <p>les mer her </p>
+        </a>
+      </article>
+      <article class="link-article link--7">
+        <a href="https://www.sandvika.vgs.no">
+          <img class="link__img" src="https://images.pexels.com/photos/464362/pexels-photo-464362.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="link">
+          <p>les mer her </p>
+        </a>
+      </article>
+    </main>
+
+    <footer>
+
+    </footer>
+  </body>
+</html>
