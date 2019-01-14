@@ -1,0 +1,122 @@
+ <!DOCTYPE html
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title id="title">CH | Lan Event</title>
+    <link rel="stylesheet" href="../../CSS/Stylesheet_R6HUB.css">
+    <link rel="stylesheet" href="../../CSS/Font_Stylesheet.css">
+    <link rel="icon" href="../../Pictures/Icons/favicon.ico">
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $('.icon').click(function(){
+          $('.icon').toggleClass('active');
+        })
+      })
+    </script>
+  </head>
+  <!--
+disse sidene må åpnes i firefox for at bidler skal fungere fungere
+for at alt skal bli riktig plassert må du kanskje zoome ut til 80%
+  !-->
+  <body class="post-body" id="LanEvent">
+    <nav id="taskbar" class="taskbar">
+      <div class="taskbar_grid">
+        <div class="taskbar_element1">
+          <form>
+            <input class="searchbar" type="text" name="search" placeholder="Search..">
+          </form>
+        </div>
+        <div class="taskbar_logo">
+          <a href="../Hovedsider/MainPage.html">
+            <img src="../../Pictures/Logos/R6HUB_Logo.png" alt="logo">
+          </a>
+        </div>
+        <div class="taskbar_element3" >
+          <div class="popup">
+            <div class="icon" onclick="myFunction()">
+              <div class="hamburger">
+              </div>
+            </div>
+            <span class="popuptext" id="myPopup">
+              <a class="link_box_taskbar" href="../Hovedsider/MainPage.html">Main Page</a>
+              <a class="link_box_taskbar" href="../Hovedsider/MainPage.html#headline1">News</a>
+              <a class="link_box_taskbar" href="../Hovedsider/MapBrowser.html">Map Browser</a>
+              <a class="link_box_taskbar" href="../Hovedsider/MapBrowser_PL.html">Map Browser PL</a>
+              <a class="link_box_taskbar" href="../Hovedsider/ContactUs.html">Contact Us</a>
+              <a class="buygame_box_taskbar" href="https://rainbow6.ubisoft.com/siege/en-us/promo/index.aspx">BUY GAME</a>
+            </span>
+          </div>
+          <script>
+            function myFunction() {
+              var popup = document.getElementById("myPopup");
+              popup.classList.toggle("show");
+            }
+          </script>
+        </div>
+      </div>
+    </nav>
+
+    <main class="article-main">
+      <div class="post-grid">
+        <div class="post-headline">
+          <h1>RAINBOW SIX PRO LEAGUE RETURNS TO BRAZIL</h1>
+        </div>
+        <div class="post-img">
+          <img src="../../Pictures/PostImg/SaoPauloEvent.png" alt="">
+        </div>
+        <div class="post-text">
+            In November 2017, São Paulo hosted the Pro League Season 6 Finals. The event was a milestone, with 2,000 tickets selling out in less than two hours. During the event, fans saw hometown favorites Black Dragons take down the mighty PENTA Sports to reach the grand final. While they fought hard, in the end, the title went to the Finnish team ENCE. However, the energy of the Brazilian public was overwhelming, aiding the decision to return to Brazil to with the Season 8 Finals in November – in an arena ten times bigger – with the goal of serving the largest number of Rainbow Six fans in Brazilian esports history.
+        </div>
+        <div class="post-text">
+          “It is a great honor to receive a Rainbow Six event of such relevance. This shows the importance of Brazil, with this final of 24,000 people, and places us as a true power in the esports market. We organized, together with ESL, the biggest Rainbow Six Siege event ever held in the word!”, says Bertrand Chaverot, managing director of Ubisoft Latin America. With a newly crowned Brazilian champion, an updated Pro League program, and exciting in-game changes, this season is gearing up to the best yet. We hope to see you all at the finals in November, and until then, you can keep up with all the Pro League action on our official <a href="https://twitter.com/rainbow6game">Twitter</a> and <a href="https://www.twitch.tv/rainbow6">Twitch</a> channels.
+        </div>
+        <div class="post-img">
+          <img src="../../Pictures/PostImg/LanImg.png" alt="">
+        </div>
+      </div>
+      <div class="floating-element1">
+        <h1>WATCH THE OFICIAL TRAILER HERE:</h1>
+        <video id="LanTrailer" src="../../Video/RainbowSixProLeagueFinal.mp4" controls poster="posterimage.jpg"></video>
+      </div>
+      <div class="post-grid">
+        <div class="post-headline">
+          <h1>WHAT CAN WE EXPECT FROM THIS EVENT?</h1>
+        </div>
+        <div class="post-text">
+          Of course we expect alot of good games and good vibes, but Pro League Invitationals has previously been, and most likely will this time be used to give a preview of the year 4 roadmap. In the roadmap for the upcoming year we can see what the developers have in mind for the upcoming seasons of rainbow six siege, both competetively and in updates and patches for the average player. Speculations about the next year have already started to pop up on several community forums. You can read more about that <a href="year4roadmap.html">here</a>.
+        </div>
+        <div class="post-img">
+
+        </div>
+        <div class="linkgrid">
+          <a class="linkelement" href="https://www.twitch.tv/rainbow6">
+            <img src="../../Pictures/Logos/TwitchLogo150x150.png" alt="Twitch">
+          </a>
+          <a class="linkelement" href="https://rainbow6.ubisoft.com/siege/en-us/promo/index.aspx"><p id="buygame_box">BUY GAME</p></a>
+          <a class="linkelement" href="https://www.twitter.com/rainbow6game">
+            <img src="../../Pictures/Logos/TwitterLogo150x150.png" alt="Twitter">
+          </a>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <div class="footer">
+        <div class="rettigheter">
+          <p>all rights reserved: <br> yeet? </p>
+        </div>
+        <div class="topp">
+          <a href="#taskbar">
+            <div class="backtotop">
+              <img id="arrow" src="../../Pictures/Icons/up.png" alt="back to top?">
+              <p id="arrowtext">Back To Top?</p>
+            </div>
+          </a>
+        </div>
+        <div class="kontakter">
+          <p>Contact us? <br> Email: rainbow6hub@gmail.com <br> Phone: +47 10190101 <br> <a href="../Hovedsider/ContactUs.html"> Contact support? </a> </p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

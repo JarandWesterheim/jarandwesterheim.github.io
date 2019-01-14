@@ -11,6 +11,9 @@
         padding: 0;
         font-family: times-new-roman;
       }
+      .smooth{
+        transition: .2s ease all;
+      }
       .navbar{
         position: fixed;
         height: 80px;
@@ -99,6 +102,21 @@
         .header{
           height: 600px;
         }
+        .active{
+          transform: rotate(-90deg);
+        }
+        .active #btn__top{
+          transform: rotate(45deg);
+          top: 42px;
+        }
+        .active #btn__middle{
+          opacity: 0;
+        }
+        .active #btn__bottom{
+          transform: rotate(135deg);
+          top: -42px;
+
+        }
       }
     </style>
   </head>
@@ -107,12 +125,12 @@
       <div class="logo">
         <img src="/logo.png" alt="">
       </div>
-      <a class="btn">
-        <span></span>
-        <span></span>
-        <span></span>
+      <a class="btn smooth">
+        <span id="btn__top" class="smooth" ></span>
+        <span id="btn__middle" class="smooth" ></span>
+        <span id="btn__bottom" class="smooth" ></span>
       </a>
-      <div class="menu">
+      <div class="menu smooth">
         <a href="">home</a>
         <a href="">works</a>
         <a href="">about</a>
@@ -128,8 +146,13 @@
     </p>
 
     <script type="text/javascript">
-    $(".btn").on("click", function(){
+    $(".btn").on("click", function(a){
       $('.menu').toggleClass("show");
+    })
+    </script>
+    <script type="text/javascript">
+    $(".btn").on("click", function(b){
+      $('.btn').toggleClass("active");
     })
     </script>
   </body>
