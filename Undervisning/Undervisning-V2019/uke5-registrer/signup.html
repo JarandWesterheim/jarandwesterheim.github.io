@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>index</title>
+    <script src="https://www.gstatic.com/firebasejs/5.8.0/firebase.js"></script>
+    <link rel="stylesheet" href="indexstyle.css">
+  </head>
+  <body class="body--login">
+    <header class="navbar signup">
+      <div class="logo">
+        <img src="/logo.png" alt="">
+      </div>
+      <a class="btn smooth">
+        <span id="btn__top" class="smooth"></span>
+        <span id="btn__middle" class="smooth" ></span>
+        <span id="btn__bottom" class="smooth" ></span>
+      </a>
+      <div class="menu smooth">
+        <a href="forside.html">home</a>
+        <a href="">works</a>
+        <a href="">about</a>
+        <a href="index.html">sign up</a>
+      </div>
+    </header>
+    <main>
+      <div class="header signup"></div>
+      <div class="signup--form">
+        <form id="skjema" class="form" method="post" action="signup.html">
+          <h1>SIGN UP</h1>
+          <input id="inpName" type="text" placeholder="Name" class="signup__txtb">
+          <input id="inpPhone" type="phonenumber" placeholder="Phone" class="signup__txtb">
+          <input id="inpPassword" type="password" placeholder="Password" class="signup__txtb">
+          <input type="submit" value="Create Account" class="signup__btn">
+          <a href="#">Already got an account?</a>
+        </form>
+      </div>
+      <section id="secKontakter">
+
+      </section>
+
+    </main>
+    <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyDivJZcq4OOrhnpccwWj5DJyhSQlJNefTI",
+        authDomain: "undervisning-reg.firebaseapp.com",
+        databaseURL: "https://undervisning-reg.firebaseio.com",
+        projectId: "undervisning-reg",
+        storageBucket: "undervisning-reg.appspot.com",
+        messagingSenderId: "469006484889"
+      };
+      firebase.initializeApp(config);
+    </script>
+    <script type="text/javascript">
+    // HTML-elementer
+    const skjema = document.querySelector("#skjema");
+    const inpName = document.querySelector("#inpName");
+    const inpPhone = document.querySelector("#inpPhone");
+    const inpPassword = document.querySelector("#inpPassword");
+    const secKontakter = document.querySelector("#secKontakter");
+    // Firebase
+    const db = firebase.database();
+    const kontakter = db.ref("kontakter");
+    // Registrere en ny kontakt
+    function registrerKontakt(evt) {
+      evt.preventDefault();
+      const key = inpPhone.value;
+      const data = {
+          Name: inpName.value,
+          Phone: inpPassword.value
+      };
+      const kontakt = kontakter.child(key);
+      kontakt.set(data);
+
+      // Nuller ut skjemaet
+      skjema.reset();
+    }
+    // Knytter funksjonen til hendelsen at skjemaet blir sendt inn
+    skjema.addEventListener("submit", registrerKontakt);
+    </script>
+    <script type="text/javascript">
+    // Funksjone som viser frem en kontakt
+    // snap er et snapshot av dataene til kontakten i det øyeblikket den blir lagt til
+    function visKontakt(snap) {
+        const Phone = snap.key; // Primær-nøkkelen
+        const kontakt = snap.val(); // Dataene til kontakten
+        secKontakter.innerHTML += `
+            <div>${kontakt.Name}</div>
+            <div>${Password}</div>
+            <div>${kontakt.Phone}</div>
+        `;
+    }
+    // Knytter funksjonen til hendelsen at skjemaet blir sendt inn
+    skjema.addEventListener("submit", registrerKontakt);
+    // Starter funksjonen når det blir lagt til en kontakt
+    kontakter.on("child_added", visKontakt);
+    </script>
+  </body>
+</html>

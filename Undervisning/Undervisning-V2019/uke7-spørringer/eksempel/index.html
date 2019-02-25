@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>pOkEm0N dEx</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyBo4jSlTyXeBbc36n8Qgpk27J-WeQhVVtk",
+        authDomain: "undervisning-pokemon.firebaseapp.com",
+        databaseURL: "https://undervisning-pokemon.firebaseio.com",
+        projectId: "undervisning-pokemon",
+        storageBucket: "",
+        messagingSenderId: "56242538392"
+      };
+      firebase.initializeApp(config);
+    </script>
+  </head>
+  <body>
+    <nav>
+
+    </nav>
+    <header id="topnav">
+      <div class="topnav--logo">
+
+      </div>
+      <h1 id="topnav--text">a scuffed pokédex for scuffed people</h1>
+    </header>
+
+    <div class="menu">
+      <a href="#main" class="center--btn"> <button onclick="visTypeAll()" type="button" class="menu--btn" id="grey">all</button> </a>
+      <a href="#main"> <button onclick="visTypeNormal()" type="button" class="menu--btn" id="grey">normal</button> </a>
+      <a href="#main"> <button onclick="visTypeGrass()" type="button" class="menu--btn" id="green">grass</button> </a>
+      <a href="#main"> <button onclick="visTypeFire()" type="button" class="menu--btn" id="red">fire</button> </a>
+      <a href="#main"> <button onclick="visTypeWater()" type="button" class="menu--btn" id="blue">water</button> </a>
+      <a href="#main"> <button onclick="visTypeFighting()" type="button" class="menu--btn" id="red-brown">fighting</button> </a>
+      <a href="#main"> <button onclick="visTypeFlying()" type="button" class="menu--btn" id="darker-blue">flying</button> </a>
+      <a href="#main"> <button onclick="visTypePoison()" type="button" class="menu--btn" id="purple">Poison</button> </a>
+      <a href="#main"> <button onclick="visTypeGround()" type="button" class="menu--btn" id="orange">ground</button> </a>
+      <a href="#main"> <button onclick="visTypeRock()" type="button" class="menu--btn" id="beige">rock</button> </a>
+      <a href="#main"> <button onclick="visTypeBug()" type="button" class="menu--btn" id="lemon">bug</button> </a>
+      <a href="#main"> <button onclick="visTypeGhost()" type="button" class="menu--btn" id="bluer-purple">ghost</button> </a>
+      <a href="#main"> <button onclick="visTypeElectric()" type="button" class="menu--btn" id="yellow">electric</button> </a>
+      <a href="#main"> <button onclick="visTypePsychic()" type="button" class="menu--btn" id="hot-pink">psychic</button> </a>
+      <a href="#main"> <button onclick="visTypeIce()" type="button" class="menu--btn" id="light-blue">ice</button> </a>
+      <a href="#main"> <button onclick="visTypeDragon()" type="button" class="menu--btn" id="darker-purple">dragon</button> </a>
+      <a href="#main"> <button onclick="visTypeDark()" type="button" class="menu--btn" id="brown">dark</button> </a>
+      <a href="#main"> <button onclick="visTypeSteel()" type="button" class="menu--btn" id="steel">steel</button> </a>
+      <a href="#main"> <button onclick="visTypeFairy()" type="button" class="menu--btn" id="pink">fairy</button> </a>
+      <input type="text" name="" id="searchbar" value="">
+
+    </div>
+
+
+    <main id="main">
+
+    </main>
+
+
+    <script>
+    const main = document.querySelector("main"); //Variabel som referer til main-elementet
+    const searchbar = document.querySelector("#searchbar")
+
+    //referanser til databasen
+    const db = firebase.database();
+    const pokemon = db.ref("pokemon"); //refererer til alt som ligger under pokemon
+    const number = db.ref("pokemon/")
+
+
+
+
+    function visPokemon(snapshot){
+      let number = snapshot.val();
+      main.innerHTML +=`
+          <article class="pokemon">
+            <img src="${number.Image_URL}" alt="alt">
+            <h1>${number.Name}</h1>
+            <div class="hidden">
+              <p>Max HP - <span>${number.Max_HP}</span></p>
+              <p>Max CP - <span>${number.Max_CP}</span></p>
+              <p>Type 1: <span>${number.Type_1}</span></p>
+              <p>Type 2: <span>${number.Type_2}</span></p>
+            </div>
+            <img class="hidden--img" src="${number.Image_URL}" alt="yayeet">
+          </article>`
+    }
+
+    searchbar.onkeydown = function() {
+      main.innerHTML = " "
+      pokemon
+        .orderByChild("Name")
+        .startAt(searchbar.value)
+        .on("child_added", visPokemon);
+    }
+    pokemon.on("child_added", visPokemon);
+
+    function visTypeAll() {
+      main.innerHTML = " " //fjerner innhold i main
+      pokemon
+        .on("child_added",visPokemon);
+    }
+
+    function visTypeNormal() {
+      main.innerHTML = " " //fjerner innhold i main
+      pokemon
+        .orderByChild("Type_1")
+        .equalTo("Normal")
+        .on("child_added",visPokemon);
+      pokemon
+        .orderByChild("Type_2")
+        .equalTo("Normal")
+        .on("child_added",visPokemon);
+    }
+    function visTypeGrass() {
+      main.innerHTML = " " //fjerner innhold i main
+      pokemon
+        .orderByChild("Type_1")
+        .equalTo("Grass")
+        .on("child_added",visPokemon);
+      pokemon
+        .orderByChild("Type_2")
+        .equalTo("Grass")
+        .on("child_added",visPokemon);
+    }
+    function visTypeFire() {
+      main.innerHTML = " " //fjerner innhold i main
+      pokemon
+        .orderByChild("Type_1")
+        .equalTo("Fire")
+        .on("child_added",visPokemon);
+      pokemon
+        .orderByChild("Type_2")
+        .equalTo("Fire")
+        .on("child_added",visPokemon);
+    }
+    function visTypeWater() {
+      main.innerHTML = " " //fjerner innhold i main
+      pokemon
+        .orderByChild("Type_1")
+        .equalTo("Water")
+        .on("child_added",visPokemon);
+      pokemon
+        .orderByChild("Type_2")
+        .equalTo("Water")
+        .on("child_added",visPokemon);
+    }
+    function visTypeFighting() {
+      main.innerHTML = " " //fjerner innhold i main
+      pokemon
+        .orderByChild("Type_1")
+        .equalTo("Fighting")
+        .on("child_added",visPokemon);
+      pokemon
+        .orderByChild("Type_2")
+        .equalTo("Fighting")
+        .on("child_added",visPokemon);
+    }
+    function visTypeFlying() {
+      main.innerHTML = " " //fjerner innhold i main
+      pokemon
+        .orderByChild("Type_1")
+        .equalTo("Flying")
+        .on("child_added",visPokemon);
+      pokemon
+        .orderByChild("Type_2")
+        .equalTo("Flying")
+        .on("child_added",visPokemon);
+    }
+    function visTypePoison() {
+      main.innerHTML = " " //fjerner innhold i main
+      pokemon
+        .orderByChild("Type_1")
+        .equalTo("Posion")
+        .on("child_added",visPokemon);
+      pokemon
+        .orderByChild("Type_2")
+        .equalTo("Poison")
+        .on("child_added",visPokemon);
+    }
+    function visTypeGround() {
+      main.innerHTML = " " //fjerner innhold i main
+      pokemon
+        .orderByChild("Type_1")
+        .equalTo("Ground")
+        .on("child_added",visPokemon);
+      pokemon
+        .orderByChild("Type_2")
+        .equalTo("Ground")
+        .on("child_added",visPokemon);
+    }
+    function visTypeRock() {
+      main.innerHTML = " " //fjerner innhold i main
+      pokemon
+        .orderByChild("Type_1")
+        .equalTo("Rock")
+        .on("child_added",visPokemon);
+      pokemon
+        .orderByChild("Type_2")
+        .equalTo("Rock")
+        .on("child_added",visPokemon);
+    }
+    function visTypeBug() {
+      main.innerHTML = " " //fjerner innhold i main
+      pokemon
+        .orderByChild("Type_1")
+        .equalTo("Bug")
+        .on("child_added",visPokemon);
+      pokemon
+        .orderByChild("Type_2")
+        .equalTo("Bug")
+        .on("child_added",visPokemon);
+    }
+    function visTypeGhost() {
+      main.innerHTML = " " //fjerner innhold i main
+      pokemon
+        .orderByChild("Type_1")
+        .equalTo("Ghost")
+        .on("child_added",visPokemon);
+      pokemon
+        .orderByChild("Type_2")
+        .equalTo("Ghost")
+        .on("child_added",visPokemon);
+    }
+    function visTypeElectric() {
+      main.innerHTML = " " //fjerner innhold i main
+      pokemon
+        .orderByChild("Type_1")
+        .equalTo("Electric")
+        .on("child_added",visPokemon);
+      pokemon
+        .orderByChild("Type_2")
+        .equalTo("Electric")
+        .on("child_added",visPokemon);
+    }
+    function visTypePsychic() {
+      main.innerHTML = " " //fjerner innhold i main
+      pokemon
+        .orderByChild("Type_1")
+        .equalTo("Psychic")
+        .on("child_added",visPokemon);
+      pokemon
+        .orderByChild("Type_2")
+        .equalTo("Psychic")
+        .on("child_added",visPokemon);
+    }
+    function visTypeIce() {
+      main.innerHTML = " " //fjerner innhold i main
+      pokemon
+        .orderByChild("Type_1")
+        .equalTo("Ice")
+        .on("child_added",visPokemon);
+      pokemon
+        .orderByChild("Type_2")
+        .equalTo("Ice")
+        .on("child_added",visPokemon);
+    }
+    function visTypeDragon() {
+      main.innerHTML = " " //fjerner innhold i main
+      pokemon
+        .orderByChild("Type_1")
+        .equalTo("Dragon")
+        .on("child_added",visPokemon);
+      pokemon
+        .orderByChild("Type_2")
+        .equalTo("Dragon")
+        .on("child_added",visPokemon);
+    }
+    function visTypeDark() {
+      main.innerHTML = " " //fjerner innhold i main
+      pokemon
+        .orderByChild("Type_1")
+        .equalTo("Dark")
+        .on("child_added",visPokemon);
+      pokemon
+        .orderByChild("Type_2")
+        .equalTo("Dark")
+        .on("child_added",visPokemon);
+    }
+    function visTypeSteel() {
+      main.innerHTML = " " //fjerner innhold i main
+      pokemon
+        .orderByChild("Type_1")
+        .equalTo("Steel")
+        .on("child_added",visPokemon);
+      pokemon
+        .orderByChild("Type_2")
+        .equalTo("Steel")
+        .on("child_added",visPokemon);
+    }
+    function visTypeFairy() {
+      main.innerHTML = " " //fjerner innhold i main
+      pokemon
+        .orderByChild("Type_1")
+        .equalTo("Fairy")
+        .on("child_added",visPokemon);
+      pokemon
+        .orderByChild("Type_2")
+        .equalTo("Fairy")
+        .on("child_added",visPokemon);
+    }
+
+    </script>
+  </body>
+</html>

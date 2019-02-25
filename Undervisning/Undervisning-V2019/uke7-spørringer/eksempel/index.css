@@ -1,0 +1,191 @@
+
+body{
+  padding: 0;
+  margin: 0;
+  position: relative;
+}
+nav{
+  margin-top: 100px;
+  top: 0;
+  left: 0;
+  z-index: 9;
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  content: '';
+  background-image: url('img/pokedex.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  pointer-events: none;
+}
+#topnav{
+  position: fixed;
+  height: 80px;
+  width: 100%;
+  overflow: hidden;
+  top: 0;
+  display: flex;
+  background: white;
+  align-items: center;
+  flex-direction: row;
+}
+
+.topnav--logo{
+  content: '';
+  background-image: url('img/logo.png');
+  background-size: cover;
+  float: left;
+  width: 160px;
+  height: 45px;
+  margin-left: 20px;
+
+}
+#topnav--text{
+  font-family: times;
+  font-size: 20px;
+  text-transform: uppercase;
+  text-align: right;
+  justify-content: flex-end;
+  flex-direction: row-reverse;
+  flex-grow: 1;
+  padding-right: 30px;
+  font-style: italic;
+}
+#topnav--text::before{
+  content: '"'
+}
+#topnav--text::after{
+  content: '" - Martin Luther King Jr.';
+  text-transform: none;
+}
+.menu{
+  margin-top: 140px;
+  margin-left: 100px;
+  margin-right: 100px;
+  display: grid;
+  grid-template-columns: repeat(6,1fr);
+  padding: 30px;
+  grid-gap: 30px;
+}
+.menu--btn{
+  width: 100%;
+  padding: 30px;
+  color: white;
+  text-shadow: 2px 2px black;
+  font-size: 25px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 3px solid black;
+  border-radius: 40px;
+  padding: 5px solid white;
+}
+.center--btn{
+  grid-column: 1/7;
+}
+#grey{
+  background-color: rgb(163, 163, 163);
+}
+#green{
+  background-color: rgb(49, 247, 0);
+}
+#red{
+  background-color: rgb(255, 0, 0);
+}
+#blue{
+  background-color: rgb(24, 134, 236);
+}
+#red-brown{
+  background-color: rgb(173, 88, 0);
+}
+#darker-blue{
+  background-color: rgb(115, 54, 227);
+}
+#purple{
+  background-color: rgb(140, 22, 232);
+}
+#orange{
+  background-color: rgb(231, 185, 24);
+}
+#beige{
+  background-color: rgb(150, 148, 99);
+}
+#lemon{
+  background-color: rgb(139, 204, 81);
+}
+#bluer-purple{
+  background-color: rgb(67, 46, 154);
+}
+#yellow{
+  background-color: rgb(222, 240, 18);
+}
+#hot-pink{
+  background-color: rgb(212, 0, 255);
+}
+#light-blue{
+  background-color: rgb(0, 255, 240);
+}
+#darker-purple{
+  background-color: rgb(158, 0, 255);
+}
+#brown{
+  background-color: rgb(144, 73, 0);
+}
+#steel{
+  background-color: rgb(186, 186, 186);
+}
+#pink{
+  background-color: rgb(223, 116, 241);
+}
+#searchbar{
+  grid-column: 3/5;
+  margin: 20px 0;
+  background: rgba(255,255,255,.6);
+  border-radius: 6px;
+  padding: 6px 50px;
+  font-size: 30px;
+  background-image: url('img/search.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: left;
+  
+}
+.search--icon{
+  margin-top: 20px;
+  font-size: 50px;
+}
+main{
+  padding-top: 200px;
+  width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  grid-gap: 50px;
+  padding-bottom: 500px;
+}
+.hidden{
+  position: fixed;
+  visibility: hidden;
+  top: 71%;
+  left: 83%;
+  z-index: 10;
+}
+main article:hover .hidden{
+  visibility: visible;
+}
+.hidden p span{
+  color: red;
+  font-size: 20px;
+  font-weight: 900;
+}
+.hidden--img{
+  visibility: hidden;
+  position: fixed;
+  top: 68%;
+  left: 3.4%;
+  z-index: 10;
+  transform: scale(.8);
+}
+.pokemon:hover .hidden--img{
+  visibility: visible;
+}

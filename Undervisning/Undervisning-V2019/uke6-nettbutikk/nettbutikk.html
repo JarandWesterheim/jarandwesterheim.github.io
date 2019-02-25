@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>nettbutikk.com/en</title>
+    <link rel="stylesheet" href="nettbutikk.css">
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="logo">
+        cranberry
+      </div>
+      <div class="menu smooth">
+        <input class="srch" id="sokefelt" type="text">
+        <button onclick="visAlleVarer()" class="btn">home</button>
+        <button onclick="visSkjorter()" class="btn">shirts</button>
+        <button onclick="visBukser()" class="btn">pants</button>
+        <button class="btn">cart</button>
+        <button class="btn">empty cart</button>
+      </div>
+    </header>
+    <main class="grid">
+
+    </main>
+    <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyCC6UCB_XLSSw846sp6Bojd3astpCfE1s4",
+        authDomain: "undervisning-nettbutikk.firebaseapp.com",
+        databaseURL: "https://undervisning-nettbutikk.firebaseio.com",
+        projectId: "undervisning-nettbutikk",
+        storageBucket: "undervisning-nettbutikk.appspot.com",
+        messagingSenderId: "1064620199922"
+      };
+      firebase.initializeApp(config);
+    </script>
+    <script>
+        let database = firebase.database();
+        let bukser = database.ref("varer/bukser");
+        let skjorter = database.ref("varer/skjorter");
+        var sokefelt = document.getElementById("sokefelt");
+        var søketekst ="";
+        let main = document.querySelector("main");
+              function visVare(snapshot) {
+                  let vare = snapshot.val();
+                  main.innerHTML += `
+                      <article>
+                        <img src="bilder/${vare.bilde}">
+                        <h1>${vare.merke} ${vare.modell}</h1>
+                        <p>${vare.pris} kr,-</p>
+                      </article>
+                  `;
+              }
+              sokefelt.oninput = sok;
+              function sok () {
+                  søketekst=sokefelt.value;
+                  visBukser();
+
+              }
+              function visAlleVarer() {
+                  bukser.on("child_added", visVare);
+                  skjorter.on("child_added", visVare);
+              }
+              visAlleVarer();
+              function visAlleVarer() {
+                  main.innerHTML = " "; //Fjerner alt innhold i main
+                  bukser.on("child_added", visVare);
+                  skjorter.on("child_added", visVare);
+              }
+              function visBukser() {
+                  main.innerHTML = " ";
+                  //bukser.on("child_added", visVare);
+                  bukser
+                      .orderByChild("merke")
+                      .startAt(søketekst)
+                      .endAt(søketekst + '\uf8ff')
+                      .on("child_added", visVare);
+              }
+              function visSkjorter() {
+                  main.innerHTML = " ";
+                  skjorter.on("child_added", visVare);
+              }
+        </script>
+  </body>
+</html>

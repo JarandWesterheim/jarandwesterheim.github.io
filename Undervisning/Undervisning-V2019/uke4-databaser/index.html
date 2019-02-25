@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>index</title>
+    <script src="https://www.gstatic.com/firebasejs/5.8.0/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyDd-nFDPwderATzSAQD-lyu2aYblqxicIw",
+        authDomain: "undeervisning-test1.firebaseapp.com",
+        databaseURL: "https://undeervisning-test1.firebaseio.com",
+        projectId: "undeervisning-test1",
+        storageBucket: "undeervisning-test1.appspot.com",
+        messagingSenderId: "6515695288"
+      };
+      firebase.initializeApp(config);
+    </script>
+  </head>
+  <body class="body--login">
+    <script>
+      const db = firebase.database();
+      const kontaktliste = db.ref("kontaktliste");
+
+      const user1 = kontaktliste.child("45873728");
+      const user2 = kontaktliste.child("90989949");
+
+      user1.set(
+          {
+            "online": true,
+            "firstname": "Håkon",
+            "lastname": "Vippe",
+            "city": "Oslo",
+            "age": 23
+          }
+      )
+      user2.set(
+          {
+            "online": false,
+            "firstname": "Lisa",
+            "lastname": "Fohar",
+            "city": "Bergen",
+            "age": 17
+          }
+      )
+    </script>
+  
+  </body>
+</html>

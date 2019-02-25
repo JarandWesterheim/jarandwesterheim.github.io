@@ -1,0 +1,8 @@
+"personalinfo":{
+  "primarykey":{
+    "name": "Jarand Westerheim",
+    "age": 17,
+  },
+  "adress": ["Engebråtan", 2],
+  "platform": ["osx","android"],
+}
