@@ -27,7 +27,7 @@
       <div class="topnav--logo">
 
       </div>
-      <h1 id="topnav--text">a scuffed pokédex for scuffed people</h1>
+      <h1 id="topnav--text">a scuffed pokédex for a scuffed people</h1>
     </header>
 
     <div class="menu">
@@ -50,14 +50,17 @@
       <a href="#main"> <button onclick="visTypeDark()" type="button" class="menu--btn" id="brown">dark</button> </a>
       <a href="#main"> <button onclick="visTypeSteel()" type="button" class="menu--btn" id="steel">steel</button> </a>
       <a href="#main"> <button onclick="visTypeFairy()" type="button" class="menu--btn" id="pink">fairy</button> </a>
-      <input type="text" name="" id="searchbar" value="">
-
+      <input type="text" name="" id="searchbar" value="" placeholder="Search...">
     </div>
 
 
     <main id="main">
 
     </main>
+
+    <article>
+      <img src="${product.Image.Cover}" alt="alt">
+    </article>
 
 
     <script>
@@ -88,11 +91,12 @@
           </article>`
     }
 
-    searchbar.onkeydown = function() {
+    searchbar.onkeyup = function() {
       main.innerHTML = " "
       pokemon
         .orderByChild("Name")
         .startAt(searchbar.value)
+        .limitToFirst(1)
         .on("child_added", visPokemon);
     }
     pokemon.on("child_added", visPokemon);

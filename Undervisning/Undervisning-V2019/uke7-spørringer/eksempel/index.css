@@ -148,12 +148,13 @@ nav{
   background-size: contain;
   background-repeat: no-repeat;
   background-position: left;
-  
 }
+
 .search--icon{
   margin-top: 20px;
   font-size: 50px;
 }
+
 main{
   padding-top: 200px;
   width: 1200px;

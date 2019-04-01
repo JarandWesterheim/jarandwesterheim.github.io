@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>New Arcade</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/stylesheet.css">
+    <link href="https://fonts.googleapis.com/css?family=Monoton|Orbitron" rel="stylesheet">
+    <!-- firebase -->
+    <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyALIIVij5Rp162mHTDa8ictgZ3O7YAITi0",
+        authDomain: "project-spring-2019.firebaseapp.com",
+        databaseURL: "https://project-spring-2019.firebaseio.com",
+        projectId: "project-spring-2019",
+        storageBucket: "",
+        messagingSenderId: "163179103807"
+      };
+      firebase.initializeApp(config);
+    </script>
+  </head>
+  <body>
+    <header>
+      <a id="logo" href="homepage.html">b</a>
+      <b><span>new</span>ARCADE</b>
+      <a href="homepage.html"><i id="cart" class="fas fa-cart-plus"></i></a>
+      <a id="header--user-icon" href="#"><i class="far fa-user"></i></a>
+      <i onclick="showDropdown()" id="header--menu-icon" class="fas fa-bars"></i>
+      <div id="dropdown" class="header--dropdown hidden">
+        <a id="header--dropdown-home" class="header__topic" href="homepage.html">Home</a>
+        <a onclick="showDropdownshop()" class="header__topic">Shop<i id="dropdown--shop-arrow" class="fas fa-chevron-down"></i></a>
+        <a id="header__subtopic1" class="header__subtopic subtopic--hidden" href="shop.html">all games</a>
+        <a id="header__subtopic2" class="header__subtopic subtopic--hidden" href="shop.html#arcade">arcade games</a>
+        <a id="header__subtopic3" class="header__subtopic subtopic--hidden" href="shop.html#digital">digital games</a>
+        <a id="header__subtopic4" class="header__subtopic subtopic--hidden" href="shop.html#board">board games</a>
+        <a class="header__topic" href="homepage.html#reviews">reviews</a>
+        <a class="header__topic" href="cart.html">cart<i class="fas fa-cart-plus"></i></a>
+        <a class="header__topic" href="user.html">user<i class="far fa-user"></i></a>
+      </div>
+    </header>
+    <main>
+    </main>
+    <footer></footer>
+    <script type="text/javascript" src="../javascript/javascript.js"></script>
+    <script type="text/javascript">
+    const main = document.querySelector("main");
+
+    var url_string = window.location.href
+    var url = new URL(url_string);
+    var id = url.searchParams.get("id");
+
+    const db = firebase.database();
+    const digital = db.ref("products/digital/" + id );
+
+    function generateGamepage(snapshot) {
+      let game = snapshot.val();
+      main.innerHTML +=`
+      <div class="gamepagedigital--heroimg">
+        <img src="${game.Heroimg}" alt="">
+      </div>
+      <div class="gamepagedigital--info">
+        <img class="gamepagedigital--coverimg" src="${game.Image}" alt="">
+        <h1 class="gamepagedigital--gamename">${game.Name}</h1>
+        <p>${game.Name} is a ${game.Type} game you can play on ${game.Platform}.</p>
+        <p>Splitscreen: ${game.Splitscreen}</p>
+        <p>Rating: ${game.Rating}</p>
+        <b>$${game.Price}</b>
+        <button onclick="addCart()" class="add-to-cart" id=x"add-to-cart"><h1>Add to cart <i class="fas fa-cart-plus"></h1></i></button>
+      </div>
+      `
+    }
+
+    digital.on("value", generateGamepage);
+
+    function addCart() {
+      let cart = document.getElementById("cart");
+      cart.classList.toggle("addCart");
+    }
+    </script>
+  </body>
+</html>

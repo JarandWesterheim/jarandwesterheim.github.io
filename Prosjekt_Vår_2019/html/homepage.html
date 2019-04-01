@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>New Arcade</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/stylesheet.css">
+    <link href="https://fonts.googleapis.com/css?family=Monoton|Orbitron" rel="stylesheet">
+    <!-- firebase -->
+    <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyALIIVij5Rp162mHTDa8ictgZ3O7YAITi0",
+        authDomain: "project-spring-2019.firebaseapp.com",
+        databaseURL: "https://project-spring-2019.firebaseio.com",
+        projectId: "project-spring-2019",
+        storageBucket: "",
+        messagingSenderId: "163179103807"
+      };
+      firebase.initializeApp(config);
+    </script>
+    <script type="text/javascript" src="../javascript/javascript.js"></script>
+  </head>
+  <body>
+    <header>
+      <a id="logo" href="homepage.html">b</a>
+      <b><span>new</span>ARCADE</b>
+      <a href="homepage.html"><i id="cart" class="fas fa-cart-plus"></i></a>
+      <a id="header--user-icon" href="#"><i class="far fa-user"></i></a>
+      <i onclick="showDropdown()" id="header--menu-icon" class="fas fa-bars"></i>
+      <div id="dropdown" class="header--dropdown hidden">
+        <a id="header--dropdown-home" class="header__topic" href="homepage.html">Home</a>
+        <a onclick="showDropdownshop()" class="header__topic">Shop<i id="dropdown--shop-arrow" class="fas fa-chevron-down"></i></a>
+        <a id="header__subtopic1" class="header__subtopic subtopic--hidden" href="shop.html">all games</a>
+        <a id="header__subtopic2" class="header__subtopic subtopic--hidden" href="shop.html#arcade">arcade games</a>
+        <a id="header__subtopic3" class="header__subtopic subtopic--hidden" href="shop.html#digital">digital games</a>
+        <a id="header__subtopic4" class="header__subtopic subtopic--hidden" href="shop.html#board">board games</a>
+        <a class="header__topic" href="homepage.html#reviews">reviews</a>
+        <a class="header__topic" href="cart.html">cart<i class="fas fa-cart-plus"></i></a>
+        <a class="header__topic" href="user.html">user<i class="far fa-user"></i></a>
+      </div>
+    </header>
+    <main>
+      <div class="main--heroimg">
+        <b><span>new</span>ARCADE</b>
+      </div>
+      <div onclick="showAbout()" id="main--about" class="main--about__compressed">
+        <b id="about">about</b>
+        <div class="about--text">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </div>
+        <div id="main--about-dropdown-prompt" class="about--dropdown-prompt">
+          <i id="main--about-arrow" class="fas fa-chevron-down"></i>
+        </div>
+      </div>
+      <div class="main--shop-container">
+        <h1>Popular products:</h1>
+        <div id="main_displaytarget" class="main--shop">
+        </div>
+      </div>
+      <footer></footer>
+<script type="text/javascript">
+
+const db = firebase.database();
+const digital = db.ref("products/digital");
+const arcade = db.ref("products/arcade");
+const board = db.ref("products/board");
+const articlecontainer = document.getElementById('main_displaytarget');
+
+var x = Math.floor((Math.random() * 7) + 1);
+
+function generateArticlehomepage(snapshot) {
+  console.log("hei");
+  let digitalproduct = snapshot.val();
+  let key = snapshot.key;
+  articlecontainer.innerHTML +=`
+      <article class="article--content"><a href="gamepagedigital.html?id=${key}">
+        <img class="article--img" src="${digitalproduct.Image}" alt="img"></img>
+        <p><b class="article--name">${digitalproduct.Name}</b></p>
+        <p class="article--price"><b>$${digitalproduct.Price}</b></p>
+        <div class="article--content-extra">
+          <p><b>${digitalproduct.Type}</b></p>
+          <p>PEGI: <b>${digitalproduct.Rating}</b></p>
+          <p>Available on: <b>${digitalproduct.Platform}</b></p></a>
+          <button onclick="addCart()" class="add-to-cart" id="add-to-cart"><h1>Add to cart <i class="fas fa-cart-plus"></h1></i></button>
+        </div>
+      </article>
+      `
+}
+
+function showArticles() {
+  articlecontainer.innerHTML = "";
+  digital.orderByChild("value").equalTo(x).on("child_added", generateArticlehomepage);
+}
+function addCart() {
+  let cart = document.getElementById("cart");
+  cart.classList.toggle("addCart");
+
+}
+showArticles();
+</script>
+    </main>
+    <footer></footer>
+  </body>
+</html>

@@ -1,0 +1,406 @@
+/*General css*/
+body{
+  margin: 0;
+  padding: 0;
+  top: 0;
+  left: 0;
+  position: relative;
+  overflow-x: hidden;
+  font-family: 'Orbitron', sans-serif;
+}
+.rotate-180deg{
+  transform: rotate(180deg);
+}
+a{
+  text-decoration: none;
+  color: #000;
+}
+.addCart{
+  animation-name: addCart;
+  animation-duration: .4s;
+}
+header{
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  height: 57px;
+  box-shadow: 0 -2px 8px 2px rgba(0,0,0,.5);
+  font-size: 40px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  z-index: 9;
+}
+main{
+  margin: 0;
+  padding: 0;
+}
+header :nth-child(3){
+  margin-left: auto;
+}
+header i{
+  z-index: 3;
+}
+header a{
+  padding-right: 30px;
+  color: #ff4365;
+}
+header a:hover .fa-user, header a:hover .fa-cart-plus, #header--menu-icon:hover{
+  color: #02c39a;
+}
+.header__topic:hover .fa-cart-plus, .header__topic:hover .fa-user{
+  color: #fff;
+}
+header b span{
+  color: #02c39a;
+}
+header a, header b, header i{
+  margin-top: auto;
+}
+#logo{
+  color: rgba(255, 0, 0, 0);
+  background-image: url("../bilder/svg/arcade-svgrepo-com.svg");
+  padding-bottom: 10px;
+  margin-left: 30px;
+}
+.fa-bars{
+  color: #ff4365;
+  padding-right: 30px;
+  margin-top: 8px;
+}
+.fa-times{
+  right: 300px;
+  color: #ff4365;
+  padding-right: 0;
+  position: fixed;
+  transition: 0s;
+}
+.header--user-icon-active{
+  margin-right: 330px;
+}
+.header--dropdown{
+  width: 300px;
+  height: 100vh;
+  top: -9px;
+  right: -300px;
+  background-color: rgba(32, 32, 32, .97);
+  box-shadow: -2px 67px 7px 0px rgba(0,0,0,0.75);
+  padding: 30px 20px;
+  z-index: 2;
+  transition: .2s ease;
+  position: fixed;
+}
+.header--dropdown-active{
+  right: 0px;
+}
+.header--dropdown a{
+  display: block;
+  text-decoration: none;
+  color: rgb(158, 158, 158);
+  padding: 5px;
+}
+.header--dropdown a:hover{
+  color: rgb(255, 255, 255);
+}
+.header__topic{
+  text-transform: uppercase;
+  font-size: 20px;
+}
+#dropdown--shop-arrow{
+  transition: .2s;
+}
+.header__subtopic{
+  text-transform: uppercase;
+  font-size: 16px;
+}
+.header__subtopic::before{
+  content: "---";
+  color: rgba(32, 32, 32, 0);
+}
+#header--dropdown-home{
+  margin-top: 50px;
+}
+#dropdown a i{
+  margin-left: 10px;
+}
+
+/*
+General css
+*/
+.hidden{
+  visibility: hidden;
+}
+.fa-chevron-down{
+  transition: .2s;
+}
+.subtopic--hidden{
+  right: -300px;
+  position: absolute;
+}
+.add-to-cart{
+  border-radius: 4px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #02c39a;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+.added-to-cart{
+  animation: added-to-cart;
+}
+
+main{
+  max-width: 1360px;
+  margin: auto;
+  position: relative;
+}
+.main--heroimg{
+  background-image: url("https://c.wallhere.com/photos/9a/a4/arcade_video_games_Capcom-1292665.jpg!d");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  text-align: center;
+  padding-top: 200px;
+  padding-bottom: 200px;
+  margin-top: 70px;
+
+}
+.main--heroimg b{
+  color: #fffff3;
+  font-size: 70px;
+}
+.main--heroimg b span{
+  color: #02c39a;
+  font-size: 70px;
+}
+
+
+.main--about__compressed{
+  margin-top: 50px;
+  display: flex;
+  height: 250px;
+}
+#about{
+  padding-right: 100px;
+  padding-left: 100px;
+  padding-top: 90px;
+  padding-bottom: 90px;
+  font-size: 70px;
+  text-transform: uppercase;
+  border-right: 3px solid #030301;
+}
+.about--text{
+  margin-left: 90px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 50px;
+  padding-bottom: 13px;
+  height: 150px;
+  overflow-y: hidden;
+  position: relative;
+}
+.about--dropdown-prompt{
+  border-top: 2px solid #030301;
+  width: 770px;
+  position: absolute;
+  bottom: 76px;
+  right: 0;
+  background-color: #fff;
+  text-align: center;
+}
+.about--dropdown-prompt i{
+  transition: .2s;
+  transition-delay: .1s
+}
+.main--about-expanded{
+  height: auto;
+}
+.main--about-expanded div{
+  overflow-y: visible;
+  border: none;
+  height: auto;
+}
+.main--about-expanded div i{
+  color: rbga(1,1,1,0);
+}
+.main--dropdown-prompt-expanded{
+  border: none;
+}
+.main--dropdown-prompt-expanded i{
+  transform: rotate(180deg);
+  transition: .2s;
+  transition-delay: .1s;
+}
+
+
+.main--shop{
+  position: absolute;
+  width: 100%;
+  height: 600px;
+  border: 3px solid #030301;
+  border-radius: 2px;
+  margin-left: auto;
+  margin-top: 50px;
+  margin-bottom: 500px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  justify-content: space-around;
+}
+.main--shop:nth-last-child(2){
+  border-left: 2px solid #030301;
+}
+.article--content{
+  width: 300px;
+  height: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  background-color: #fff;
+}
+.article--content p, .article--content div{
+  padding-left: 10px;
+}
+.article--name{
+  color: #02c39a;
+}
+.article--price b, .article--content-extra p b{
+  color: #ff4365;
+}
+.article--content-extra{
+  opacity: 0;
+}
+.article--content:hover{
+  height: 670px;
+  background-color: #fff;
+  box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.75);
+}
+.article--content:hover .article--content-extra{
+  opacity: 1;
+  transition: .2s;
+}
+.article--content img {
+  width: 100%;
+}
+.main--reviews{
+  position: absolute;
+}
+
+
+/*CSS FOR SHOP*/
+.shop--product-contracted{
+  margin-top: 50px;
+}
+.shop--header{
+  text-transform: uppercase;
+  padding-left: 20px;
+  padding-right: 20px;
+  border: 3px solid #030301;
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+.shop--header b{
+  margin-right: auto;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-size: 30px;
+}
+.shop--header i{
+  font-size: 40px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-top: 7px;
+  padding-right: 10px;
+  padding-left: 30px;
+  border-left: 2px solid #030301;
+}
+.shop--container{
+  position: relative;
+  border-left: 2px solid #030301;
+  border-right: 2px solid #030301;
+  border-bottom: 2px solid #030301;
+}
+.shop--container article:first-child{
+  border: 0;
+}
+
+/*generated html css*/
+.shop--article--content{
+  padding top: 50px;
+  margin-left: 25px;
+  padding-left: 25px;
+  margin-right: 25px;
+  padding-right: 25px;
+  width: auto;
+  height: 375px;
+  margin-bottom: 50px;
+  background-color: #fff;
+  border-top: 2px solid #030301;
+}
+.shop--article--content a{
+  padding-top: 30px;
+  display: inline-block;
+  position: relative;
+}
+.shop--article--img{
+  width: 300px;
+  display: inline-block;
+}
+.shop--article--text{
+  display: inline-block;
+  padding: 30px;
+  padding-bottom: 90px;
+  position: relative;
+  top: 0;
+}
+.shop--article--content-extra button{
+  display: block;
+}
+
+/*CSS FOR GAMEPAGES*/
+.gamepagedigital--heroimg{
+}
+.gamepagedigital--heroimg img{
+  width: 100%;
+}
+.gamepagedigital--info{
+  position: relative;
+}
+.gamepagedigital--coverimg{
+  width: 300px;
+  position: relative;
+  top: -150px;
+  left: 40px;
+  box-shadow: 0px 0px 5px 4px rgba(0,0,0,0.75);
+}
+.gamepagedigital--gamename{
+  font-size: 70px;
+  position: relative;
+  top: -150px;
+}
+.gamepagedigital--info p{
+  position: relative;
+  top: -150px;
+}
+.gamepagedigital--info b{
+  font-size: 40px;
+  position: relative;
+  top: -150px;
+}
+.gamepagedigital--info button{
+  position: relative;
+  top: -150px;
+}
+
+/* ANIMATIONS */
+@keyframes addCart{
+  20% {transform: scale(1);}
+  50% {transform: scale(1.2);}
+  80% {transform: scale(1);}
+}

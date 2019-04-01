@@ -1,0 +1,31 @@
+
+{
+  "account":{
+    "admin":{
+      "admin1":{
+      },
+    },
+    "user":{
+      "user1":{
+        "username":
+        "profileimg":
+      },
+      "user2":{
+        "username":
+        "profileimg":
+      },
+      "user3":{
+        "username":
+        "profileimg":
+      },
+    }
+  },
+  "posts":{
+    "samplepost":{
+      "date"
+      "time"
+      "content"
+      "userID"
+    }
+  }
+}
