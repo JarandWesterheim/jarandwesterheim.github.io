@@ -35,6 +35,9 @@ header{
 main{
   margin: 0;
   padding: 0;
+  max-width: 90%;
+  margin: auto;
+  position: relative;
 }
 header :nth-child(3){
   margin-left: auto;
@@ -153,12 +156,6 @@ General css
 }
 .added-to-cart{
   animation: added-to-cart;
-}
-
-main{
-  max-width: 1360px;
-  margin: auto;
-  position: relative;
 }
 .main--heroimg{
   background-image: url("https://c.wallhere.com/photos/9a/a4/arcade_video_games_Capcom-1292665.jpg!d");
