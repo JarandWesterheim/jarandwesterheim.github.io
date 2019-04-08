@@ -5,6 +5,7 @@
     <title>New Arcade</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/stylesheet.css">
+    <link rel="icon" href="../bilder/svg/arcade-svgrepo-com.ico">
     <link href="https://fonts.googleapis.com/css?family=Monoton|Orbitron" rel="stylesheet">
     <!-- firebase -->
     <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase.js"></script>
@@ -118,7 +119,7 @@
       const articlecontainer = document.getElementById('main_displaytarget');
 
       var x = Math.floor((Math.random() * 7) + 1);
-      var y = Math.floor((Math.random() * 1) + 1);
+      var y = Math.floor((Math.random() * 3) + 1);
       var z = Math.floor((Math.random() * 5) + 1);
 
       function generateDigitalhomepage(snapshot) {
@@ -145,10 +146,9 @@
             <article class="article--content"><a href="gamepagearcade.html?id=${key}">
               <img class="article--img" src="${digitalproduct.Image}" alt="img"></img>
               <p><b class="article--name">${digitalproduct.Name}</b></p>
-              <p class="article--price"><b>$${digitalproduct.Price}</b></p>
+              <p class="article--price"><b>$ ${digitalproduct.Price}</b></p>
               <div class="article--content-extra">
-                <p><b>${digitalproduct.Type}</b></p>
-                <p>PEGI: <b>${digitalproduct.Rating}</b></p>
+                <p>Scoring: <b>${digitalproduct.Scoring}</b></p>
                 <p>Available on: <b>${digitalproduct.Platform}</b></p></a>
                 <button onclick="addCart()" class="add-to-cart" id="add-to-cart"><h2>Add to cart <i class="fas fa-cart-plus"></h2></i></button>
               </div>
@@ -177,11 +177,6 @@
         arcade.orderByChild("value").equalTo(y).on("child_added", generateArcadehomepage);
         digital.orderByChild("value").equalTo(x).on("child_added", generateDigitalhomepage);
         board.orderByChild("value").equalTo(z).on("child_added", generateBoardhomepage);
-      }
-      function addCart() {
-        let cart = document.getElementById("cart");
-        cart.classList.toggle("addCart");
-
       }
       showArticles();
       </script>

@@ -44,6 +44,9 @@ footer{
   height: 70px;
   bottom: 0;
   width: 100%;
+  position: fixed;
+  background: #fff;
+
 }
 footer h2{
   text-align: center;
@@ -230,7 +233,7 @@ General css
 .main--shop{
 
   width: 100%;
-  height: 600px;
+  height: auto;
   border: 3px solid #030301;
   border-radius: 2px;
   margin-left: auto;
@@ -464,6 +467,146 @@ General css
   position: relative;
   top: -150px;
 }
+
+
+.gamepageboard{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  margin-top: 70px;
+}
+.gamepageboard--slideshow {
+  grid-column: span 1;
+  width: 600px;
+  height: 300px;
+  margin: 50px;
+  overflow: hidden;
+  position: relative;
+}
+.gamepageboard--slideshow img{
+
+}
+.navigation{
+  position: absolute;
+  bottom: 30%;
+  left: 0px;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+
+}
+.slides{
+  width: 300%;
+  height: 100%;
+  display: flex;
+}
+.slide{
+  width: 33%;
+  height: 100%;
+  display: flex;
+  transition: .2s;
+}
+.slide img{
+  height: 100%;
+  margin: 0 auto;
+}
+.bar{
+  width: 70px;
+  height: 40px;
+  margin: 6px;
+  cursor: pointer;
+  transition: .2s;
+  position: relative;
+  border: 2px solid #fff;
+}
+.bar img{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: auto;
+  height: auto;
+  max-height: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  opacity: .8;
+}
+.bar:hover{
+  border: 2px solid #6a6767;
+}
+.bar img:hover{
+  opacity: 1;
+}
+input[name="r"]{
+  position: absolute;
+  visibility: hidden;
+}
+#r1:checked ~ .s1{
+  margin-left: 0;
+}
+#r2:checked ~ .s1{
+  margin-left: -34%;
+}
+#r3:checked ~ .s1{
+  margin-left: -66%;
+}
+
+
+#arcadebody{
+  background: rgb(244,0,237);
+  background: radial-gradient(circle, rgba(244,0,237,1) 0%, rgba(0,212,255,1) 100%);
+}
+#digitalbody{
+  background: rgb(34,193,195);
+  background: linear-gradient(180deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
+}
+.gamepagedigital--info, .gamepagearcade--info, .gamepageboard--info{
+  background: rgba(252, 252, 252, 0.8);
+  padding: 20px;
+}
+
+#target{
+  margin-top: 70px;
+  position: relative;
+  width: 100%;
+}
+
+.gamepagearcade{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  margin-top: 70px;
+  width: 100%;
+}
+.gamepagearcade--coverimg{
+  grid-column: span 1;
+}
+.gamepagearcade--info{}
+.gamepagearcade--gamename{}
+#canvas--container{
+  width: 100%;
+  grid-column: span 2;
+  height: 700px;
+  position: relative;
+  margin: 20px auto;
+}
+canvas {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+}
+.demo-button{
+  border-radius: 4px;
+  margin:auto;
+  background-color: #02c39a;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-size: 26px;
+  text-transform: uppercase;
+}
+
 /* overwriting css */
 .gone{
   visibility: hidden;

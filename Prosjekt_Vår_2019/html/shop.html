@@ -5,6 +5,7 @@
     <title>shop</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/stylesheet.css">
+<link rel="icon" href="../bilder/svg/arcade-svgrepo-com.ico">
     <link href="https://fonts.googleapis.com/css?family=Monoton|Orbitron" rel="stylesheet">
     <!-- firebase -->
     <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase.js"></script>
@@ -134,7 +135,7 @@
           </article>
           `
     }
-    function searchArcade() {
+    function searchArcade(snapshot) {
       let arcadeproduct = snapshot.val();
       let key = snapshot.key;
 
@@ -151,7 +152,7 @@
           </article>
           `
     }
-    function searchBoard() {
+    function searchBoard(snapshot) {
       let boardproduct = snapshot.val();
       let key = snapshot.key;
 
@@ -168,7 +169,6 @@
           </article>
           `
     }
-
     searchbar.onkeyup = function() {
       searchmain.innerHTML = ""
       digital
@@ -176,24 +176,24 @@
         .startAt(searchbar.value)
         .endAt(searchbar.value+"uf8ff")
         .on("child_added", searchDigital);
-    }
-    /*
-    searchbar.onkeyup = function() {
-      board
-        .orderByChild("Searchname")
-        .startAt(searchbar.value)
-        .endAt(searchbar.value+"uf8ff")
-        .on("child_added", searchBoard);
-    }
-    searchbar.onkeyup = function() {
-      arcade
-        .orderByChild("Searchname")
-        .startAt(searchbar.value)
-        .endAt(searchbar.value+"uf8ff")
-        .on("child_added", searchArcade);
-    }
-    */
+        board
+          .orderByChild("Searchname")
+          .startAt(searchbar.value)
+          .endAt(searchbar.value+"uf8ff")
+          .on("child_added", searchBoard);
+        arcade
+          .orderByChild("Searchname")
+          .startAt(searchbar.value)
+          .endAt(searchbar.value+"uf8ff")
+          .on("child_added", searchArcade);
+      }
 
+    function clearSearch() {
+      var a = searchbar.value;
+      if (a == "") {
+        searchmain.innerHTML = "";
+      }
+    }
 
     function generateArticledigital(snapshot) {
       let digitalproduct = snapshot.val();
@@ -230,11 +230,6 @@
       digitalarrow.classList.toggle("fa-chevron-up");
     }
 
-    function addCart() {
-      let cart = document.getElementById("cart");
-      cart.classList.toggle("addCart");
-
-    }
     function expandPlatform() {
       var dropdown = document.getElementById("digital-sorting");
       dropdown.classList.toggle("hidden");

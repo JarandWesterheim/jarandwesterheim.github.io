@@ -33,4 +33,11 @@ function expandBoard() {
   var expand =document.getElementById("shop--board-contracted");
   expand.classList.toggle("shop-expanded");
 }
+function addCart() {
+  let cart = document.getElementById("cart");
+  cart.classList.toggle("addCart");
+  setTimeout(function(){
+    cart.classList.toggle("addCart")
+  }, 400);
+}
 /*Gamepage Article Generation*/

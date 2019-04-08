@@ -5,6 +5,7 @@
     <title>New Arcade</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/stylesheet.css">
+<link rel="icon" href="../bilder/svg/arcade-svgrepo-com.ico">
     <link href="https://fonts.googleapis.com/css?family=Monoton|Orbitron" rel="stylesheet">
     <!-- firebase -->
     <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase.js"></script>
@@ -21,7 +22,7 @@
       firebase.initializeApp(config);
     </script>
   </head>
-  <body>
+  <body id="digitalbody">
     <header>
       <a id="logo" href="homepage.html">b</a>
       <b><span>new</span>ARCADE</b>
@@ -62,7 +63,7 @@
       <div class="gamepagedigital--info">
         <img class="gamepagedigital--coverimg" src="${game.Image}" alt="">
         <h1 class="gamepagedigital--gamename">${game.Name}</h1>
-        <p>${game.Name} is a ${game.Type} game you can play on ${game.Platform}.</p>
+        <p>${game.Name} is a ${game.Type} game you can play on ${game.Platform.Name}.</p>
         <p>Splitscreen: ${game.Splitscreen}</p>
         <p>Rating: ${game.Rating}</p>
         <b>$${game.Price}</b>
@@ -73,10 +74,7 @@
 
     digital.on("value", generateGamepage);
 
-    function addCart() {
-      let cart = document.getElementById("cart");
-      cart.classList.toggle("addCart");
-    }
+
     </script>
     <footer><h2><span>new</span>ARCADE</h2></footer>
   </body>

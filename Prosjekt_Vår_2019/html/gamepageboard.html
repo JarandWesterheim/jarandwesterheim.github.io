@@ -5,6 +5,7 @@
     <title>New Arcade</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/stylesheet.css">
+<link rel="icon" href="../bilder/svg/arcade-svgrepo-com.ico">
     <link href="https://fonts.googleapis.com/css?family=Monoton|Orbitron" rel="stylesheet">
     <!-- firebase -->
     <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase.js"></script>
@@ -40,7 +41,7 @@
         <a class="header__topic" href="user.html">user<i class="far fa-user"></i></a>
       </div>
     </header>
-    <main>
+    <main class="gamepageboard">
     </main>
     <script type="text/javascript" src="../javascript/javascript.js"></script>
     <script type="text/javascript">
@@ -51,32 +52,50 @@
     var id = url.searchParams.get("id");
 
     const db = firebase.database();
-    const board = db.ref("products/board/" + id );
+    const boardID = db.ref("products/board/" + id );
 
     function generateGamepage(snapshot) {
       let product = snapshot.val();
       main.innerHTML +=`
-      <div class="gamepagedigital--heroimg">
-        <img src="${product.Image2}" alt="">
+      <div class="gamepageboard--slideshow">
+        <div class="slides">
+          <input type="radio" name="r" id="r1" checked>
+          <input type="radio" name="r" id="r2">
+          <input type="radio" name="r" id="r3">
+
+
+          <div class="slide s1">
+            <img src="${product.Image}" alt="">
+          </div>
+          <div class="slide s2">
+            <img src="${product.Image2}" alt="">
+          </div>
+          <div class="slide s3">
+            <img src="${product.Image3}" alt="">
+          </div>
+        </div>
       </div>
-      <div class="gamepagedigital--info">
-        <img class="gamepagedigital--coverimg" src="${product.Image}" alt="">
-        <h1 class="gamepagedigital--gamename">${product.Name}</h1>
-        <p>${product.Name} is a ${product.Type} game you can play on ${product.Platform}.</p>
-        <p>Splitscreen: ${product.Splitscreen}</p>
-        <p>Rating: ${product.Rating}</p>
+      <div class="navigation">
+        <label for="r1" class="bar"><img src="${product.Image}" alt=""></label>
+        <label for="r2" class="bar"><img src="${product.Image2}" alt=""></label>
+        <label for="r3" class="bar"><img src="${product.Image3}" alt=""></label>
+      </div>
+
+      <div class="gamepageboard--info">
+        <h1 class="gamepageboard--gamename">${product.Subname} ${product.Name}</h1>
+        <p>${product.Info}</p>
+        <p>Players: ${product.Players}</p>
+        <p>Type: ${product.Type}</p>
         <b>$${product.Price}</b>
         <button onclick="addCart()" class="add-to-cart" id=x"add-to-cart"><h2>Add to cart <i class="fas fa-cart-plus"></h2></i></button>
       </div>
       `
     }
 
-    board.on("value", generateGamepage);
+    boardID.on("value", generateGamepage);
 
-    function addCart() {
-      let cart = document.getElementById("cart");
-      cart.classList.toggle("addCart");
-    }
+
+
     </script>
     <footer><h2><span>new</span>ARCADE</h2></footer>
   </body>
