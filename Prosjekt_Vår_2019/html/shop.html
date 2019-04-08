@@ -44,11 +44,20 @@
     <main>
       <div class="main--heroimg">
         <b><span></span>SHOP</b>
+        <br>
+        <input type="text" name="" id="searchbar" value="" placeholder="Search...">
+      </div>
+      <div id="search">
+        <div class="search--target">
+
+        </div>
       </div>
       <div class="shop">
         <div id="shop--arcade-contracted" class="shop--product-contracted">
           <div class="shop--header">
             <b>Arcade Games</b>
+            <p>platform <i class="fas fa-sort-down"></i></p>
+            <p>From <span id="greenDolla">$</span> <i class="fas fa-long-arrow-alt-right"></i></p>
             <i id="arcade--arrow" class="fas fa-chevron-down" onclick="expandArcade()"></i>
           </div>
           <div id="shop--arcade-container" class="shop--container">
@@ -58,15 +67,27 @@
         <div id="shop--digital-contracted" class="shop--product-contracted">
           <div class="shop--header">
             <b>Digital Games</b>
+            <div class="sorting--container">
+              <p onclick="expandPlatform()">platform <i class="fas fa-sort-down"></i></p>
+              <div id="digital-sorting" class="sorting--options hidden">
+                <p class="sorting--header">sort by:</p>
+                <p class="sorting--button" onclick="sortPs4()">Playstation 4</p>
+                <p class="sorting--button" onclick="sortXbox()">XBOX One</p>
+                <p class="sorting--button" onclick="sortPc()">PC</p>
+                <p class="sorting--button" onclick="sortNintendoSwitch()">Nintendo SWITCH</p>
+              </div>
+            </div>
+            <p onclick="digitalPrice()">From <span id="greenDolla">$</span> <i class="fas fa-long-arrow-alt-right"></i></p>
             <i id="digital--arrow" class="fas fa-chevron-down" onclick="expandDigital()"></i>
           </div>
           <div id="shop--digital-container" class="shop--container">
-
           </div>
         </div>
         <div id="shop--board-contracted" class="shop--product-contracted">
           <div class="shop--header">
             <b>Board Games</b>
+            <p>platform <i class="fas fa-sort-down"></i></p>
+            <p>From <span id="greenDolla">$</span> <i class="fas fa-long-arrow-alt-right"></i></p>
             <i id="board--arrow" class="fas fa-chevron-down" onclick="expandBoard()"></i>
           </div>
           <div id="shop--board-container" class="shop--container">
@@ -80,16 +101,24 @@
 
 
     <script type="text/javascript">
-    const main =document.getElementById("shop--digital-container");
+    const digitalmain = document.getElementById("shop--digital-container");
+    const arcademain = document.getElementById("shop--arcade-container");
+    const boardmain = document.getElementById("shop--board-container");
     const db = firebase.database();
     const digital = db.ref("products/digital");
     const arcade = db.ref("products/arcade");
     const board = db.ref("products/board");
+    const digitalarrow = document.getElementById("digital--arrow");
+    const arcadarrow = document.getElementById("digital--arrow");
+    const boardarrow = document.getElementById("digital--arrow");
+    const searchmain = document.getElementById("search");
+    const searchbar = document.querySelector("#searchbar");
 
-    function generateArticlehomepage(snapshot) {
+
+    function searchDigital(snapshot) {
       let digitalproduct = snapshot.val();
       let key = snapshot.key;
-      main.innerHTML +=`
+      searchmain.innerHTML +=`
           <article class="shop--article--content"><a href="gamepagedigital.html?id=${key}">
             <img class="shop--article--img" src="${digitalproduct.Image}" alt="img"></img>
             <div class="shop--article--text">
@@ -98,26 +127,230 @@
               <div class="shop--article--content-extra">
                 <p><b>${digitalproduct.Type}</b></p>
                 <p>PEGI: <b>${digitalproduct.Rating}</b></p>
-                <p>Available on: <b>${digitalproduct.Platform}</b></p></a>
-                <button onclick="addCart()" class="add-to-cart" id="add-to-cart"><h1>Add to cart <i class="fas fa-cart-plus"></h1></i></button>
+                <p>Available on: <b>${digitalproduct.Platform.Name}</b></p></a>
+                <button onclick="addCart()" class="add-to-cart" id="add-to-cart"><h2>Add to cart <i class="fas fa-cart-plus"></h2></i></button>
               </div>
             </div>
           </article>
           `
     }
+    function searchArcade() {
+      let arcadeproduct = snapshot.val();
+      let key = snapshot.key;
+
+      searchmain.innerHTML +=`
+          <article class="shop--article--content"><a href="gamepagearcade.html?id=${key}">
+            <img class="shop--article--img" src="${arcadeproduct.Image}" alt="img"></img>
+            <div class="shop--article--text">
+              <p><b class="shop--article--name">${arcadeproduct.Name}</b></p>
+              <p class="shop--article--price"><b>$${arcadeproduct.Price}</b></p>
+              <p class="shop--article--platform">Available on: <b>${arcadeproduct.Platform}</b></p>
+              <p class="shop--article--scoring">Scoring: <b>${arcadeproduct.Scoring}</b></p>
+              <button onclick="addCart()" class="add-to-cart" id="add-to-cart"><h2>Add to cart <i class="fas fa-cart-plus"></h2></i></button>
+            </div>
+          </article>
+          `
+    }
+    function searchBoard() {
+      let boardproduct = snapshot.val();
+      let key = snapshot.key;
+
+      searchmain.innerHTML +=`
+          <article class="shop--article--content"><a href="gamepageboard.html?id=${key}">
+            <img class="shop--article--img" src="${boardproduct.Image}" alt="img"></img>
+            <div class="shop--article--text">
+              <p><b class="shop--article--name">${boardproduct.Subname} ${boardproduct.Name}</b></p>
+              <p class="shop--article--price"><b>$${boardproduct.Price}</b></p>
+              <p class="shop--article--platform">Type: <b>${boardproduct.Type}</b></p>
+              <p class="shop--article--scoring">Players: <b>${boardproduct.Players}</b></p>
+              <button onclick="addCart()" class="add-to-cart" id="add-to-cart"><h2>Add to cart <i class="fas fa-cart-plus"></h2></i></button>
+            </div>
+          </article>
+          `
+    }
+
+    searchbar.onkeyup = function() {
+      searchmain.innerHTML = ""
+      digital
+        .orderByChild("Searchname")
+        .startAt(searchbar.value)
+        .endAt(searchbar.value+"uf8ff")
+        .on("child_added", searchDigital);
+    }
+    /*
+    searchbar.onkeyup = function() {
+      board
+        .orderByChild("Searchname")
+        .startAt(searchbar.value)
+        .endAt(searchbar.value+"uf8ff")
+        .on("child_added", searchBoard);
+    }
+    searchbar.onkeyup = function() {
+      arcade
+        .orderByChild("Searchname")
+        .startAt(searchbar.value)
+        .endAt(searchbar.value+"uf8ff")
+        .on("child_added", searchArcade);
+    }
+    */
+
+
+    function generateArticledigital(snapshot) {
+      let digitalproduct = snapshot.val();
+      let key = snapshot.key;
+      digitalmain.innerHTML +=`
+          <article class="shop--article--content"><a href="gamepagedigital.html?id=${key}">
+            <img class="shop--article--img" src="${digitalproduct.Image}" alt="img"></img>
+            <div class="shop--article--text">
+              <p><b class="shop--article--name">${digitalproduct.Name}</b></p>
+              <p class="shop--article--price"><b>$${digitalproduct.Price}</b></p>
+              <div class="shop--article--content-extra">
+                <p><b>${digitalproduct.Type}</b></p>
+                <p>PEGI: <b>${digitalproduct.Rating}</b></p>
+                <p>Available on: <b>${digitalproduct.Platform.Name}</b></p></a>
+                <button onclick="addCart()" class="add-to-cart" id="add-to-cart"><h2>Add to cart <i class="fas fa-cart-plus"></h2></i></button>
+              </div>
+            </div>
+          </article>
+          `
+    }
+    function clearHTMl() {
+      digitalmain.innerHTML = "";
+      arcademain.innerHTML = "";
+      boardmain.innerHTML = "";
+    }
+    clearHTMl();
+
     function expandDigital() {
-      main.innerHTML = "";
-      digital.on("child_added", generateArticlehomepage);
-      var digitalarrow = document.getElementById("digital--arrow");
+      var innerhtml = digitalmain.innerHTML;
+      switch (innerhtml) {
+        case "": digital.on("child_added", generateArticledigital); break;
+        default: digitalmain.innerHTML = "";
+      }
       digitalarrow.classList.toggle("fa-chevron-up");
     }
+
     function addCart() {
       let cart = document.getElementById("cart");
       cart.classList.toggle("addCart");
 
     }
+    function expandPlatform() {
+      var dropdown = document.getElementById("digital-sorting");
+      dropdown.classList.toggle("hidden");
+    }
+    function sortPs4() {
+      var dropdown = document.getElementById("digital-sorting");
+      var innerhtml = digitalmain.innerHTML;
+      switch (innerhtml) {
+        case "": digital.orderByChild("Platform/Filter/Playstation4").equalTo(true).on("child_added", generateArticledigital); break;
+        default: digitalmain.innerHTML = "";
+      }
+      digitalarrow.classList.toggle("fa-chevron-up");
+      dropdown.classList.toggle("hidden");
+    }
+    function sortPc() {
+      var dropdown = document.getElementById("digital-sorting");
+      var innerhtml = digitalmain.innerHTML;
+      switch (innerhtml) {
+        case "": digital.orderByChild("Platform/Filter/PC").equalTo(true).on("child_added", generateArticledigital); break;
+        default: digitalmain.innerHTML = "";
+      }
+      digitalarrow.classList.toggle("fa-chevron-up");
+      dropdown.classList.toggle("hidden");
+    }
+    function sortXbox() {
+      var dropdown = document.getElementById("digital-sorting");
+      var innerhtml = digitalmain.innerHTML;
+      switch (innerhtml) {
+        case "": digital.orderByChild("Platform/Filter/XBOX1").equalTo(true).on("child_added", generateArticledigital); break;
+      default: digitalmain.innerHTML = "";
+      }
+      digitalarrow.classList.toggle("fa-chevron-up");
+      dropdown.classList.toggle("hidden");
+    }
+    function sortNintendoSwitch() {
+      var dropdown = document.getElementById("digital-sorting");
+      var innerhtml = digitalmain.innerHTML;
+      switch (innerhtml) {
+        case "": digital.orderByChild("Platform/Filter/NintendoSwitch").equalTo(true).on("child_added", generateArticledigital); break;
+      default: digitalmain.innerHTML = "";
+      }
+      digitalarrow.classList.toggle("fa-chevron-up");
+      dropdown.classList.toggle("hidden");
+    }
+    function digitalPrice() {
+      var dropdown = document.getElementById("digital-sorting");
+      var innerhtml = digitalmain.innerHTML;
+      switch (innerhtml) {
+        case "": digital.orderByChild("Price").on("child_added", generateArticledigital); break;
+      default: digitalmain.innerHTML = "";
+      }
+      digitalarrow.classList.toggle("fa-chevron-up");
+      dropdown.classList.toggle("hidden");
+    }
+
+
+
+
+
+
+    function generateArticlearcade(snapshot) {
+      let arcadeproduct = snapshot.val();
+      let key = snapshot.key;
+
+      arcademain.innerHTML +=`
+          <article class="shop--article--content"><a href="gamepagearcade.html?id=${key}">
+            <img class="shop--article--img" src="${arcadeproduct.Image}" alt="img"></img>
+            <div class="shop--article--text">
+              <p><b class="shop--article--name">${arcadeproduct.Name}</b></p>
+              <p class="shop--article--price"><b>$${arcadeproduct.Price}</b></p>
+              <p class="shop--article--platform">Available on: <b>${arcadeproduct.Platform}</b></p>
+              <p class="shop--article--scoring">Scoring: <b>${arcadeproduct.Scoring}</b></p>
+              <button onclick="addCart()" class="add-to-cart" id="add-to-cart"><h2>Add to cart <i class="fas fa-cart-plus"></h2></i></button>
+            </div>
+          </article>
+          `
+    }
+    function expandArcade() {
+      let expandarrow = document.getElementById("arcade--arrow");
+      var expandarrowClass = arcademain.innerHTML;
+      switch (expandarrowClass) {
+        case "": arcade.on("child_added", generateArticlearcade); break;
+        default: arcademain.innerHTML = "";
+      }
+      expandarrow.classList.toggle("fa-chevron-up");
+    }
+
+
+    function generateArticleboard(snapshot) {
+      let boardproduct = snapshot.val();
+      let key = snapshot.key;
+
+      boardmain.innerHTML +=`
+          <article class="shop--article--content"><a href="gamepageboard.html?id=${key}">
+            <img class="shop--article--img" src="${boardproduct.Image}" alt="img"></img>
+            <div class="shop--article--text">
+              <p><b class="shop--article--name">${boardproduct.Subname} ${boardproduct.Name}</b></p>
+              <p class="shop--article--price"><b>$${boardproduct.Price}</b></p>
+              <p class="shop--article--platform">Type: <b>${boardproduct.Type}</b></p>
+              <p class="shop--article--scoring">Players: <b>${boardproduct.Players}</b></p>
+              <button onclick="addCart()" class="add-to-cart" id="add-to-cart"><h2>Add to cart <i class="fas fa-cart-plus"></h2></i></button>
+            </div>
+          </article>
+          `
+    }
+    function expandBoard() {
+      let expandarrow = document.getElementById("board--arrow");
+      var expandarrowClass = boardmain.innerHTML;
+      switch (expandarrowClass) {
+        case "": board.on("child_added", generateArticleboard); break;
+        default: boardmain.innerHTML = "";
+      }
+      expandarrow.classList.toggle("fa-chevron-up");
+    }
 
     </script>
-
+    <footer><h2><span>new</span>ARCADE</h2></footer>
   </body>
 </html>

@@ -1,0 +1,217 @@
+{
+  "products" : {
+    "arcade" : {
+      "snake" : {
+        "Image" : "https://lh4.ggpht.com/yJe6HqfvYKO2ej-qfsoWf50T71o4346gXkF6T66FMXBAjJ5DhMt7buBDESUMqYaeIqI=w300",
+        "Name" : "Snake",
+        "Platform" : "Arcade machine/Mobile/Emulators",
+        "Price" : " FREE",
+        "Scoring" : "Online Highscore Rating",
+        "value" : 1
+      }
+    },
+    "board" : {
+      "chess" : {
+        "Image" : "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcRZaTAijyecrezFTvRSugOPXj37ljF9IMCWXGDIym-p7uNuyTA&usqp=CAY",
+        "Image2" : "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSHouUt7JkRqljcW68dQYKXJjNcTvXhS2KA4lK92U4VdgzazXQ&usqp=CAY",
+        "Image3" : "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQcc63aCbFuIKJEUNoXiC-2wi_xFBhM0xRdCsSb1KqWgoiivVs&usqp=CAY",
+        "Info" : "CHess is an age old game, played on a 8x8 checkered board. Each piece has restricted movement patterns, and through various tactics, strategies and movements, the goal is to eliminate the enemy king and get the Check Mate.",
+        "Name" : "Chess",
+        "Players" : "2",
+        "Price" : 9.19,
+        "Subname" : "",
+        "Type" : "Board Game",
+        "value" : 5
+      },
+      "ludo" : {
+        "Image" : "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSGHwYM3_QqXucP2zajSnNP3qIDMMSJO-H_-FDeXECRSZqcUVU&usqp=CAY",
+        "Image2" : "https://images-na.ssl-images-amazon.com/images/I/71z7NbHeTxL._SY355_.png",
+        "Image3" : "https://bergelibris.no/wp-content/uploads/2015/10/7031650130567.jpg",
+        "Info" : "Ludo is a board game where the objective is moving your four pieces around the board, and reaching the end goal.",
+        "Name" : "Ludo",
+        "Players" : "2-4",
+        "Price" : 6.99,
+        "Subname" : "",
+        "Type" : "Board Game",
+        "value" : 3
+      },
+      "monopoly" : {
+        "Image" : "https://images-na.ssl-images-amazon.com/images/I/91RSg9MCGtL._SX466_.jpg",
+        "Image2" : "https://www.londondrugs.com/on/demandware.static/-/Sites-londondrugs-master/default/dwd1b0f1a3/products/L0045117/large/L0045117.JPG",
+        "Image3" : "https://bloximages.newyork1.vip.townnews.com/tulsaworld.com/content/tncms/assets/v3/editorial/4/6b/46b0b774-f0c0-5c13-b7fc-4de44c010964/58a31faf4c186.image.jpg?resize=1200%2C1231",
+        "Info" : "The Classic Monopoly in a new box. Experiencd your inner buisnessman in this competetive board game. Buy, deal and own realestate, but be aware; everyone can end up in bankruptcy.",
+        "Name" : "Monopoly",
+        "Players" : "2-8",
+        "Price" : 35.99,
+        "Subname" : "Classic",
+        "Type" : "Board Game",
+        "value" : 1
+      },
+      "monopoly_ulitmate_bank" : {
+        "Image" : "https://images-na.ssl-images-amazon.com/images/I/71dDziWN28L._SL1024_.jpg",
+        "Image2" : "https://i.kinja-img.com/gawker-media/image/upload/s--8BAeugFa--/c_scale,f_auto,fl_progressive,q_80,w_800/tkvxifrmgl4f6mndfxpu.jpg",
+        "Image3" : "https://www.thesun.co.uk/wp-content/uploads/2016/03/2694616.main_image.jpg?strip=all",
+        "Info" : "The Classic Monopoly but with credit cards. Experiencd your inner buisnessman in this competetive board game. Buy, deal and own realestate, but be aware; everyone can end up in bankruptcy.",
+        "Name" : "Monopoly",
+        "Players" : "2-8",
+        "Price" : 39.99,
+        "Subname" : "Ultimate Banking",
+        "Type" : "Board Game",
+        "value" : 2
+      },
+      "ticket_to_ride" : {
+        "Image" : "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcTEFZUoiBLxzGS8tNRIH5_Qv7K2pv7FUPZl-yUNiVntqHNGglc&usqp=CAY",
+        "Image2" : "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcR1og4ckywIZhrsUq8cSBMRR7xxtZTsm4iGF6bj0Y5LSc0YM_M&usqp=CAY",
+        "Image3" : "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQyFyy7Zmbul27doWCqocgNb9YNZO8CUGKZr5jvX9y72K1Amcc&usqp=CAY",
+        "Info" : "Ticket to Ride is a cross-country train adventure game. Players collect train cards that enable them to claim railway routes connecting cities throughout North America. The longer the routes, the more points they earn.",
+        "Name" : "Ticket to Ride",
+        "Players" : "2-5",
+        "Price" : 29.99,
+        "Subname" : "",
+        "Type" : "Board Game",
+        "value" : 4
+      }
+    },
+    "digital" : {
+      "battlefield_5" : {
+        "Heroimg" : "http://www.teknikhype.se/wp-content/uploads/2018/05/battlefieldV-cover.jpg",
+        "Image" : "https://static.raru.co.za/cover/2018/05/23/6663677-l.jpg?v=1542799307",
+        "Name" : "Battlefield V",
+        "Platform" : {
+          "Filter" : {
+            "NintendoSwitch" : false,
+            "PC" : true,
+            "Playstation4" : true,
+            "XBOX1" : true
+        },
+        "Name" : [ "Playstation 4", "X-BOX One", "PC"]
+        },
+        "Price" : 49.99,
+        "Publisher" : "EA",
+        "Rating" : "18+",
+        "Splitscreen" : "No",
+        "Type" : "Multiplayer/Singleplayer",
+        "value" : 1
+      },
+      "call_of_duty_black_ops_4" : {
+        "Heroimg" : "https://img.gfx.no/2342/2342508/DnEHTQnU0AAQm3n.jpg%3Alarge.jpg",
+        "Image" : "https://static-ie.gamestop.ie/images/products/265357/3max.jpg",
+        "Name" : "Call of Duty Black Ops 4",
+        "Platform" : {
+          "Filter" : {
+            "NintendoSwitch" : false,
+            "PC" : true,
+            "Playstation4" : true,
+            "XBOX1" : true
+        },
+        "Name" : [ "Playstation 4", "X-BOX One", "PC"]
+        },
+        "Price" : 39.99,
+        "Publisher" : "Blizzard",
+        "Rating" : "18+",
+        "Type" : "Multiplayer/Singleplayer",
+        "value" : 2
+      },
+      "fifa_19" : {
+        "Heroimg" : "https://cdn02.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_EASportsFifa19_image1600w.jpg",
+        "Image" : "https://images-na.ssl-images-amazon.com/images/I/915BYoO50oL._SL1500_.jpg",
+        "Name" : "Fifa 19",
+        "Platform" : {
+          "Filter" : {
+            "NintendoSwitch" : true,
+            "PC" : true,
+            "Playstation4" : true,
+            "XBOX1" : true
+        },
+        "Name" : [ "Playstation 4", "X-BOX One", "PC", "Nintendo SWITCH"]
+        },
+        "Price" : 49.99,
+        "Publisher" : "EA",
+        "Rating" : "3+",
+        "Splitscreen" : "2-8",
+        "Type" : "Multiplayer/Singleplayer",
+        "value" : 3
+      },
+      "gta_5" : {
+        "Heroimg" : "https://img-cache.coolshop.com/a9b839b3-6661-465e-a7f9-b5fe22b5a929/grand-theft-auto-v-gta-5.jpg",
+        "Image" : "https://media.rockstargames.com/rockstargames/img/global/news/upload/actual_1364906194.jpg",
+        "Name" : "Grand Theft Auto V",
+        "Platform" : {
+          "Filter" : {
+            "NintendoSwitch" : false,
+            "PC" : true,
+            "Playstation4" : true,
+            "XBOX1" : true
+        },
+        "Name" : [ "Playstation 4", "X-BOX One", "PC"]
+        },
+        "Price" : 35.99,
+        "Publisher" : "Rockstar",
+        "Rating" : "18+",
+        "Splitscreen" : "no",
+        "Type" : "Multiplayer/Singleplayer",
+        "value" : 4
+      },
+      "nba-2k19" : {
+        "Heroimg" : "https://http2.mlstatic.com/nba-2k-19-20-aniversario-pc-steam-pre-venta-11-septiembre-D_NQ_NP_768873-MLA27723474456_072018-F.jpg",
+        "Image" : "https://static-no.gamestop.no/images/products/266935/3max.jpg",
+        "Name" : "NBA 2k19",
+        "Platform" : {
+          "Filter" : {
+            "NintendoSwitch" : false,
+            "PC" : false,
+            "Playstation4" : true,
+            "XBOX1" : true
+        },
+        "Name" : [ "Playstation 4", "X-BOX One"]
+        },
+        "Price" : 24.99,
+        "Publisher" : "Visual Concepts",
+        "Rating" : "3+",
+        "Splitscreen" : "yes",
+        "Type" : "Multiplayer/Singleplayer",
+        "value" : 5
+      },
+      "nhl_19" : {
+        "Heroimg" : "http://www.czechgamer.com/pics/clanky/30252_ea-sports-nhl-19-loyalty-offer-page-section-background-01-ps4-us-22aug18-1537730312.jpg",
+        "Image" : "https://cdn.pji.nu/product/standard/800/4798040.jpg",
+        "Name" : "NHL 19",
+        "Platform" : {
+          "Filter" : {
+            "NintendoSwitch" : false,
+            "PC" : false,
+            "Playstation4" : true,
+            "XBOX1" : true
+        },
+        "Name" : [ "Playstation 4", "X-BOX One"]
+        },
+        "Price" : 27.99,
+        "Publisher" : "EA",
+        "Rating" : "3+",
+        "Splitscreen" : "yes",
+        "Type" : "Multiplayer/Splitscreen",
+        "value" : 6
+      },
+      "rainbow_six_siege" : {
+        "Heroimg" : "https://wallpapershome.com/images/wallpapers/tom-clancy-039-s-2560x1440-tom-clancys-rainbow-six-siege-screenshot-4k-17828.jpg",
+        "Image" : "https://images-na.ssl-images-amazon.com/images/I/81YGBJFzZ-L._SL1500_.jpg",
+        "Name" : "Rainbow Six Siege",
+        "Platform" : {
+          "Filter" : {
+            "NintendoSwitch" : false,
+            "PC" : true,
+            "Playstation4" : true,
+            "XBOX1" : true
+        },
+        "Name" : [ "Playstation 4", "X-BOX One", "PC"]
+        },
+        "Price" : 25.99,
+        "Publisher" : "Ubisoft",
+        "Rating" : "18+",
+        "Splitscreen" : "no",
+        "Type" : "Multiplayer/Splitscreen",
+        "value" : 7
+      }
+    }
+  }
+}

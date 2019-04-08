@@ -9,3 +9,14 @@ Uke 12
   svart: #030301
   grønn: #02c39a
   hvit: #fffff3
+
+
+  function expandDigital() {
+    let expandarrow = document.getElementById("digital--arrow");
+    var expandarrowClass = digitalmain.innerHTML;
+    switch (expandarrowClass) {
+      case "": digital.on("child_added", generateArticledigital); break;
+      default: digitalmain.innerHTML = "";
+    }
+    expandarrow.classList.toggle("fa-chevron-up");
+  }

@@ -21,6 +21,52 @@
       firebase.initializeApp(config);
     </script>
     <script type="text/javascript" src="../javascript/javascript.js"></script>
+    <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js'></script>
+  	<script>
+  		// DOM Ready
+  		$(function() {
+
+  			var $el, $ps, $up, totalHeight;
+
+  			$(".sidebar-box .button").click(function() {
+
+  				// IE 7 doesn't even get this far. I didn't feel like dicking with it.
+
+  				totalHeight = 0
+
+  				$el = $(this);
+  				$p  = $el.parent();
+  				$up = $p.parent();
+  				$ps = $up.find("p:not('.read-more')");
+
+  				// measure how tall inside should be by adding together heights of all inside paragraphs (except read-more paragraph)
+  				$ps.each(function() {
+  					totalHeight += $(this).outerHeight();
+  					// FAIL totalHeight += $(this).css("margin-bottom");
+  				});
+
+  				$up
+  					.css({
+  						// Set height to prevent instant jumpdown when max height is removed
+  						"height": $up.height(),
+  						"max-height": 9999,
+              "overflow": "visible",
+              "background": "white"
+  					})
+  					.animate({
+  						"height": totalHeight
+  					});
+
+  				// fade out read-more
+  				$p.fadeOut();
+
+  				// prevent jump-down
+  				return false;
+
+  			});
+
+  		});
+  	</script>
   </head>
   <body>
     <header>
@@ -45,15 +91,15 @@
       <div class="main--heroimg">
         <b><span>new</span>ARCADE</b>
       </div>
-      <div onclick="showAbout()" id="main--about" class="main--about__compressed">
+      <div id="main--about" class="main--about__compressed">
         <b id="about">about</b>
-        <div class="about--text">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </div>
-        <div id="main--about-dropdown-prompt" class="about--dropdown-prompt">
-          <i id="main--about-arrow" class="fas fa-chevron-down"></i>
+        <div class="sidebar-box">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+          <p class="read-more"><a href="#" class="button"><i class="fas fa-chevron-down"></i></a></p>
         </div>
       </div>
       <div class="main--shop-container">
@@ -61,48 +107,85 @@
         <div id="main_displaytarget" class="main--shop">
         </div>
       </div>
-      <footer></footer>
-<script type="text/javascript">
 
-const db = firebase.database();
-const digital = db.ref("products/digital");
-const arcade = db.ref("products/arcade");
-const board = db.ref("products/board");
-const articlecontainer = document.getElementById('main_displaytarget');
 
-var x = Math.floor((Math.random() * 7) + 1);
+      <script type="text/javascript">
 
-function generateArticlehomepage(snapshot) {
-  console.log("hei");
-  let digitalproduct = snapshot.val();
-  let key = snapshot.key;
-  articlecontainer.innerHTML +=`
-      <article class="article--content"><a href="gamepagedigital.html?id=${key}">
-        <img class="article--img" src="${digitalproduct.Image}" alt="img"></img>
-        <p><b class="article--name">${digitalproduct.Name}</b></p>
-        <p class="article--price"><b>$${digitalproduct.Price}</b></p>
-        <div class="article--content-extra">
-          <p><b>${digitalproduct.Type}</b></p>
-          <p>PEGI: <b>${digitalproduct.Rating}</b></p>
-          <p>Available on: <b>${digitalproduct.Platform}</b></p></a>
-          <button onclick="addCart()" class="add-to-cart" id="add-to-cart"><h1>Add to cart <i class="fas fa-cart-plus"></h1></i></button>
-        </div>
-      </article>
-      `
-}
+      const db = firebase.database();
+      const digital = db.ref("products/digital");
+      const arcade = db.ref("products/arcade");
+      const board = db.ref("products/board");
+      const articlecontainer = document.getElementById('main_displaytarget');
 
-function showArticles() {
-  articlecontainer.innerHTML = "";
-  digital.orderByChild("value").equalTo(x).on("child_added", generateArticlehomepage);
-}
-function addCart() {
-  let cart = document.getElementById("cart");
-  cart.classList.toggle("addCart");
+      var x = Math.floor((Math.random() * 7) + 1);
+      var y = Math.floor((Math.random() * 1) + 1);
+      var z = Math.floor((Math.random() * 5) + 1);
 
-}
-showArticles();
-</script>
+      function generateDigitalhomepage(snapshot) {
+        let digitalproduct = snapshot.val();
+        let key = snapshot.key;
+        articlecontainer.innerHTML +=`
+            <article class="article--content"><a href="gamepagedigital.html?id=${key}">
+              <img class="article--img" src="${digitalproduct.Image}" alt="img"></img>
+              <p><b class="article--name">${digitalproduct.Name}</b></p>
+              <p class="article--price"><b>$${digitalproduct.Price}</b></p>
+              <div class="article--content-extra">
+                <p><b>${digitalproduct.Type}</b></p>
+                <p>PEGI: <b>${digitalproduct.Rating}</b></p>
+                <p>Available on: <b>${digitalproduct.Platform.Name}</b></p></a>
+                <button onclick="addCart()" class="add-to-cart" id="add-to-cart"><h2>Add to cart <i class="fas fa-cart-plus"></h2></i></button>
+              </div>
+            </article>
+            `
+      }
+      function generateArcadehomepage(snapshot) {
+        let digitalproduct = snapshot.val();
+        let key = snapshot.key;
+        articlecontainer.innerHTML +=`
+            <article class="article--content"><a href="gamepagearcade.html?id=${key}">
+              <img class="article--img" src="${digitalproduct.Image}" alt="img"></img>
+              <p><b class="article--name">${digitalproduct.Name}</b></p>
+              <p class="article--price"><b>$${digitalproduct.Price}</b></p>
+              <div class="article--content-extra">
+                <p><b>${digitalproduct.Type}</b></p>
+                <p>PEGI: <b>${digitalproduct.Rating}</b></p>
+                <p>Available on: <b>${digitalproduct.Platform}</b></p></a>
+                <button onclick="addCart()" class="add-to-cart" id="add-to-cart"><h2>Add to cart <i class="fas fa-cart-plus"></h2></i></button>
+              </div>
+            </article>
+            `
+      }
+      function generateBoardhomepage(snapshot) {
+        let digitalproduct = snapshot.val();
+        let key = snapshot.key;
+        articlecontainer.innerHTML +=`
+            <article class="article--content"><a href="gamepageboard.html?id=${key}">
+              <img class="article--img" src="${digitalproduct.Image}" alt="img"></img>
+              <p><b class="article--name">${digitalproduct.Subname}  ${digitalproduct.Name}</b></p>
+              <p class="article--price"><b>$${digitalproduct.Price}</b></p>
+              <div class="article--content-extra">
+                <p><b>${digitalproduct.Type}</b></p>
+                <p>Players: <b>${digitalproduct.Players}</b></p></a>
+                <button onclick="addCart()" class="add-to-cart" id="add-to-cart"><h2>Add to cart <i class="fas fa-cart-plus"></h2></i></button>
+              </div>
+            </article>
+            `
+      }
+
+      function showArticles() {
+        articlecontainer.innerHTML = "";
+        arcade.orderByChild("value").equalTo(y).on("child_added", generateArcadehomepage);
+        digital.orderByChild("value").equalTo(x).on("child_added", generateDigitalhomepage);
+        board.orderByChild("value").equalTo(z).on("child_added", generateBoardhomepage);
+      }
+      function addCart() {
+        let cart = document.getElementById("cart");
+        cart.classList.toggle("addCart");
+
+      }
+      showArticles();
+      </script>
     </main>
-    <footer></footer>
+    <footer><h2><span>new</span>ARCADE</h2></footer>
   </body>
 </html>

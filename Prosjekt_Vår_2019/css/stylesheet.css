@@ -35,9 +35,22 @@ header{
 main{
   margin: 0;
   padding: 0;
-  max-width: 90%;
+  max-width: 80%;
   margin: auto;
   position: relative;
+}
+footer{
+  box-shadow: 0 -4px 8px 2px rgba(0,0,0,.5);
+  height: 70px;
+  bottom: 0;
+  width: 100%;
+}
+footer h2{
+  text-align: center;
+  font-size: 30px;
+}
+footer h2 span{
+  color: #02c39a;
 }
 header :nth-child(3){
   margin-left: auto;
@@ -143,15 +156,15 @@ General css
 }
 .add-to-cart{
   border-radius: 4px;
-  margin-left: auto;
-  margin-right: auto;
+  margin:auto;
   background-color: #02c39a;
   border: none;
+}
+.add-to-cart h2{
   color: white;
   text-align: center;
   text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
+  font-size: 26px;
   text-transform: uppercase;
 }
 .added-to-cart{
@@ -181,7 +194,7 @@ General css
 .main--about__compressed{
   margin-top: 50px;
   display: flex;
-  height: 250px;
+  height: auto;
 }
 #about{
   padding-right: 100px;
@@ -192,59 +205,37 @@ General css
   text-transform: uppercase;
   border-right: 3px solid #030301;
 }
-.about--text{
-  margin-left: 90px;
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-top: 50px;
-  padding-bottom: 13px;
-  height: 150px;
-  overflow-y: hidden;
+.sidebar-box {
+  max-height: 250px;
   position: relative;
+  overflow: hidden;
+  margin-left: 40px;
 }
-.about--dropdown-prompt{
-  border-top: 2px solid #030301;
-  width: 770px;
+.sidebar-box p {
+}
+.read-more a i{
+  color: #ff4365;
+  font-size: 30px;
+}
+.sidebar-box .read-more {
   position: absolute;
-  bottom: 76px;
-  right: 0;
-  background-color: #fff;
+  bottom: 0;
+  left: 0;
+  width: 100%;
   text-align: center;
+  margin: 0; padding: 30px 0px;
+  background-image: linear-gradient(to bottom, transparent, white);
 }
-.about--dropdown-prompt i{
-  transition: .2s;
-  transition-delay: .1s
-}
-.main--about-expanded{
-  height: auto;
-}
-.main--about-expanded div{
-  overflow-y: visible;
-  border: none;
-  height: auto;
-}
-.main--about-expanded div i{
-  color: rbga(1,1,1,0);
-}
-.main--dropdown-prompt-expanded{
-  border: none;
-}
-.main--dropdown-prompt-expanded i{
-  transform: rotate(180deg);
-  transition: .2s;
-  transition-delay: .1s;
-}
-
 
 .main--shop{
-  position: absolute;
+
   width: 100%;
   height: 600px;
   border: 3px solid #030301;
   border-radius: 2px;
   margin-left: auto;
   margin-top: 50px;
-  margin-bottom: 500px;
+  margin-bottom: 200px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   display: flex;
@@ -252,6 +243,9 @@ General css
 }
 .main--shop:nth-last-child(2){
   border-left: 2px solid #030301;
+}
+.main--shop-container h1{
+  margin-top: 50px;
 }
 .article--content{
   width: 300px;
@@ -273,7 +267,8 @@ General css
   opacity: 0;
 }
 .article--content:hover{
-  height: 670px;
+  min-height: 670px;
+  height: auto;
   background-color: #fff;
   box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.75);
 }
@@ -290,6 +285,35 @@ General css
 
 
 /*CSS FOR SHOP*/
+#searchbar{
+  width: 200px;
+  margin: 20px 0;
+  background: rgba(255,255,255,.7);
+  border-radius: 6px;
+  padding: 6px 50px;
+  font-size: 30px;
+  background-image: url('https://png.pngtree.com/svg/20161102/search_33363.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: left;
+  transition: .2s;
+}
+#searchbar:focus{
+  background: rgba(255,255,255,1);
+  background-image: url('https://png.pngtree.com/svg/20161102/search_33363.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: left;
+  width: 400px;
+  margin-top: auto;
+}
+.search--icon{
+  margin-top: 20px;
+  font-size: 50px;
+}
+.shop{
+  margin-bottom: 500px;
+}
 .shop--product-contracted{
   margin-top: 50px;
 }
@@ -308,7 +332,7 @@ General css
   padding-bottom: 20px;
   font-size: 30px;
 }
-.shop--header i{
+.shop--header .fa-chevron-down{
   font-size: 40px;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -316,6 +340,22 @@ General css
   padding-right: 10px;
   padding-left: 30px;
   border-left: 2px solid #030301;
+}
+.shop--header .fa-chevron-down:hover{
+  cursor: grab;
+}
+.shop--header>p, .sorting--container>p{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-right: 40px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 30px;
+  font-size: 30px;
+  border-left: 2px solid #030301;
+}
+.shop--header p:hover{
+  cursor: grab;
 }
 .shop--container{
   position: relative;
@@ -326,16 +366,46 @@ General css
 .shop--container article:first-child{
   border: 0;
 }
+#greenDolla{
+  color: #02c39a;
+}
+.sorting--container{
+  position: relative;
+}
+.sorting--options{
+  position: absolute;
+  padding: 20px;
+  background-color: #fff;
+  border: 2px solid #030301;
+  width: 85%;
+  z-index: 9;
+  margin-top: 3px;
+}
+.sorting--header{
+  border: 0px;
+  color: #02c39a;
+  font-size: 20px;
+}
+.sorting--button{
+  border: 0px;
+}
+.sorting--button:hover{
+  color: rgb(89, 89, 89);
+}
+
+.shop--article--name{
+  font-size: 20px;
+}
+
 
 /*generated html css*/
 .shop--article--content{
-  padding top: 50px;
   margin-left: 25px;
   padding-left: 25px;
   margin-right: 25px;
   padding-right: 25px;
   width: auto;
-  height: 375px;
+  height: 400px;
   margin-bottom: 50px;
   background-color: #fff;
   border-top: 2px solid #030301;
@@ -394,7 +464,12 @@ General css
   position: relative;
   top: -150px;
 }
-
+/* overwriting css */
+.gone{
+  visibility: hidden;
+  position: absolute;
+  top: -300px;
+}
 /* ANIMATIONS */
 @keyframes addCart{
   20% {transform: scale(1);}

@@ -51,27 +51,27 @@
     var id = url.searchParams.get("id");
 
     const db = firebase.database();
-    const digital = db.ref("products/digital/" + id );
+    const arcade = db.ref("products/arcade/" + id );
 
     function generateGamepage(snapshot) {
-      let game = snapshot.val();
+      let chip = snapshot.val();
       main.innerHTML +=`
       <div class="gamepagedigital--heroimg">
-        <img src="${game.Heroimg}" alt="">
+        <img src="${chip.Heroimg}" alt="">
       </div>
       <div class="gamepagedigital--info">
-        <img class="gamepagedigital--coverimg" src="${game.Image}" alt="">
-        <h1 class="gamepagedigital--gamename">${game.Name}</h1>
-        <p>${game.Name} is a ${game.Type} game you can play on ${game.Platform}.</p>
-        <p>Splitscreen: ${game.Splitscreen}</p>
-        <p>Rating: ${game.Rating}</p>
-        <b>$${game.Price}</b>
+        <img class="gamepagedigital--coverimg" src="${chip.Image}" alt="">
+        <h1 class="gamepagedigital--gamename">${chip.Name}</h1>
+        <p>${chip.Name} is a ${chip.Type} game you can play on ${chip.Platform}.</p>
+        <p>Splitscreen: ${chip.Splitscreen}</p>
+        <p>Rating: ${chip.Rating}</p>
+        <b>$${chip.Price}</b>
         <button onclick="addCart()" class="add-to-cart" id=x"add-to-cart"><h2>Add to cart <i class="fas fa-cart-plus"></h2></i></button>
       </div>
       `
     }
 
-    digital.on("value", generateGamepage);
+    arcade.on("value", generateGamepage);
 
     function addCart() {
       let cart = document.getElementById("cart");

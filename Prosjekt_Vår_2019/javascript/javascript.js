@@ -21,12 +21,6 @@ function showDropdownshop(){
   dropdownshop3.classList.toggle("subtopic--hidden");
   dropdownshop4.classList.toggle("subtopic--hidden");
 }
-function showAbout(){
-  var about = document.getElementById("main--about");
-  var dropdownprompt = document.getElementById("main--about-dropdown-prompt")
-  about.classList.toggle("main--about-expanded");
-  dropdownprompt.classList.toggle("main--dropdown-prompt-expanded");
-}
 function expandArcade() {
   var expand =document.getElementById("shop--arcade-contracted");
   expand.classList.toggle("shop-expanded");
