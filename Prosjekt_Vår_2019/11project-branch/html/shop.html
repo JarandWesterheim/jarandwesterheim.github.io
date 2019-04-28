@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>shop</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/stylesheet.css">
+    <link rel="icon" href="../bilder/svg/mouse-svgrepo-com.ico">
+    <link href="https://fonts.googleapis.com/css?family=Monoton|Orbitron" rel="stylesheet">
+    <!-- firebase -->
+    <script src="https://www.gstatic.com/firebasejs/5.10.0/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyDtf4MRI5C7xTIano8c-oIaxi91qDIXxdc",
+        authDomain: "mouseproject19.firebaseapp.com",
+        databaseURL: "https://mouseproject19.firebaseio.com",
+        projectId: "mouseproject19",
+        storageBucket: "mouseproject19.appspot.com",
+        messagingSenderId: "1071867938349"
+      };
+      firebase.initializeApp(config);
+    </script>
+    <script type="text/javascript" src="../javascript/javascript.js"></script>
+  </head>
+  <body>
+    <header>
+      <a id="logo" href="homepage.html">b</a>
+      <b><span>insert</span>NAME</b>
+      <a href="homepage.html"><i id="cart" class="fas fa-cart-plus"></i></a>
+      <a id="header--user-icon" href="#"><i class="far fa-user"></i></a>
+      <i onclick="showDropdown()" id="header--menu-icon" class="fas fa-bars"></i>
+      <div id="dropdown" class="header--dropdown hidden">
+        <a id="header--dropdown-home" class="header__topic" href="homepage.html">Home</a>
+        <a onclick="showDropdownshop()" class="header__topic">Products<i id="dropdown--shop-arrow" class="fas fa-chevron-down"></i></a>
+        <a id="header__subtopic1" class="header__subtopic subtopic--hidden" href="shop.html">shop</a>
+        <a id="header__subtopic2" class="header__subtopic subtopic--hidden" href="shop.html#arcade">for clicking</a>
+        <a id="header__subtopic3" class="header__subtopic subtopic--hidden" href="shop.html#digital">for typing</a>
+        <a id="header__subtopic4" class="header__subtopic subtopic--hidden" href="shop.html#board">accessories</a>
+        <a class="header__topic" href="homepage.html#reviews">reviews</a>
+        <a class="header__topic" href="cart.html">cart<i class="fas fa-cart-plus"></i></a>
+        <a class="header__topic" href="user.html">user<i class="far fa-user"></i></a>
+      </div>
+    </header>
+    <main>
+      <div class="main--heroimg">
+        <b><span></span>PRODUCTS</b>
+        <br>
+        <input type="text" name="" id="searchbar" value="" placeholder="Search...">
+      </div>
+      <div id="search">
+      </div>
+      <div class="shop">
+        <div id="shop--mice-contracted" class="shop--product-contracted">
+          <div class="shop--header">
+            <b>FOR CLICKING</b>
+            <div class="sorting--container">
+              <p onclick="miceSort()">sort by <i id="micesortdown" class="fas fa-caret-down"></i></p>
+              <div id="mice-sorting" class="sorting--options hidden">
+                <p class="sorting--header">sort by:</p>
+                <p class="sorting--button" onclick="()">Playstation 4</p>
+                <p class="sorting--button" onclick="()">XBOX One</p>
+                <p class="sorting--button" onclick="()">PC</p>
+                <p class="sorting--button" onclick="()">Nintendo SWITCH</p>
+              </div>
+            </div>
+            <p>From <span id="greenDolla">$</span> <i class="fas fa-long-arrow-alt-right"></i></p>
+            <i id="mice--arrow" class="fas fa-chevron-down" onclick="expandmice()"></i>
+          </div>
+          <div id="shop--mice-container" class="shop--container">
+
+          </div>
+        </div>
+        <div id="shop--keyboard-contracted" class="shop--product-contracted">
+          <div class="shop--header">
+            <b>FOR TYPING</b>
+            <div class="sorting--container">
+              <p onclick="keyboardSort()">sort by <i id="keyboardsortdown" class="fas fa-caret-down"></i></p>
+              <div id="keyboard-sorting" class="sorting--options hidden">
+                <p class="sorting--header">sort by:</p>
+                <p class="sorting--button" onclick="()">Playstation 4</p>
+                <p class="sorting--button" onclick="()">XBOX One</p>
+                <p class="sorting--button" onclick="()">PC</p>
+                <p class="sorting--button" onclick="()">Nintendo SWITCH</p>
+              </div>
+            </div>
+            <p onclick="keyboardPrice()">From <span id="greenDolla">$</span> <i class="fas fa-long-arrow-alt-right"></i></p>
+            <i id="keyboard--arrow" class="fas fa-chevron-down" onclick="expandkeyboard()"></i>
+          </div>
+          <div id="shop--keyboard-container" class="shop--container">
+          </div>
+        </div>
+        <div id="shop--accessory-contracted" class="shop--product-contracted">
+          <div class="shop--header">
+            <b>ACCESSORIES</b>
+            <div class="sorting--container">
+              <p onclick="accessorySort()">sort by <i id="accessorysortdown" class="fas fa-caret-down"></i></p>
+              <div id="accessory-sorting" class="sorting--options hidden">
+                <p class="sorting--header">sort by:</p>
+                <p class="sorting--button" onclick="()">Playstation 4</p>
+                <p class="sorting--button" onclick="()">XBOX One</p>
+                <p class="sorting--button" onclick="()">PC</p>
+                <p class="sorting--button" onclick="()">Nintendo SWITCH</p>
+              </div>
+            </div>
+            <p>From <span id="greenDolla">$</span> <i class="fas fa-long-arrow-alt-right"></i></p>
+            <i id="accessory--arrow" class="fas fa-chevron-down" onclick="expandaccessory()"></i>
+          </div>
+          <div id="shop--accessory-container" class="shop--container">
+
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+
+
+    <script type="text/javascript">
+    const db = firebase.database();
+    const micetarget = document.getElementById("shop--mice-container");
+    const keyboardtarget = document.getElementById("shop--keyboard-container");
+    const accessorytarget = document.getElementById("shop--accessory-container");
+    const mice = db.ref("products/mice");
+    const keyboard = db.ref("products/keyboard");
+    const accessory = db.ref("products/accessories");
+    const searchmain = document.getElementById("search");
+    const searchbar = document.querySelector("#searchbar");
+
+
+    //javascript for searchbar
+
+    function searchMice(snapshot) {
+      console.log("hei");
+      let product = snapshot.val();
+      let key = snapshot.key;
+      searchmain.innerHTML +=`
+            <article class="article--content"><a href="productpage${product.type}.html?id=${key}">
+              <img class="article--img" src="${product.image}" alt="loading..."></img>
+              <p><b class="article--name">${product.name}</b></p>
+              <p class="article--price"><b>$${product.price}</b></p>
+            </a></article>
+          `
+    }
+    function searchKeyboard(snapshot) {
+      let product = snapshot.val();
+      let key = snapshot.key;
+      searchmain.innerHTML +=`
+            <article class="article--content"><a href="productpage${product.type}.html?id=${key}">
+              <img class="article--img" src="${product.image}" alt="loading..."></img>
+              <p><b class="article--name">${product.name}</b></p>
+              <p class="article--price"><b>$${product.price}</b></p>
+            </a></article>
+          `
+    }
+    function searchAccessory(snapshot) {
+      let product = snapshot.val();
+      let key = snapshot.key;
+      searchmain.innerHTML +=`
+            <article class="article--content"><a href="productpage${product.type}.html?id=${key}">
+              <img class="article--img" src="${product.image}" alt="loading..."></img>
+              <p><b class="article--name">${product.name}</b></p>
+              <p class="article--price"><b>$${product.price}</b></p>
+            </a></article>
+          `
+    }
+    function search() {
+      searchmain.innerHTML = "";
+      mice
+        .orderByChild("searchname")
+        .startAt(searchbar.value)
+        .endAt(searchbar.value+"uf8ff")
+        .on("child_added", searchMice);
+      keyboard
+        .orderByChild("searchname")
+        .startAt(searchbar.value)
+        .endAt(searchbar.value+"uf8ff")
+        .on("child_added", searchKeyboard);
+      accessory
+        .orderByChild("searchname")
+        .startAt(searchbar.value)
+        .endAt(searchbar.value+"uf8ff")
+        .on("child_added", searchAccessory);
+      }
+
+     searchbar.onkeyup = function(){
+      var a = searchbar.value;
+      if (a == "") {
+        searchmain.innerHTML = "";
+      }
+      else {
+        search();
+      }
+    }
+
+
+    //javascript for SHOP
+
+    function generateArticle(snapshot) {
+      let product = snapshot.val();
+      let key = snapshot.key;
+      searchmain.innerHTML +=`
+            <article class="article--content"><a href="productpage${product.type}.html?id=${key}">
+              <img class="article--img" src="${product.image}" alt="loading..."></img>
+              <p><b class="article--name">${product.name}</b></p>
+              <p class="article--price"><b>$${product.price}</b></p>
+            </a></article>
+          `
+    }
+
+
+
+    </script>
+    <footer><h2><span>new</span>ARCADE</h2></footer>
+  </body>
+</html>

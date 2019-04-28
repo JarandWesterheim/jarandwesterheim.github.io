@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>New Arcade</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/stylesheet.css">
+    <link rel="icon" href="../bilder/svg/arcade-svgrepo-com.ico">
+    <link href="https://fonts.googleapis.com/css?family=Monoton|Orbitron" rel="stylesheet">
+    <!-- firebase -->
+
+
+    <script src="https://www.gstatic.com/firebasejs/5.10.0/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyDtf4MRI5C7xTIano8c-oIaxi91qDIXxdc",
+        authDomain: "mouseproject19.firebaseapp.com",
+        databaseURL: "https://mouseproject19.firebaseio.com",
+        projectId: "mouseproject19",
+        storageBucket: "mouseproject19.appspot.com",
+        messagingSenderId: "1071867938349"
+      };
+      firebase.initializeApp(config);
+    </script>
+
+    <script type="text/javascript" src="../javascript/javascript.js"></script>
+    <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js'></script>
+  	<script>
+  		// DOM Ready
+  		$(function() {
+
+  			var $el, $ps, $up, totalHeight;
+
+  			$(".sidebar-box .button").click(function() {
+
+  				// IE 7 doesn't even get this far. I didn't feel like dicking with it.
+
+  				totalHeight = 0
+
+  				$el = $(this);
+  				$p  = $el.parent();
+  				$up = $p.parent();
+  				$ps = $up.find("p:not('.read-more')");
+
+  				// measure how tall inside should be by adding together heights of all inside paragraphs (except read-more paragraph)
+  				$ps.each(function() {
+  					totalHeight += $(this).outerHeight();
+  					// FAIL totalHeight += $(this).css("margin-bottom");
+  				});
+
+  				$up
+  					.css({
+  						// Set height to prevent instant jumpdown when max height is removed
+  						"height": $up.height(),
+  						"max-height": 9999,
+              "overflow": "visible",
+              "background": "white"
+  					})
+  					.animate({
+  						"height": totalHeight
+  					});
+
+  				// fade out read-more
+  				$p.fadeOut();
+
+  				// prevent jump-down
+  				return false;
+
+  			});
+
+  		});
+  	</script>
+  </head>
+  <body>
+    <header>
+      <a id="logo" href="homepage.html">b</a>
+      <b><span>insert</span>NAME</b>
+      <a href="homepage.html"><i id="cart" class="fas fa-cart-plus"></i></a>
+      <a id="header--user-icon" href="#"><i class="far fa-user"></i></a>
+      <i onclick="showDropdown()" id="header--menu-icon" class="fas fa-bars"></i>
+      <div id="dropdown" class="header--dropdown hidden">
+        <a id="header--dropdown-home" class="header__topic" href="homepage.html">Home</a>
+        <a onclick="showDropdownshop()" class="header__topic">Products<i id="dropdown--shop-arrow" class="fas fa-chevron-down"></i></a>
+        <a id="header__subtopic1" class="header__subtopic subtopic--hidden" href="shop.html">shop</a>
+        <a id="header__subtopic2" class="header__subtopic subtopic--hidden" href="shop.html#arcade">for clicking</a>
+        <a id="header__subtopic3" class="header__subtopic subtopic--hidden" href="shop.html#digital">for typing</a>
+        <a id="header__subtopic4" class="header__subtopic subtopic--hidden" href="shop.html#board">accessories</a>
+        <a class="header__topic" href="homepage.html#reviews">reviews</a>
+        <a class="header__topic" href="cart.html">cart<i class="fas fa-cart-plus"></i></a>
+        <a class="header__topic" href="user.html">user<i class="far fa-user"></i></a>
+      </div>
+    </header>
+    <main>
+      <div class="main--heroimg">
+        <b><span>insert</span>NAME</b>
+      </div>
+      <div id="main--about" class="main--about__compressed">
+        <b id="about">about</b>
+        <div class="sidebar-box">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+          <p class="read-more"><a href="#" class="button"><i class="fas fa-chevron-down"></i></a></p>
+        </div>
+      </div>
+      <div class="main--shop-container">
+        <h1>Popular products:</h1>
+        <div id="main_displaytarget" class="main--shop">
+        </div>
+      </div>
+
+      <div class="company-showcase">
+        <div class="cs--togglecontainer">
+          <div onclick="toggleFinalmouse()" id="cs--finalmousetoggle" class="cs--companytoggle">
+            <img src="https://www.couponbirds.com/newlogo/1519385219-finalmouselogo.png" alt="">
+          </div>
+          <div onclick="toggleCorsair()" id="cs--corsairtoggle" class="cs--companytoggle">
+            <img src="https://cdn.worldvectorlogo.com/logos/corsair-2.svg" alt="">
+          </div>
+          <div onclick="toggleZowie()" id="cs--zowietoggle" class="cs--companytoggle">
+            <img src="https://chemicygaming.com/image/cache/~BRAND/zowie_logo%20(1)-600x315.png" alt="">
+          </div>
+        </div>
+        <div id="finalmouse" class="cs--finalmouse untoggeled">
+          <div class="cs--container">
+            <img src="https://www.couponbirds.com/newlogo/1519385219-finalmouselogo.png" alt="loading...">
+            <video class="cs--video" src="../bilder/video/finalmouse-anime.mp4" autoplay controls poster="https://s3.dexerto.com/thumbnails/_thumbnailLarge/finalmouse-ninja-bizarre-tweets.jpg"></video>
+            <div class="cs--gridbox">
+              <div class="cs--img"></div>
+              <div class="cs--text"></div>
+              <div class="cs--text"></div>
+              <div class="cs--img"></div>
+            </div>
+          </div>
+        </div>
+        <div id="corsair" class="cs--corsair untoggeled">
+          <div class="cs--container">
+            <div class="cs--heroimg">
+              <img src="https://www.corsair.com/corsairmedia/sys_master/productcontent/blog_Introducing-The-New-Sails-Logo-Content-1.png" alt="loading...">
+            </div>
+            <div id="video-corsair" class="cs--video">
+              <video class="cs--video" src="../bilder/video/corsair-strafe.mp4" autoplay controls poster="https://www.corsair.com/medias/sys_master/images/images/ha1/h0a/9110771531806/-CH-9000088-NA-Gallery-STRAFE-NA-010.png"></video>
+            </div>
+            <div class="cs--gridbox">
+              <div class="cs--img">
+                <img src="https://www.corsair.com/medias/sys_master/images/images/h86/hd7/9110880124958/-CH-9000088-NA-Gallery-STRAFE-NA-009.png" alt="loading...">
+              </div>
+              <div class="cs--text">
+                <p>Built for precision engineering and outrageous customization options, the STRAFE mechanical keyboard combines pro-proven CHERRY® MX gaming switch technology with brilliant dynamic lighting control.</p>
+              </div>
+              <div class="cs--text">
+                <h1>REAL MECH OR NOTHING</h1>
+                <b>INTRODUCING THE STRAFE MECHANICAL KEYBOARD</b>
+              </div>
+              <div class="cs--img">
+                <img src="https://www.corsair.com/medias/sys_master/images/images/had/h00/9111309877278/-CH-9000088-NA-Gallery-STRAFE-NA-002.png" alt="loading...">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="zowie" class="cs--zowie untoggeled">
+          <div id="finalmouse" class="cs--finalmouse untoggeled">
+            <div class="cs--container">
+              <img src="https://yt3.ggpht.com/a-/AAuE7mAWNfypgwT-gJFSPZDYxLniDzW8b3uTrvwkfw=s900-mo-c-c0xffffffff-rj-k-no" alt="loading...">
+              <video class="cs--video" src="../bilder/video/zowie.mouse.mp4" autoplay controls poster="https://s3.dexerto.com/thumbnails/_thumbnailLarge/finalmouse-ninja-bizarre-tweets.jpg"></video>
+              <div class="cs--gridbox">
+                <div class="cs--img"></div>
+                <div class="cs--text"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <script type="text/javascript">
+
+      const db = firebase.database();
+      const mice = db.ref("products/mice");
+      const keyboards = db.ref("products/keyboard");
+      const accessories = db.ref("products/accessories");
+      const articlecontainer = document.getElementById('main_displaytarget');
+
+      var x = Math.floor((Math.random() * 7) + 1);
+      var y = Math.floor((Math.random() * 6) + 1);
+      var z = Math.floor((Math.random() * 5) + 1);
+
+      function generateArticlehomepage(snapshot) {
+        let product = snapshot.val();
+        let key = snapshot.key;
+        articlecontainer.innerHTML +=`
+            <article class="article--content"><a href="productpage${product.type}.html?id=${key}">
+              <img class="article--img" src="${product.image}" alt="img"></img>
+              <p><b class="article--name">${product.name}</b></p>
+              <p class="article--price"><b>$${product.price}</b></p>
+            </article>
+            `
+      }
+
+      function showArticle(){
+        articlecontainer.innerHTML = "";
+        mice.orderByChild("value").equalTo(x).on("child_added", generateArticlehomepage);
+        keyboards.orderByChild("value").equalTo(z).on("child_added", generateArticlehomepage);
+        accessories.orderByChild("value").equalTo(y).on("child_added", generateArticlehomepage)
+      }
+      showArticle();
+      toggleFinalmouse();
+
+
+      </script>
+    </main>
+    <footer><h2><span>new</span>ARCADE</h2></footer>
+  </body>
+</html>
