@@ -25,52 +25,6 @@
     </script>
 
     <script type="text/javascript" src="../javascript/javascript.js"></script>
-    <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js'></script>
-  	<script>
-  		// DOM Ready
-  		$(function() {
-
-  			var $el, $ps, $up, totalHeight;
-
-  			$(".sidebar-box .button").click(function() {
-
-  				// IE 7 doesn't even get this far. I didn't feel like dicking with it.
-
-  				totalHeight = 0
-
-  				$el = $(this);
-  				$p  = $el.parent();
-  				$up = $p.parent();
-  				$ps = $up.find("p:not('.read-more')");
-
-  				// measure how tall inside should be by adding together heights of all inside paragraphs (except read-more paragraph)
-  				$ps.each(function() {
-  					totalHeight += $(this).outerHeight();
-  					// FAIL totalHeight += $(this).css("margin-bottom");
-  				});
-
-  				$up
-  					.css({
-  						// Set height to prevent instant jumpdown when max height is removed
-  						"height": $up.height(),
-  						"max-height": 9999,
-              "overflow": "visible",
-              "background": "white"
-  					})
-  					.animate({
-  						"height": totalHeight
-  					});
-
-  				// fade out read-more
-  				$p.fadeOut();
-
-  				// prevent jump-down
-  				return false;
-
-  			});
-
-  		});
-  	</script>
   </head>
   <body>
     <header>
@@ -99,11 +53,9 @@
         <b id="about">about</b>
         <div class="sidebar-box">
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            aimWARE is a marketplace for the absolute best gaming gear. Whether you are a professional gamer, an aspirering esport player, the average casual gamer or a mice enthusiast, we at aimWARE make sure oyu will fin the right peripherals. We can assure you that every product we sell is carefully chosen and is of the best quality. At aimWARE we can offer you 30 days money back guarantee, if you are not happy with the quality or the feel of the product,
+            we offer you the money back. We cooperate with Finalmouse, Corsair and ZOWIE by BenQ, and can offer you fast access and delivery on the newest releases. Our cooperations makes us able to reserve products with the best quality so you can enjoy your games fully.
           </p>
-          <p class="read-more"><a href="#" class="button"><i class="fas fa-chevron-down"></i></a></p>
         </div>
       </div>
       <div class="main--shop-container">
@@ -191,13 +143,13 @@
               <div class="cs--text">
                 <p>Built for precision engineering and outrageous customization options, the STRAFE mechanical keyboard combines pro-proven CHERRY® MX gaming switch technology with brilliant dynamic lighting control.</p>
               </div>
+              <div class="cs--img">
+                <img src="https://www.corsair.com/medias/sys_master/images/images/had/h00/9111309877278/-CH-9000088-NA-Gallery-STRAFE-NA-002.png" alt="loading...">
+              </div>
               <div class="cs--text">
                 <b>REAL MECH OR NOTHING
                   <span>INTRODUCING THE STRAFE MECHANICAL KEYBOARD</span>
                 </b>
-              </div>
-              <div class="cs--img">
-                <img src="https://www.corsair.com/medias/sys_master/images/images/had/h00/9111309877278/-CH-9000088-NA-Gallery-STRAFE-NA-002.png" alt="loading...">
               </div>
               <h1 onclick="showCorsair()" class="cs--herolink">
                 Browse products

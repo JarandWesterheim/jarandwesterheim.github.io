@@ -185,6 +185,36 @@
         .startAt(searchbar.value)
         .endAt(searchbar.value+"uf8ff")
         .on("child_added", searchAccessory);
+      mice
+        .orderByChild("producer")
+        .startAt(searchbar.value)
+        .endAt(searchbar.value+"uf8ff")
+        .on("child_added", searchMice);
+      keyboard
+        .orderByChild("producer")
+        .startAt(searchbar.value)
+        .endAt(searchbar.value+"uf8ff")
+        .on("child_added", searchKeyboard);
+      accessory
+        .orderByChild("producer")
+        .startAt(searchbar.value)
+        .endAt(searchbar.value+"uf8ff")
+        .on("child_added", searchAccessory);
+      mice
+        .orderByChild("type")
+        .startAt(searchbar.value)
+        .endAt(searchbar.value+"uf8ff")
+        .on("child_added", searchMice);
+      keyboard
+        .orderByChild("type")
+        .startAt(searchbar.value)
+        .endAt(searchbar.value+"uf8ff")
+        .on("child_added", searchKeyboard);
+      accessory
+        .orderByChild("type")
+        .startAt(searchbar.value)
+        .endAt(searchbar.value+"uf8ff")
+        .on("child_added", searchAccessory);
       }
 
      searchbar.onkeyup = function(){
