@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>New Arcade</title>
+    <title>aimWARE</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/stylesheet.css">
     <link rel="icon" href="../bilder/svg/arcade-svgrepo-com.ico">
@@ -75,7 +75,7 @@
   <body>
     <header>
       <a id="logo" href="homepage.html">b</a>
-      <b><span>insert</span>NAME</b>
+      <b><span>aim</span>WARE</b>
       <a href="homepage.html"><i id="cart" class="fas fa-cart-plus"></i></a>
       <a id="header--user-icon" href="#"><i class="far fa-user"></i></a>
       <i onclick="showDropdown()" id="header--menu-icon" class="fas fa-bars"></i>
@@ -93,7 +93,7 @@
     </header>
     <main>
       <div class="main--heroimg">
-        <b><span>insert</span>NAME</b>
+        <b><span>aim</span>WARE</b>
       </div>
       <div id="main--about" class="main--about__compressed">
         <b id="about">about</b>
@@ -110,8 +110,12 @@
         <h1>Popular products:</h1>
         <div id="main_displaytarget" class="main--shop">
         </div>
+        <a href="shop.html">
+        <h1 id="shoplink">go to shop <i class="fas fa-sign-in-alt"></i></h1>
+        </a>
       </div>
-
+    </main>
+    <main id="cs-main">
       <div class="company-showcase">
         <div class="cs--togglecontainer">
           <div onclick="toggleFinalmouse()" id="cs--finalmousetoggle" class="cs--companytoggle">
@@ -124,25 +128,61 @@
             <img src="https://chemicygaming.com/image/cache/~BRAND/zowie_logo%20(1)-600x315.png" alt="">
           </div>
         </div>
-        <div id="finalmouse" class="cs--finalmouse untoggeled">
+        <div id="finalmouse" class="cs--company untoggeled">
           <div class="cs--container">
-            <img src="https://www.couponbirds.com/newlogo/1519385219-finalmouselogo.png" alt="loading...">
-            <video class="cs--video" src="../bilder/video/finalmouse-anime.mp4" autoplay controls poster="https://s3.dexerto.com/thumbnails/_thumbnailLarge/finalmouse-ninja-bizarre-tweets.jpg"></video>
+            <div class="cs--heroimg">
+              <img src="https://www.couponbirds.com/newlogo/1519385219-finalmouselogo.png" alt="loading...">
+            </div>
+            <div id="video-finalmouse" class="cs--video">
+              <h1>watch video</h1>
+              <video src="../bilder/video/finalmouse-anime.mp4" autoplay controls poster="../bilder/finalmouse-poster.png"></video>
+            </div>
             <div class="cs--gridbox">
-              <div class="cs--img"></div>
-              <div class="cs--text"></div>
-              <div class="cs--text"></div>
-              <div class="cs--img"></div>
+              <div class="cs--img">
+                <img src="https://cdn.shopify.com/s/files/1/2377/4861/products/blue1_940x.png?v=1543685181" alt="loading...">
+              </div>
+              <div class="cs--text">
+                <p><b>Air58 Ninja</b>
+                  <br><br>
+                  With Handmade Haiku Scrolls
+                  <br><br>
+                  Air and Art. Beautiful, like an ocean breeze flowing under your hand.
+                  <br><br>
+                  58 grams, should we say more? Words can’t explain, must experience. It feels like air, in your hand. It makes the Ultralight feel heavy. It is the Air58.
+                  <br><br>
+                  Hand painted and engraved Individualized Haiku Scrolls on every mouse. Beautiful Haikus from ancient masters. Some rare, some more common, your Haiku is unique to you. Find them all to uncover the treasure. The path will take you out into nature.
+                  <br><br>
+                  Phantomcord is there also, to let the Air be free.
+                </p>
+              </div>
+              <div class="cs--text">
+                <p>How did we get it so light? How did we create air? Everything was redesigned from the ground up, but still with the classic shape of the Phantom and ULP. New bottom chassis, new lattice geometry on the sides (that also adds grip), new PCB, new internal frame… the list goes on. It simply feels like magic.
+                  <br><br>
+                  Comes in a sexy Cherry Blossom Red, and Cherry Blossom Blue.
+                  <br><br>
+                  The same industry standard performance you have come to expect from the Ultralight Pro and Phantom. Still best in class sensor and input latency across the board.
+                  <br><br>
+                  Improved raw materials on the scroll wheel to ensure your wheel will last ages. Timeless, like the haikus themselves.
+                </p>
+              </div>
+              <div class="cs--img">
+                <img src="https://cdn.shopify.com/s/files/1/2377/4861/products/fm-12_48977329-4f02-4fc6-a1c3-0e1bc892e256_1080x.jpg?v=1543685181" alt="loading...">
+              </div>
+              <h1 onclick="showFinalmouse()" class="cs--herolink">
+                Browse products
+              </h1>
+              <div class="cs--producttarget" id="cs--finalmousetarget"></div>
             </div>
           </div>
         </div>
-        <div id="corsair" class="cs--corsair untoggeled">
+        <div id="corsair" class="cs--company untoggeled">
           <div class="cs--container">
             <div class="cs--heroimg">
-              <img src="https://www.corsair.com/corsairmedia/sys_master/productcontent/blog_Introducing-The-New-Sails-Logo-Content-1.png" alt="loading...">
+              <img src="http://pluspng.com/img-png/corsair-png-corsair-high-performance-ddr3-and-ddr4-memory-upgrades-80-plus-certified-power-supply-units-computer-cases-cpu-cooling-gaming-keyboards-gaming-mice-800.png" alt="loading...">
             </div>
             <div id="video-corsair" class="cs--video">
-              <video class="cs--video" src="../bilder/video/corsair-strafe.mp4" autoplay controls poster="https://www.corsair.com/medias/sys_master/images/images/ha1/h0a/9110771531806/-CH-9000088-NA-Gallery-STRAFE-NA-010.png"></video>
+              <h1>watch video</h1>
+              <video src="../bilder/video/corsair-strafe.mp4" autoplay controls poster="https://cc.cnetcontent.com/inlinecontent/mediaserver/all/5e4/2a5/5e42a560299a05b6878017ab53e444b9/original.jpg"></video>
             </div>
             <div class="cs--gridbox">
               <div class="cs--img">
@@ -152,24 +192,67 @@
                 <p>Built for precision engineering and outrageous customization options, the STRAFE mechanical keyboard combines pro-proven CHERRY® MX gaming switch technology with brilliant dynamic lighting control.</p>
               </div>
               <div class="cs--text">
-                <h1>REAL MECH OR NOTHING</h1>
-                <b>INTRODUCING THE STRAFE MECHANICAL KEYBOARD</b>
+                <b>REAL MECH OR NOTHING
+                  <span>INTRODUCING THE STRAFE MECHANICAL KEYBOARD</span>
+                </b>
               </div>
               <div class="cs--img">
                 <img src="https://www.corsair.com/medias/sys_master/images/images/had/h00/9111309877278/-CH-9000088-NA-Gallery-STRAFE-NA-002.png" alt="loading...">
               </div>
+              <h1 onclick="showCorsair()" class="cs--herolink">
+                Browse products
+              </h1>
+              <div class="cs--producttarget" id="cs--corsairtarget"></div>
             </div>
           </div>
         </div>
-        <div id="zowie" class="cs--zowie untoggeled">
-          <div id="finalmouse" class="cs--finalmouse untoggeled">
-            <div class="cs--container">
-              <img src="https://yt3.ggpht.com/a-/AAuE7mAWNfypgwT-gJFSPZDYxLniDzW8b3uTrvwkfw=s900-mo-c-c0xffffffff-rj-k-no" alt="loading...">
-              <video class="cs--video" src="../bilder/video/zowie.mouse.mp4" autoplay controls poster="https://s3.dexerto.com/thumbnails/_thumbnailLarge/finalmouse-ninja-bizarre-tweets.jpg"></video>
-              <div class="cs--gridbox">
-                <div class="cs--img"></div>
-                <div class="cs--text"></div>
+        <div id="zowie" class="cs--company untoggeled">
+          <div class="cs--container">
+            <div class="cs--heroimg">
+              <img src="https://www.teknikmagasinet.no/storage/ma/711cce0018374584ba0e8726047a4c98/deaf72d9063442778291dbeacc2419cf/png/FFFEE7EED7764CFD62354CCEA79B70CF7BC63450/Zowie-logo.png" alt="loading...">
+            </div>
+            <div  id="video-zowie"class="cs--video">
+              <h1>watch video</h1>
+              <video src="../bilder/video/zowie-mouse.mp4" autoplay controls poster="../bilder/zowie-poster.png"></video>
+            </div>
+            <div class="cs--gridbox">
+              <div class="cs--img">
+                <img src="https://www.benqdirect.com/media/catalog/category/Zowie_Mice_Series.jpg" alt="loading">
               </div>
+              <div class="cs--text">
+                <h1>Size and shapes<span>for different grips.</span></h1>
+              </div>
+              <div class="cs--herotext">
+                <h1>EC Series</h1>
+              </div>
+              <div class="cs--img">
+                <img src="https://zowie.benq.com/content/dam/game/en/product/mouse/series-logo/series-ec-b-300x300.png" alt="loading">
+              </div>
+              <div class="cs--text">
+                <p>Ergonomic design exclusively for right-handed users. It offers users a bigger room for wrist movements. The shape of the right side of mouse is well rounded. It allows the user’s fingertips to hold/cover the mouse to move smoothly. EC Series comes in two sizes to fulfill different needs. EC-B is the version with 3360 sensor.</p>
+              </div>
+              <div class="cs--herotext">
+                <h1>FK Series</h1>
+              </div>
+              <div class="cs--img">
+                <img src="https://zowie.benq.com/content/dam/game/en/product/mouse/series-logo/series-fk-300x300.png" alt="loading">
+              </div>
+              <div class="cs--text">
+                <p>No matter whether you are right or left-handed, the FK Series is designed for your comfort. The low profile design provides better control for both claw and palm-grip users. FK Series comes in three different sizes.</p>
+              </div>
+              <div class="cs--herotext">
+                <h1>ZA Series</h1>
+              </div>
+              <div class="cs--img">
+                <img src="https://zowie.benq.com/content/dam/game/en/product/mouse/series-logo/series-za-300x300.png" alt="loading">
+              </div>
+              <div class="cs--text">
+                <p>Comfortable designed for both right-hand and left-hand users. The high profile design gives support to user’s palm. ZA Series comes in three different sizes.</p>
+              </div>
+              <h1 onclick="showZowie()" class="cs--herolink">
+                Browse products
+              </h1>
+              <div class="cs--producttarget" id="cs--zowietarget"></div>
             </div>
           </div>
         </div>
@@ -183,6 +266,9 @@
       const keyboards = db.ref("products/keyboard");
       const accessories = db.ref("products/accessories");
       const articlecontainer = document.getElementById('main_displaytarget');
+      const zowietarget = document.getElementById("cs--zowietarget");
+      const corsairtarget = document.getElementById("cs--corsairtarget");
+      const finalmousetarget = document.getElementById("cs--finalmousetarget");
 
       var x = Math.floor((Math.random() * 7) + 1);
       var y = Math.floor((Math.random() * 6) + 1);
@@ -196,7 +282,40 @@
               <img class="article--img" src="${product.image}" alt="img"></img>
               <p><b class="article--name">${product.name}</b></p>
               <p class="article--price"><b>$${product.price}</b></p>
-            </article>
+            </a></article>
+            `
+      }
+      function generateArticlezowie(snapshot) {
+        let product = snapshot.val();
+        let key = snapshot.key;
+        zowietarget.innerHTML +=`
+            <article class="article--content"><a href="productpage${product.type}.html?id=${key}">
+              <img class="article--img" src="${product.image}" alt="img"></img>
+              <p><b class="article--name">${product.name}</b></p>
+              <p class="article--price"><b>$${product.price}</b></p>
+            </a></article>
+            `
+      }
+      function generateArticlecorsair(snapshot) {
+        let product = snapshot.val();
+        let key = snapshot.key;
+        corsairtarget.innerHTML +=`
+            <article class="article--content"><a href="productpage${product.type}.html?id=${key}">
+              <img class="article--img" src="${product.image}" alt="img"></img>
+              <p><b class="article--name">${product.name}</b></p>
+              <p class="article--price"><b>$${product.price}</b></p>
+            </a></article>
+            `
+      }
+      function generateArticlefinalmouse(snapshot) {
+        let product = snapshot.val();
+        let key = snapshot.key;
+        finalmousetarget.innerHTML +=`
+            <article class="article--content"><a href="productpage${product.type}.html?id=${key}">
+              <img class="article--img" src="${product.image}" alt="img"></img>
+              <p><b class="article--name">${product.name}</b></p>
+              <p class="article--price"><b>$${product.price}</b></p>
+            </a></article>
             `
       }
 
@@ -206,12 +325,24 @@
         keyboards.orderByChild("value").equalTo(z).on("child_added", generateArticlehomepage);
         accessories.orderByChild("value").equalTo(y).on("child_added", generateArticlehomepage)
       }
+      function showZowie(){
+        zowietarget.innerHTML = "";
+        mice.orderByChild("producer").equalTo("zowie").on("child_added", generateArticlezowie);
+      }
+      function showCorsair(){
+        corsairtarget.innerHTML = "";
+        keyboards.orderByChild("searchname").equalTo("strafe").on("child_added", generateArticlecorsair);
+      }
+      function showFinalmouse(){
+        finalmousetarget.innerHTML = "";
+        mice.orderByChild("searchname").equalTo("air 58").on("child_added", generateArticlefinalmouse);
+      }
       showArticle();
       toggleFinalmouse();
 
 
       </script>
-    </main>
-    <footer><h2><span>new</span>ARCADE</h2></footer>
+      </main>
+    <footer><h2><span>aim</span>WARE</h2></footer>
   </body>
 </html>

@@ -237,9 +237,6 @@ General css
   border-radius: 2px;
   margin-left: auto;
   margin-top: 50px;
-  margin-bottom: 200px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
   display: flex;
   justify-content: space-around;
 }
@@ -272,16 +269,31 @@ General css
 .main--reviews{
   position: absolute;
 }
+#shoplink{
+  margin-top: 50px;
+  width: 100%;
+  text-align: center;
+  background-color: #02c39a;
+  color: #fff;
+  padding: 40px 0px;
+  font-size: 50px;
+  margin-bottom: 200px;
+  text-transform: uppercase;
+  border-radius: 40px;
+  text-decoration: none
+}
+#cs-main{
+  max-width: 100%;
 
-
-
+}
 .company-showcase{
   position: relative;
   width: 100%;
   height: auto;
 }
 .cs--togglecontainer{
-  width: 100%;
+  width: 80%;
+  margin: auto;
   display: grid;
   grid-template-columns: repeat(3 , 1fr);
 }
@@ -310,8 +322,14 @@ General css
 .cs--companytoggle:hover::before{
   transform: scaleY(1);
 }
-.black{
-  background: rgb(255,67,101);
+.fm-clr{
+  background: #89c0bb;
+}
+.c-clr{
+  background: #fedc00;
+}
+.z-clr{
+  background: #d21044;
 }
 .cs--companytoggle:nth-child(1){
   border-left: 2px solid #030301;
@@ -323,27 +341,107 @@ General css
   margin-top: 85px;
   margin-left: 50%;
 }
-.untoggeled{
-  visibility: hidden;
-  position: absolute;
-  left: 300px;
-}
-.cs--finalmouse, .cs--corsair, .cs--zowie{
+.cs--company{
   width: 100%;
-}
-.cs--finalmouse-showcase{
-  width: 100%;
-}
-#finalmouse-anime{
-  width: 50%;
-  margin-left: auto;
+  height: auto;
 }
 .cs--container{
+  width: 85%;
+  margin-top: 90px;
+  margin: auto;
+}
+.cs--heroimg{
+  grid-column: span 2;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 70px;
+}
+.cs--heroimg>img{
+  max-width: 900px;
+  max-height: 400px;
+}
+.cs--gridbox{
+  display: grid;
+  grid-template-columns: repeat(2 , 1fr);
+  margin-top: 70px;
+}
+.cs--img{
+  grid-column: span 1;
+}
+.cs--img>img{
+  max-width: 100%;
+  max-height: 400px;
+}
+.cs--text{
+  grid-column: span 1;
   position: relative;
+}
+#zowie>div>div{
+  color: #d21044;
+}
+#video-zowie>video{
+  border: 3px solid #d21044;
+}
+#corsair>div>div{
+  color: #da3830;
+}
+#video-corsair>video{
+  border: 3px solid #da3830;
+}
+#finalmouse>div>div{
+  color: #89c0bb;
+}
+#video-finalmouse>video{
+  border: 2px solid #89c0bb;
+}
+.cs--text>b{
+  font-size: 25px;
+}
+.cs--text>p, .cs--text>b{
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  width: 80%;
+}
+.cs--text>h1{
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 40%;
+  left: 50%;
+  width: 80%;
+}
+.cs--text>h1>span, .cs--text>b>span{
+  margin-left: 50px;
+  display: block;
+}
+.cs--video{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 70px;
+}
+.cs--video>h1{
+  text-align: center;
   width: 100%;
 }
-.cs--container>video{
-  transform: translate(-50%,);
+.cs--herotext{
+  grid-column: span 2;
+  text-align: center;
+}
+.cs--herolink{
+  grid-column: span 2;
+  text-align: center;
+}
+.cs--herolink:hover{
+  text-decoration: underline;
+  cursor: default;
+}
+.cs--producttarget{
+  grid-column: span 2;
+  display: grid;
+  grid-template-columns: repeat(3 , 1fr);
 }
 
 
@@ -381,9 +479,6 @@ General css
 .shop{
   margin-bottom: 500px;
 }
-.shop--product-contracted{
-  margin-top: 50px;
-}
 .shop--header{
   text-transform: uppercase;
   padding-left: 20px;
@@ -392,6 +487,7 @@ General css
   display: flex;
   justify-content: flex-end;
   flex-wrap: wrap;
+  margin-top: 50px;
 }
 .shop--header b{
   margin-right: auto;
@@ -429,9 +525,13 @@ General css
   border-left: 2px solid #030301;
   border-right: 2px solid #030301;
   border-bottom: 2px solid #030301;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  padding: 0px 50px;
 }
-.shop--container article:first-child{
-  border: 0;
+.shop--container article{
+  margin: 50px;
 }
 #greenDolla{
   color: #02c39a;
@@ -466,25 +566,21 @@ General css
 
 
 /*generated html css*/
-.shop--article--content{
-  margin-left: 25px;
-  padding-left: 25px;
-  margin-right: 25px;
-  padding-right: 25px;
-  width: auto;
-  height: 400px;
+.shop--article--content {
+  width: 300px;
+  height: auto;
   margin-bottom: 50px;
   background-color: #fff;
-  border-top: 2px solid #030301;
 }
-.shop--article--content a{
-  padding-top: 30px;
-  display: inline-block;
-  position: relative;
+.shop--article--content>p {
+  padding-left: 10px;
 }
-.shop--article--img{
-  width: 300px;
-  display: inline-block;
+.shop--article--name {
+  color: #030301;
+}
+
+.shop--article--img {
+  width: 100%;
 }
 #search{
   width: 100%;
@@ -496,8 +592,19 @@ General css
 }
 /*CSS FOR GAMEPAGES*/
 
-
-
+.previous-page{
+  margin-top: 70px;
+}
+.previous-page>a{
+  padding: 0px 40px;
+  text-align: center;
+  text-transform: uppercase;
+  display: inline-block;
+  border-left: 1px solid #030301;
+}
+.previous-page>a>h2:hover{
+  text-decoration: underline;
+}
 .gamepageboard{
   display: grid;
   grid-template-columns: repeat(2,1fr);
@@ -606,6 +713,12 @@ input[name="r"]{
 }
 #footer--short{
   position: fixed;
+}
+.untoggeled{
+  visibility: hidden;
+  position: absolute;
+  height: 0px;
+  overflow: hidden;
 }
 /* ANIMATIONS */
 @keyframes addCart{

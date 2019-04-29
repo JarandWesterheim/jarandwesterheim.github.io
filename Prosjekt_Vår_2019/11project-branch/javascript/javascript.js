@@ -17,9 +17,9 @@ function toggleFinalmouse(){
   var btnfm = document.getElementById("cs--finalmousetoggle");
   var btnc = document.getElementById("cs--corsairtoggle");
   var btnz = document.getElementById("cs--zowietoggle");
-  btnfm.classList.add('black');
-  btnc.classList.remove('black');
-  btnz.classList.remove('black');
+  btnfm.classList.add('fm-clr');
+  btnc.classList.remove('c-clr');
+  btnz.classList.remove('z-clr');
   csfinalmouse.classList.remove('untoggeled');
   cscorsair.classList.add('untoggeled');
   cszowie.classList.add('untoggeled')
@@ -33,9 +33,9 @@ function toggleCorsair(){
   var btnfm = document.getElementById("cs--finalmousetoggle");
   var btnc = document.getElementById("cs--corsairtoggle");
   var btnz = document.getElementById("cs--zowietoggle");
-  btnfm.classList.remove('black');
-  btnc.classList.add('black');
-  btnz.classList.remove('black');
+  btnfm.classList.remove('fm-clr');
+  btnc.classList.add('c-clr');
+  btnz.classList.remove('z-clr');
   csfinalmouse.classList.add("untoggeled");
   cscorsair.classList.remove("untoggeled");
   cszowie.classList.add("untoggeled");
@@ -49,9 +49,9 @@ function toggleZowie(){
   var btnfm = document.getElementById("cs--finalmousetoggle");
   var btnc = document.getElementById("cs--corsairtoggle");
   var btnz = document.getElementById("cs--zowietoggle");
-  btnfm.classList.remove('black');
-  btnc.classList.remove('black');
-  btnz.classList.add('black');
+  btnfm.classList.remove('fm-clr');
+  btnc.classList.remove('c-clr');
+  btnz.classList.add('z-clr');
   csfinalmouse.classList.add("untoggeled");
   cscorsair.classList.add("untoggeled");
   cszowie.classList.remove("untoggeled");
@@ -70,18 +70,7 @@ function showDropdownshop(){
   dropdownshop3.classList.toggle("subtopic--hidden");
   dropdownshop4.classList.toggle("subtopic--hidden");
 }
-function expandArcade() {
-  var expand =document.getElementById("shop--arcade-contracted");
-  expand.classList.toggle("shop-expanded");
-}
-function expandDigital() {
-  var expand =document.getElementById("shop--digital-contracted");
-  expand.classList.toggle("shop-expanded");
-}
-function expandBoard() {
-  var expand =document.getElementById("shop--board-contracted");
-  expand.classList.toggle("shop-expanded");
-}
+
 function miceSort() {
   var dropdown = document.getElementById("mice-sorting");
   var down = document.getElementById("micesortdown");

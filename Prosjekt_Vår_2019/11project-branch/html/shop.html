@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>shop</title>
+    <title>aimWARE</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/stylesheet.css">
     <link rel="icon" href="../bilder/svg/mouse-svgrepo-com.ico">
@@ -26,7 +26,7 @@
   <body>
     <header>
       <a id="logo" href="homepage.html">b</a>
-      <b><span>insert</span>NAME</b>
+      <b><span>aim</span>WARE</b>
       <a href="homepage.html"><i id="cart" class="fas fa-cart-plus"></i></a>
       <a id="header--user-icon" href="#"><i class="far fa-user"></i></a>
       <i onclick="showDropdown()" id="header--menu-icon" class="fas fa-bars"></i>
@@ -57,54 +57,58 @@
             <div class="sorting--container">
               <p onclick="miceSort()">sort by <i id="micesortdown" class="fas fa-caret-down"></i></p>
               <div id="mice-sorting" class="sorting--options hidden">
-                <p class="sorting--header">sort by:</p>
-                <p class="sorting--button" onclick="()">Playstation 4</p>
-                <p class="sorting--button" onclick="()">XBOX One</p>
-                <p class="sorting--button" onclick="()">PC</p>
-                <p class="sorting--button" onclick="()">Nintendo SWITCH</p>
+                <p class="sorting--header">Brand</p>
+                <p class="sorting--button" onclick="miceFm()">Finalmouse</p>
+                <p class="sorting--button" onclick="miceC()">Corsair</p>
+                <p class="sorting--button" onclick="miceZ()">Zowie</p>
+                <p class="sorting--button" onclick="miceO()">Other</p>
               </div>
             </div>
-            <p>From <span id="greenDolla">$</span> <i class="fas fa-long-arrow-alt-right"></i></p>
-            <i id="mice--arrow" class="fas fa-chevron-down" onclick="expandmice()"></i>
+            <p  onclick="micePrice()">From <span id="greenDolla">$</span> <i class="fas fa-long-arrow-alt-right"></i></p>
+            <i id="micearrow" class="fas fa-chevron-down" onclick="expandMice()"></i>
           </div>
           <div id="shop--mice-container" class="shop--container">
 
           </div>
         </div>
+
+
+
         <div id="shop--keyboard-contracted" class="shop--product-contracted">
           <div class="shop--header">
             <b>FOR TYPING</b>
             <div class="sorting--container">
               <p onclick="keyboardSort()">sort by <i id="keyboardsortdown" class="fas fa-caret-down"></i></p>
               <div id="keyboard-sorting" class="sorting--options hidden">
-                <p class="sorting--header">sort by:</p>
-                <p class="sorting--button" onclick="()">Playstation 4</p>
-                <p class="sorting--button" onclick="()">XBOX One</p>
-                <p class="sorting--button" onclick="()">PC</p>
-                <p class="sorting--button" onclick="()">Nintendo SWITCH</p>
+                <p class="sorting--header">brands</p>
+                <p class="sorting--button" onclick="keyboardC()">Corsair</p>
+                <p class="sorting--button" onclick="keyboardZ()">Zowie</p>
+                <p class="sorting--button" onclick="keyboardO()">Other</p>
               </div>
             </div>
             <p onclick="keyboardPrice()">From <span id="greenDolla">$</span> <i class="fas fa-long-arrow-alt-right"></i></p>
-            <i id="keyboard--arrow" class="fas fa-chevron-down" onclick="expandkeyboard()"></i>
+            <i id="keyboardarrow" class="fas fa-chevron-down" onclick="expandKeyboard()"></i>
           </div>
           <div id="shop--keyboard-container" class="shop--container">
           </div>
         </div>
+
+
+
         <div id="shop--accessory-contracted" class="shop--product-contracted">
           <div class="shop--header">
             <b>ACCESSORIES</b>
             <div class="sorting--container">
               <p onclick="accessorySort()">sort by <i id="accessorysortdown" class="fas fa-caret-down"></i></p>
               <div id="accessory-sorting" class="sorting--options hidden">
-                <p class="sorting--header">sort by:</p>
-                <p class="sorting--button" onclick="()">Playstation 4</p>
-                <p class="sorting--button" onclick="()">XBOX One</p>
-                <p class="sorting--button" onclick="()">PC</p>
-                <p class="sorting--button" onclick="()">Nintendo SWITCH</p>
+                <p class="sorting--header">Brands</p>
+                <p class="sorting--button" onclick="accessoryC()">Corsair</p>
+                <p class="sorting--button" onclick="accessoryZ()">Zowie</p>
+                <p class="sorting--button" onclick="accessoryO()">Other</p>
               </div>
             </div>
-            <p>From <span id="greenDolla">$</span> <i class="fas fa-long-arrow-alt-right"></i></p>
-            <i id="accessory--arrow" class="fas fa-chevron-down" onclick="expandaccessory()"></i>
+            <p onclick="accessoryPrice()">From <span id="greenDolla">$</span> <i class="fas fa-long-arrow-alt-right"></i></p>
+            <i id="accessoryarrow" class="fas fa-chevron-down" onclick="expandAccessory()"></i>
           </div>
           <div id="shop--accessory-container" class="shop--container">
 
@@ -195,22 +199,194 @@
 
 
     //javascript for SHOP
+    function clearHTMl(){
+      micetarget.innerHTML = "";
+      keyboardtarget.innerHTML = "";
+      accessorytarget.innerHTML = "";
+    }
+    clearHTMl();
 
-    function generateArticle(snapshot) {
+    function generateMice(snapshot) {
       let product = snapshot.val();
       let key = snapshot.key;
-      searchmain.innerHTML +=`
-            <article class="article--content"><a href="productpage${product.type}.html?id=${key}">
-              <img class="article--img" src="${product.image}" alt="loading..."></img>
-              <p><b class="article--name">${product.name}</b></p>
-              <p class="article--price"><b>$${product.price}</b></p>
+      micetarget.innerHTML +=`
+            <article class="shop--article--content"><a href="productpage${product.type}.html?id=${key}">
+              <img class="shop--article--img" src="${product.image}" alt="loading..."></img>
+              <p><b class="shop--article--name">${product.name}</b></p>
+              <p class="shop--article--price"><b>$${product.price}</b></p>
             </a></article>
           `
     }
+    function generateKeyboard(snapshot) {
+      let product = snapshot.val();
+      let key = snapshot.key;
+      keyboardtarget.innerHTML +=`
+            <article class="shop--article--content"><a href="productpage${product.type}.html?id=${key}">
+              <img class="shop--article--img" src="${product.image}" alt="loading..."></img>
+              <p><b class="shop--article--name">${product.name}</b></p>
+              <p class="shop--article--price"><b>$${product.price}</b></p>
+            </a></article>
+          `
+    }
+    function generateAccessory(snapshot) {
+      let product = snapshot.val();
+      let key = snapshot.key;
+      accessorytarget.innerHTML +=`
+            <article class="shop--article--content"><a href="productpage${product.type}.html?id=${key}">
+              <img class="shop--article--img" src="${product.image}" alt="loading..."></img>
+              <p><b class="shop--article--name">${product.name}</b></p>
+              <p class="shop--article--price"><b>$${product.price}</b></p>
+            </a></article>
+          `
+    }
+    function expandMice() {
+      var innerhtml = micetarget.innerHTML;
+      switch (innerhtml) {
+        case "": mice.on("child_added", generateMice); break;
+        default: micetarget.innerHTML = "";
+      }
+      micearrow.classList.toggle("fa-chevron-up");
+    }
+    function expandKeyboard() {
+      var innerhtml = keyboardtarget.innerHTML;
+      switch (innerhtml) {
+        case "": keyboard.on("child_added", generateKeyboard); break;
+        default: keyboardtarget.innerHTML = "";
+      }
+      keyboardarrow.classList.toggle("fa-chevron-up");
+    }
+    function expandAccessory() {
+      var innerhtml = accessorytarget.innerHTML;
+      switch (innerhtml) {
+        case "": accessory.on("child_added", generateAccessory); break;
+        default: accessorytarget.innerHTML = "";
+      }
+      accessoryarrow.classList.toggle("fa-chevron-up");
+    }
 
 
+    /*sortings*/
+    function miceFm(){
+      var dropdown = document.getElementById("mice-sorting");
+      var down = document.getElementById("micesortdown");
+      micetarget.innerHTML = "";
+      mice.orderByChild("producer").equalTo("finalmouse").on("child_added", generateMice);
+      micearrow.classList.add("fa-chevron-up");
+      down.classList.toggle("rotate-180deg");
+      dropdown.classList.toggle("hidden");
+    }
+    function miceC(){
+      var dropdown = document.getElementById("mice-sorting");
+      var down = document.getElementById("micesortdown");
+      micetarget.innerHTML = "";
+      mice.orderByChild("producer").equalTo("corsair").on("child_added", generateMice);
+      micearrow.classList.add("fa-chevron-up");
+      down.classList.toggle("rotate-180deg");
+      dropdown.classList.toggle("hidden");
+    }
+    function miceZ(){
+      var dropdown = document.getElementById("mice-sorting");
+      var down = document.getElementById("micesortdown");
+      micetarget.innerHTML = "";
+      mice.orderByChild("producer").equalTo("zowie").on("child_added", generateMice);
+      micearrow.classList.add("fa-chevron-up");
+      down.classList.toggle("rotate-180deg");
+      dropdown.classList.toggle("hidden");
+    }
+    function miceO(){
+      var dropdown = document.getElementById("mice-sorting");
+      var down = document.getElementById("micesortdown");
+      micetarget.innerHTML = "";
+      mice.orderByChild("producer").equalTo("hyperx").on("child_added", generateMice);
+      micearrow.classList.add("fa-chevron-up");
+      down.classList.toggle("rotate-180deg");
+      dropdown.classList.toggle("hidden");
+    }
+
+
+    function keyboardC(){
+      var dropdown = document.getElementById("keyboard-sorting");
+      var down = document.getElementById("keyboardsortdown");
+      keyboardtarget.innerHTML = "";
+      keyboard.orderByChild("producer").equalTo("corsair").on("child_added", generateKeyboard);
+      keyboardarrow.classList.add("fa-chevron-up");
+      down.classList.toggle("rotate-180deg");
+      dropdown.classList.toggle("hidden");
+    }
+    function keyboardZ(){
+      var dropdown = document.getElementById("keyboard-sorting");
+      var down = document.getElementById("keyboardsortdown");
+      keyboardtarget.innerHTML = "";
+      keyboard.orderByChild("producer").equalTo("zowie").on("child_added", generateKeyboard);
+      keyboardarrow.classList.add("fa-chevron-up");
+      down.classList.toggle("rotate-180deg");
+      dropdown.classList.toggle("hidden");
+    }
+    function keyboardO(){
+      var dropdown = document.getElementById("keyboard-sorting");
+      var down = document.getElementById("keyboardsortdown");
+      keyboardtarget.innerHTML = "";
+      keyboard.orderByChild("producer").equalTo("logitech").on("child_added", generateKeyboard);
+      keyboardarrow.classList.add("fa-chevron-up");
+      down.classList.toggle("rotate-180deg");
+      dropdown.classList.toggle("hidden");
+    }
+
+
+    function accessoryC(){
+      var dropdown = document.getElementById("accessory-sorting");
+      var down = document.getElementById("accessorysortdown");
+      accessorytarget.innerHTML = "";
+      accessory.orderByChild("producer").equalTo("corsair").on("child_added", generateAccessory);
+      accessoryarrow.classList.add("fa-chevron-up");
+      down.classList.toggle("rotate-180deg");
+      dropdown.classList.toggle("hidden");
+    }
+    function accessoryZ(){
+      var dropdown = document.getElementById("accessory-sorting");
+      var down = document.getElementById("accessorysortdown");
+      accessorytarget.innerHTML = "";
+      accessory.orderByChild("producer").equalTo("zowie").on("child_added", generateAccessory);
+      accessoryarrow.classList.add("fa-chevron-up");
+      down.classList.toggle("rotate-180deg");
+      dropdown.classList.toggle("hidden");
+    }
+    function accessoryO(){
+      var dropdown = document.getElementById("accessory-sorting");
+      var down = document.getElementById("accessorysortdown");
+      accessorytarget.innerHTML = "";
+      accessory.orderByChild("producer").equalTo("hyperglide").on("child_added", generateAccessory);
+      accessoryarrow.classList.add("fa-chevron-up");
+      down.classList.toggle("rotate-180deg");
+      dropdown.classList.toggle("hidden");
+    }
+
+    function micePrice() {
+      var innerhtml = micetarget.innerHTML;
+      switch (innerhtml) {
+        case "": mice.orderByChild("price").on("child_added", generateMice); break;
+        default: micetarget.innerHTML = "";
+      }
+      micearrow.classList.toggle("fa-chevron-up");
+    }
+    function keyboardPrice() {
+      var innerhtml = keyboardtarget.innerHTML;
+      switch (innerhtml) {
+        case "": keyboard.orderByChild("price").on("child_added", generateKeyboard); break;
+        default: keyboardtarget.innerHTML = "";
+      }
+      keyboardarrow.classList.toggle("fa-chevron-up");
+    }
+    function accessoryPrice() {
+      var innerhtml = accessorytarget.innerHTML;
+      switch (innerhtml) {
+        case "": accessory.orderByChild("price").on("child_added", generateAccessory); break;
+        default: accessorytarget.innerHTML = "";
+      }
+      accessoryarrow.classList.toggle("fa-chevron-up");
+    }
 
     </script>
-    <footer><h2><span>new</span>ARCADE</h2></footer>
+    <footer><h2><span>aim</span>WARE</h2></footer>
   </body>
 </html>
