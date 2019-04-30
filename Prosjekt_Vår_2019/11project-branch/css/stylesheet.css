@@ -358,7 +358,7 @@ General css
   padding-right: 150px;
 }
 .cs--heroimg>img{
-  width: 100%;
+  max-width: 500px;
   height: auto;
 }
 .cs--gridbox{
