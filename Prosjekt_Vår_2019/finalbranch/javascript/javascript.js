@@ -95,5 +95,14 @@ function addCart() {
   setTimeout(function(){
     cart.classList.toggle("addCart")
   }, 400);
+  
+}
+
+
+function showCart() {
+  let overlay = document.querySelector("#cart--container");
+  let body = document.querySelector("body");
+  body.classList.toggle("noScroll");
+  overlay.classList.toggle("hidden");
 }
 /*Gamepage Article Generation*/

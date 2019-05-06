@@ -26,7 +26,7 @@
     <header>
       <a id="logo" href="homepage.html">b</a>
       <b><span>aim</span>WARE</b>
-      <a href="homepage.html"><i id="cart" class="fas fa-cart-plus"></i></a>
+      <a onclick="showCart()" href="#"><i id="cart" class="fas fa-cart-plus"></i></a>
       <a id="header--user-icon" href="#"><i class="far fa-user"></i></a>
       <i onclick="showDropdown()" id="header--menu-icon" class="fas fa-bars"></i>
       <div id="dropdown" class="header--dropdown hidden">
@@ -97,7 +97,7 @@
         <h1 class="gamepageboard--gamename">${product.name}</h1>
         <p>${product.description}</p>
         <b>$${product.price}</b>
-        <button onclick="addCart()" class="add-to-cart" id=x"add-to-cart"><h2>Add to cart <i class="fas fa-cart-plus"></h2></i></button>
+        <button onclick="addCart()" class="add-to-cart" id="add-to-cart"><h2>Add to cart <i class="fas fa-cart-plus"></h2></i></button>
         <p id="info--producer">more from <a href="homepage.html#${product.producer}">${product.producer}</a></p>
       </div>
       <div class="company--display">
@@ -109,5 +109,14 @@
     miceID.on("value", generateGamepage);
     </script>
     <footer id="footer--short"><h2><span>aim</span>WARE</h2></footer>
+    <div id="cart--container" class="hidden">
+      <div class="cart--box">
+        <div onclick="showCart()" class="cart--close"><i class="far fa-times-circle"></i></div>
+        <div id="cart--target"></div>
+        <div class="cart--checkout">
+          <h2>Procedd To Checkout</h2>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
