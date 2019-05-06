@@ -354,12 +354,7 @@ General css
   display: flex;
   justify-content: space-around;
   margin-top: 70px;
-  padding-left: 150px;
-  padding-right: 150px;
-}
-.cs--heroimg>img{
-  max-width: 500px;
-  height: auto;
+  padding: 0px 350px;
 }
 .cs--gridbox{
   display: grid;
@@ -753,6 +748,10 @@ input[name="r"]{
     grid-column: span 2;
   }
 
+
+  .cs--heroimg{
+    padding: 0px 200px;
+  }
   .cs--img{
     grid-column: span 2;
     text-align: center;
