@@ -351,10 +351,13 @@ General css
 }
 .cs--heroimg{
   grid-column: span 2;
-  display: flex;
-  justify-content: space-around;
   margin-top: 70px;
-  padding: 0px 350px;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+}
+.cs--heroimg>img{
+  grid-column: 2/3;
+  width: 100%;
 }
 .cs--gridbox{
   display: grid;
@@ -746,11 +749,6 @@ input[name="r"]{
   }
   .sidebar-box{
     grid-column: span 2;
-  }
-
-
-  .cs--heroimg{
-    padding: 0px 200px;
   }
   .cs--img{
     grid-column: span 2;
