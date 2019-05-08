@@ -38,8 +38,8 @@
         <a id="header__subtopic3" class="header__subtopic subtopic--hidden" href="shop.html#digital">for typing</a>
         <a id="header__subtopic4" class="header__subtopic subtopic--hidden" href="shop.html#board">accessories</a>
         <a class="header__topic" href="homepage.html#reviews">reviews</a>
-        <a class="header__topic" href="cart.html">cart<i class="fas fa-cart-plus"></i></a>
-        <a class="header__topic" href="user.html">user<i class="far fa-user"></i></a>
+        <a class="header__topic" onclick="showCart()" href="#">cart<i class="fas fa-cart-plus"></i></a>
+        <a class="header__topic" href="#">user<i class="far fa-user"></i></a>
       </div>
     </header>
     <main>
@@ -130,7 +130,6 @@
     const accessory = db.ref("products/accessories");
     const searchmain = document.getElementById("search");
     const searchbar = document.querySelector("#searchbar");
-
 
     //javascript for searchbar
 
@@ -416,13 +415,46 @@
       }
       accessoryarrow.classList.toggle("fa-chevron-up");
     }
+    const cartmain = document.getElementById("cart_target");
+
+    function generateCart(snapshot) {
+      console.log(snapshot.val())
+      let product = snapshot.val();
+      let key = snapshot.key;
+      cartmain.innerHTML +=`
+            <article class="article--content"><a href="productpage${product.type}.html?id=${key}">
+              <img class="article--img" src="${product.image}" alt="loading..."></img>
+              <p><b class="article--name">${product.name}</b></p>
+              <p class="article--price"><b>$${product.price}</b></p>
+            </a></article>
+          `
+    }
+    function sortCart(){
+      mice
+        .orderByChild("value")
+        .equalTo(6)
+        .on("child_added", generateCart);
+        keyboard
+          .orderByChild("value")
+          .equalTo(7)
+          .on("child_added", generateCart);
+        accessory
+          .orderByChild("value")
+          .startAt(5)
+          .endAt(6)
+          .on("child_added", generateCart);
+    }
+
+    sortCart();
 
     </script>
     <footer><h2><span>aim</span>WARE</h2></footer>
     <div id="cart--container" class="hidden">
       <div class="cart--box">
         <div onclick="showCart()" class="cart--close"><i class="far fa-times-circle"></i></div>
-        <div id="cart--target"></div>
+        <div id="cart_target">
+
+        </div>
         <div class="cart--checkout">
           <h2>Procedd To Checkout</h2>
         </div>

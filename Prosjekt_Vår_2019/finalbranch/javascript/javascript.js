@@ -95,7 +95,6 @@ function addCart() {
   setTimeout(function(){
     cart.classList.toggle("addCart")
   }, 400);
-  
 }
 
 
