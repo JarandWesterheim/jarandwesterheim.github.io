@@ -1,0 +1,148 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  border-spacing: 0;
+  text-transform: lowercase;
+  font-family: 'Raleway', sans-serif;
+}
+body{
+  margin: 0;
+  padding: 0;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  background: #fff;
+  color: rgba(61, 61, 61, 0.97);
+}
+a{
+  color: rgba(61, 61, 61, 0.97);
+  text-decoration: none;
+}
+
+header{
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 50px;
+  z-index: 2;
+  height: 60px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(#000000, 0.2);
+}
+.header--name>h1{
+  font-size: 30px;
+  text-transform: uppercase;
+  color: #e2e1e1;
+}
+.header--menu>i{
+  font-size: 40px;
+  color: #e2e1e1;
+}
+.header--dropdown{
+  width: 300px;
+  height: 100vh;
+  top: 53px;
+  right: -300px;
+  background-color: rgba(#000000, 0.2);
+  padding: 17px 20px;
+  z-index: 0;
+  transition: .2s;
+  position: fixed;
+}
+.header--dropdown-active{
+  right: 0px;
+}
+.header--dropdown a{
+  display: block;
+  text-decoration: none;
+  color: #e2e1e1;
+  padding: 5px;
+}
+.header--dropdown a:hover{
+  color: rgba(125, 125, 125, 0.97);
+}
+.header__topic{
+  text-transform: uppercase;
+  font-size: 20px;
+}
+#dropdown--shop-arrow{
+  transition: transform .2s ease-in-out;
+}
+.header__subtopic{
+  text-transform: uppercase;
+  font-size: 16px;
+}
+.header__subtopic::before{
+  content: "---";
+  color: rgba(32, 32, 32, 0);
+}
+.subtopic--hidden{
+  right: -300px;
+  position: absolute;
+}
+#header--dropdown-home{
+  margin-top: 50px;
+}
+#dropdown a i{
+  margin-left: 10px;
+}
+.hidden{
+  visibility: hidden;
+}
+#menu-toggle{
+  transition: .1s;
+  transition-delay: .1s in;
+}
+.active{
+  margin-right: 200px;
+}
+.rotate-90deg{
+  transform: rotate(90deg);
+}
+
+
+.main--heroimg{
+  content: '';
+  background-image: url('https://colormunk.com/wp-content/uploads/2016/05/minimalism_sky_clouds_sun_mountains_lake_landscape_95458_1920x1080.jpg');
+  background-position: center;
+  width: 100%;
+  height: 700px;
+}
+.toggle>h1{
+  text-transform: uppercase;
+}
+.linkbox>a:hover h1{
+  text-decoration: underline;
+}
+.linkbox>a>p{
+  visibility: hidden;
+}
+.linkbox>a>p{
+  color: #000;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 3;
+  transition-delay: .2s;
+}
+.linkbox>a:hover p{
+  visibility: visible;
+}
+
+.main--info{
+  padding: 30px 40px;
+  background-color: rgba(255, 255, 255, 0.75);
+  color: #94659c;
+  position: fixed;
+  transform: translate(-50%,-50%);
+  bottom: -20%;
+  right: 0;
+  transition: .2s;
+}
+.big-container:hover .main--info{
+  bottom: 0;
+}
